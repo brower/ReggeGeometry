@@ -1,0 +1,7684 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    191876,       7676]
+NotebookOptionsPosition[    174626,       7407]
+NotebookOutlinePosition[    175024,       7423]
+CellTagsIndexPosition[    174981,       7420]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["16-Cell", "Title",ExpressionUUID->"6d4d871c-7618-4b35-a75c-94a4420e4263"],
+
+Cell[CellGroupData[{
+
+Cell["Author", "Subsection",ExpressionUUID->"bed4bed0-b4c6-4352-ba74-3d0e16a96361"],
+
+Cell["\<\
+Eric W. Weisstein
+June 12, 2019\
+\>", "Text",ExpressionUUID->"e72394aa-647d-468f-9f82-67be3b53e5a0"],
+
+Cell[TextData[{
+ "This notebook downloaded from ",
+ ButtonBox["http://mathworld.wolfram.com/notebooks/Polytopes/16-Cell.nb",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/notebooks/Polytopes/16-Cell.nb"], None}],
+ "."
+}], "Text",ExpressionUUID->"619c4e24-142e-443b-acbf-d2fd19e15620"],
+
+Cell[TextData[{
+ "For more information, see Eric's ",
+ StyleBox["MathWorld",
+  FontSlant->"Italic"],
+ " entry ",
+ ButtonBox["http://mathworld.wolfram.com/16-Cell.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/16-Cell.html"], None}],
+ "."
+}], "Text",ExpressionUUID->"fe5a1e0a-e0c9-4227-9c10-8005fc9d0155"],
+
+Cell["\<\
+\[Copyright]2019 Wolfram Research, Inc. except for portions noted otherwise\
+\>", "Text",ExpressionUUID->"eb0815e8-cffe-4e89-ae47-d2d371e3e558"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Construction", "Section",ExpressionUUID->"c4da9250-f607-457b-bdc3-3c1cba74cac1"],
+
+Cell[CellGroupData[{
+
+Cell["As +/-1 tuples", "Subsection",ExpressionUUID->"ae11406b-b159-44b2-ba58-28b214063062"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pm", "[", "n_", "]"}], ":=", 
+  RowBox[{"Flatten", "[", 
+   RowBox[{
+    RowBox[{"Outer", "[", 
+     RowBox[{"List", ",", 
+      RowBox[{"Sequence", "@@", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+         RowBox[{"{", "n", "}"}]}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"n", "-", "1"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[184]:=",ExpressionUUID->"64784961-7205-4379-b5e7-218efe13fb1a"],
+
+Cell[BoxData[
+ RowBox[{"Cell16Construction", ":=", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"vs", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Permutations", "[", 
+          RowBox[{"{", 
+           RowBox[{"#1", ",", "0", ",", "0", ",", "0"}], "}"}], "]"}], "&"}], 
+        "@@@", 
+        RowBox[{"pm", "[", "1", "]"}]}], "}"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Union", "[", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"#", ",", "1"}], "]"}], "]"}], "&"}], "/@", "vs"}], "/", 
+     RowBox[{"Sqrt", "[", "2", "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellLabel->
+  "In[189]:=",ExpressionUUID->"822404de-372b-4a69-8286-e372f2453844"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"v", "=", 
+  RowBox[{"Join", "@@", "Cell16Construction"}]}]], "Input",
+ CellLabel->
+  "In[190]:=",ExpressionUUID->"ee00949a-0680-400d-8c87-bc7704c657f2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["2"]]}], ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["2"]]}], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["2"]]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       SqrtBox["2"]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", 
+     FractionBox["1", 
+      SqrtBox["2"]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     FractionBox["1", 
+      SqrtBox["2"]], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     FractionBox["1", 
+      SqrtBox["2"]], ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", 
+      SqrtBox["2"]], ",", "0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",\
+
+ CellLabel->
+  "Out[190]=",ExpressionUUID->"f2acbc3b-576c-41a6-9d72-d42242d6a1aa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"e", "=", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Subsets", "[", 
+     RowBox[{
+      RowBox[{"Range", "[", "8", "]"}], ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"EuclideanDistance", "@@", 
+         RowBox[{"v", "[", 
+          RowBox[{"[", "#", "]"}], "]"}]}], ",", "20"}], "]"}], "\[Equal]", 
+      "1"}], "&"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[191]:=",ExpressionUUID->"7ebd715f-42af-478f-b256-d4cd637995e9"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "8"}], "}"}]}], "}"}]], "Output",
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"3dce3af8-dc37-4b2e-821c-100c8af1d065"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["As a cross polytope", "Subsection",ExpressionUUID->"c1645fc2-be23-4f47-8f0b-cf500c2e7fdd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"section", " ", "13.4", " ", "of", " ", 
+    RowBox[{"Coxeter", "'"}], "s", " ", "Regular", " ", "Polytopes"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"CrossPolytopeCoordinates", "[", 
+    RowBox[{"n_Integer", "?", "Positive"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "r", ",", "k"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"a", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Through", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Cos", ",", "Sin"}], "}"}], "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"2", " ", "r"}], "-", "1"}], ")"}], " ", "Pi", " ", 
+               RowBox[{"k", "/", "n"}]}], "]"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"r", ",", 
+              RowBox[{"Floor", "[", 
+               RowBox[{"n", "/", "2"}], "]"}]}], "}"}]}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", 
+           RowBox[{"2", " ", "n"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"OddQ", "[", "n", "]"}], ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"Join", "[", 
+            RowBox[{
+             RowBox[{"a", "[", 
+              RowBox[{"[", "k", "]"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], "^", "k"}], "/", 
+               RowBox[{"Sqrt", "[", "2", "]"}]}], "}"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", 
+             RowBox[{"2", " ", "n"}]}], "}"}]}], "]"}], ",", 
+         RowBox[{"(*", "Else", "*)"}], "a"}], "]"}], "/", 
+       RowBox[{"Sqrt", "[", "n", "]"}]}]}]}], "]"}]}]}]], "Input",
+ CellLabel->
+  "In[173]:=",ExpressionUUID->"f184d747-db7b-485b-a1d6-d8f33bda85ec"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"v", "=", 
+  RowBox[{"CrossPolytopeCoordinates", "[", "4", "]"}]}]], "Input",
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"56479e00-0fba-46c1-ad27-c5c25ff891e0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     FractionBox["1", "2"], ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", "0", ",", 
+     FractionBox["1", "2"]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SqrtBox["2"]}]], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}], ",", 
+     RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"2", " ", 
+        SqrtBox["2"]}]]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", "0", ",", 
+     FractionBox["1", "2"], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->
+  "Out[174]=",ExpressionUUID->"48f0f3e5-4e89-4204-a4fe-609a43699d48"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"e", "=", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Subsets", "[", 
+     RowBox[{
+      RowBox[{"Range", "[", "8", "]"}], ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"EuclideanDistance", "@@", 
+         RowBox[{"v", "[", 
+          RowBox[{"[", "#", "]"}], "]"}]}], ",", "20"}], "]"}], "\[Equal]", 
+      "1"}], "&"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"61c9a81b-287f-40d3-8038-97b62aa50476"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "8"}], "}"}]}], "}"}]], "Output",
+ CellLabel->
+  "Out[179]=",ExpressionUUID->"f7cef96d-d2ac-4c09-9ebb-f745693bce64"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "e", "]"}]], "Input",
+ CellLabel->
+  "In[180]:=",ExpressionUUID->"e05f6439-35c6-46e5-9d67-3245b8427323"],
+
+Cell[BoxData["24"], "Output",
+ CellLabel->
+  "Out[180]=",ExpressionUUID->"2290a898-cc42-4b4e-bf13-ce8f838b59d4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RecognizeGraph", "@", 
+  RowBox[{"System`Graph", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", "8", "]"}], ",", 
+    RowBox[{"UndirectedEdge", "@@@", "e"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[181]:=",ExpressionUUID->"d80eeca4-859d-49a5-ac8e-e481a8df7646"],
+
+Cell[BoxData["\<\"SixteenCellGraph\"\>"], "Output",
+ CellLabel->
+  "Out[181]=",ExpressionUUID->"455bf9c9-13af-439d-807f-422477a1135e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"System`Graph", "[", 
+      RowBox[{
+       RowBox[{"Range", "[", "8", "]"}], ",", 
+       RowBox[{"UndirectedEdge", "@@@", "e"}], ",", 
+       RowBox[{"VertexCoordinates", "\[Rule]", 
+        RowBox[{"v", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "#"}], "]"}], "]"}]}]}], "]"}], ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "#"}]}], "]"}], "&"}], "/@", 
+  RowBox[{"Subsets", "[", 
+   RowBox[{
+    RowBox[{"Range", "[", "4", "]"}], ",", 
+    RowBox[{"{", "2", "}"}]}], "]"}]}]], "Input",ExpressionUUID->"2dde51c9-\
+fec6-4fb6-b762-3d5944521450"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    GraphicsComplexBox[{{0.7071067811865475, 0.7071067811865475}, {0., 
+     1.}, {-0.7071067811865475, 0.7071067811865475}, {-1., 
+     0.}, {-0.7071067811865475, -0.7071067811865475}, {0., -1.}, {
+     0.7071067811865475, -0.7071067811865475}, {1., 0.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"1", ",", "2"}], "}"}], TraditionalForm]], ",", 
+   GraphicsBox[
+    GraphicsComplexBox[{{0.7071067811865475, -0.7071067811865475}, {0., 
+     0.}, {-0.7071067811865475, 
+     0.7071067811865475}, {-1., -1.}, {-0.7071067811865475, 
+     0.7071067811865475}, {0., 0.}, {
+     0.7071067811865475, -0.7071067811865475}, {1., 1.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"1", ",", "3"}], "}"}], TraditionalForm]], ",", 
+   GraphicsBox[
+    GraphicsComplexBox[{{0.7071067811865475, 0.7071067811865475}, {
+     0., -1.}, {-0.7071067811865475, 0.7071067811865475}, {-1., 
+     0.}, {-0.7071067811865475, -0.7071067811865475}, {0., 1.}, {
+     0.7071067811865475, -0.7071067811865475}, {1., 0.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"1", ",", "4"}], "}"}], TraditionalForm]], ",", 
+   GraphicsBox[
+    GraphicsComplexBox[{{0.7071067811865475, -0.7071067811865475}, {1., 0.}, {
+     0.7071067811865475, 0.7071067811865475}, {0., -1.}, {-0.7071067811865475,
+      0.7071067811865475}, {-1., 
+     0.}, {-0.7071067811865475, -0.7071067811865475}, {0., 1.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"2", ",", "3"}], "}"}], TraditionalForm]], ",", 
+   GraphicsBox[
+    GraphicsComplexBox[{{0.7071067811865475, 0.7071067811865475}, {1., -1.}, {
+     0.7071067811865475, 0.7071067811865475}, {0., 
+     0.}, {-0.7071067811865475, -0.7071067811865475}, {-1., 
+     1.}, {-0.7071067811865475, -0.7071067811865475}, {0., 0.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"2", ",", "4"}], "}"}], TraditionalForm]], ",", 
+   GraphicsBox[
+    GraphicsComplexBox[{{-0.7071067811865475, 0.7071067811865475}, {
+     0., -1.}, {0.7071067811865475, 0.7071067811865475}, {-1., 0.}, {
+     0.7071067811865475, -0.7071067811865475}, {0., 
+     1.}, {-0.7071067811865475, -0.7071067811865475}, {1., 0.}}, {
+      {Hue[0.6, 0.7, 0.5], Opacity[0.7], 
+       {Arrowheads[0.], ArrowBox[{1, 2}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{1, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 3}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{2, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 4}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{3, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 5}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{4, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 6}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{5, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 7}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{6, 8}, 0.02261146496815286]}, 
+       {Arrowheads[0.], ArrowBox[{7, 8}, 0.02261146496815286]}}, 
+      {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+       DiskBox[1, 0.02261146496815286], DiskBox[2, 0.02261146496815286], 
+       DiskBox[3, 0.02261146496815286], DiskBox[4, 0.02261146496815286], 
+       DiskBox[5, 0.02261146496815286], DiskBox[6, 0.02261146496815286], 
+       DiskBox[7, 0.02261146496815286], DiskBox[8, 0.02261146496815286]}}],
+    FrameTicks->None,
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    PlotLabel->FormBox[
+      RowBox[{"{", 
+        RowBox[{"3", ",", "4"}], "}"}], TraditionalForm]]}], "}"}]], "Output",\
+ExpressionUUID->"6be63533-795e-4bdc-8162-b52f8f364088"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["VertexCount", "Subsection",ExpressionUUID->"464839a7-30a0-4e16-ab8f-80ba15ba771c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "/@", "Cell16Construction"}]], "Input",ExpressionUUID->"d5612b7e-4827-4b7a-9dc4-574387de572b"],
+
+Cell[BoxData[
+ RowBox[{"{", "8", "}"}]], "Output",ExpressionUUID->"403539fa-9df4-4874-bb51-f138913229e9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "v", "]"}]], "Input",
+ CellLabel->
+  "In[182]:=",ExpressionUUID->"1efe739c-6cbf-4bb5-ab5e-28a453fd9aa0"],
+
+Cell[BoxData["8"], "Output",
+ CellLabel->
+  "Out[182]=",ExpressionUUID->"71e38629-6746-4b8f-a48b-033998a404e3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Circumradius", "Subsection",ExpressionUUID->"7f7f13bf-6c7c-4320-9444-e4c91e440160"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Max", "[", 
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"Norm", "/@", "v"}], "]"}], "]"}]], "Input",
+ CellLabel->
+  "In[192]:=",ExpressionUUID->"8ada74e1-7fd7-40e7-9a95-fdf44da046ff"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  SqrtBox["2"]]], "Output",
+ CellLabel->
+  "Out[192]=",ExpressionUUID->"4044c769-6154-496a-b8df-3b7a023f7b36"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Content", "Subsection",ExpressionUUID->"014f7df0-9aa7-430d-8abf-2dbafd385ed6"],
+
+Cell[BoxData[
+ RowBox[{"ConvexHullMesh", "[", "v", "]"}]], "Input",
+ CellLabel->
+  "In[137]:=",ExpressionUUID->"f0f6310d-70d8-46a4-be4a-4bb6c3c42cc9"],
+
+Cell[BoxData[
+ RowBox[{"RegionMeasure", "[", "%", "]"}]], "Input",
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"b397f579-9d5a-4815-8b35-23782625e401"],
+
+Cell[CellGroupData[{
+
+Cell["Wikipedia inequality", "Subsubsection",ExpressionUUID->"a059a818-2169-4bad-b260-e1fe487a4ced"],
+
+Cell[TextData[ButtonBox["https://en.wikipedia.org/wiki/Cross-polytope",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://en.wikipedia.org/wiki/Cross-polytope"], None},
+ ButtonNote->"https://en.wikipedia.org/wiki/Cross-polytope"]], "Text",Expressi\
+onUUID->"9eb80fb0-6643-4fa4-81a6-2e05ae04b992"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"x", "\[Element]", 
+    RowBox[{
+     SuperscriptBox["\[DoubleStruckCapitalR]", "n"], ":", 
+     RowBox[{
+      TemplateBox[{"x", "1"},
+       "Norm2"], "\[LessEqual]", "1"}]}]}], "}"}], 
+  TraditionalForm]],ExpressionUUID->"562946ef-d5bf-451f-9f04-b220aa54aa13"]], \
+"Text",
+ FontFamily->"Times",
+ FontWeight->"Regular",ExpressionUUID->"9f07d101-fa12-4065-bc60-da74f68110a6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{"Boole", "[", 
+     RowBox[{
+      RowBox[{"Norm", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}], ",", "1"}], "]"}], "\[LessEqual]", 
+      "1"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], "\[Element]", 
+     RowBox[{"FullRegion", "[", "2", "]"}]}]}], "]"}], "//", 
+  "Timing"}]], "Input",
+ CellLabel->
+  "In[287]:=",ExpressionUUID->"020e8bc1-579f-464b-af82-3f9ccaf4375e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.011918`", ",", "2"}], "}"}]], "Output",
+ CellLabel->
+  "Out[287]=",ExpressionUUID->"4185397b-062d-442f-99e7-412cd5820942"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["1", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      SqrtBox["2"], ")"}], "3"]], 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"Boole", "[", 
+      RowBox[{
+       RowBox[{"Norm", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", "1"}], "]"}], 
+       "\[LessEqual]", "1"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}], "\[Element]", 
+      RowBox[{"FullRegion", "[", "3", "]"}]}]}], "]"}]}], "//", 
+  "Timing"}]], "Input",
+ CellLabel->
+  "In[301]:=",ExpressionUUID->"a0d9d5b6-cf4e-4055-acb1-edbc76090938"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2.423486`", ",", 
+   FractionBox[
+    SqrtBox["2"], "3"]}], "}"}]], "Output",
+ CellLabel->
+  "Out[301]=",ExpressionUUID->"64cc40f6-f6ac-4d61-9737-f670f39bacac"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Norm", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "z", ",", "w"}], "}"}], ",", "1"}], 
+  "]"}]], "Input",
+ CellLabel->
+  "In[288]:=",ExpressionUUID->"7059a645-a451-4c11-9623-dacdbcfcb9f0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Abs", "[", "w", "]"}], "+", 
+  RowBox[{"Abs", "[", "x", "]"}], "+", 
+  RowBox[{"Abs", "[", "y", "]"}], "+", 
+  RowBox[{"Abs", "[", "z", "]"}]}]], "Output",
+ CellLabel->
+  "Out[288]=",ExpressionUUID->"58d7c3c1-2683-4495-8afe-72c0095c69ab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["1", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      SqrtBox["2"], ")"}], "4"]], 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{"Boole", "[", 
+      RowBox[{
+       RowBox[{"Norm", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z", ",", "w"}], "}"}], ",", "1"}], 
+        "]"}], "\[LessEqual]", "1"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z", ",", "w"}], "}"}], "\[Element]", 
+      RowBox[{"FullRegion", "[", "4", "]"}]}]}], "]"}]}], "//", 
+  "Timing"}]], "Input",
+ CellLabel->
+  "In[299]:=",ExpressionUUID->"14f9bdee-9e68-4942-a46e-f05dd8430462"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"24.432174`", ",", 
+   FractionBox["1", "6"]}], "}"}]], "Output",
+ CellLabel->
+  "Out[299]=",ExpressionUUID->"1825d942-bd19-44a6-9113-e448297f0dfd"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Octahedron/line segment", "Subsubsection",ExpressionUUID->"27322e40-7dba-4a13-975f-e902b93d8059"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", 
+   RowBox[{"RegionMeasure", "[", 
+    RowBox[{"Octahedron", "[", "]"}], "]"}]}], "}"}]], "Input",
+ CellLabel->"In[18]:=",ExpressionUUID->"88a16ec9-9a08-4cd5-93d4-2c9ea6f68f68"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", 
+   FractionBox[
+    SqrtBox["2"], "3"]}], "}"}]], "Output",
+ CellLabel->"Out[18]=",ExpressionUUID->"eb1b00d6-7776-4aab-b630-6062d5dc8a85"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Wikipedia formula", "Subsubsection",ExpressionUUID->"42400008-cd5b-4f86-bacd-25df5da34b0f"],
+
+Cell[TextData[ButtonBox["https://en.wikipedia.org/wiki/Cross-polytope #Higher \
+_dimensions",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["https://en.wikipedia.org/wiki/Cross-polytope#Higher_dimensions"], 
+   None},
+ ButtonNote->
+  "https://en.wikipedia.org/wiki/Cross-polytope#Higher_dimensions"]], "Text",E\
+xpressionUUID->"9f223231-4541-4284-88de-37a4b39d73ae"],
+
+Cell[TextData[{
+ "The volume of the n-dimensional cross-polytope is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["2", "n"], "/", 
+    RowBox[{"n", "!"}]}], TraditionalForm]],ExpressionUUID->
+  "28c13410-bb27-44bf-a5d1-e8609662a023"]
+}], "Text",ExpressionUUID->"71f6db12-c4c7-4eac-9fd6-fbbaf8b65b72"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   FractionBox[
+    SuperscriptBox["2", "n"], 
+    RowBox[{
+     SuperscriptBox["2", 
+      RowBox[{"n", "/", "2"}]], 
+     RowBox[{"n", "!"}]}]], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "4"}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[23]:=",ExpressionUUID->"a3ecbbd3-cb31-4230-b728-0f9602649611"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SqrtBox["2"], ",", "1", ",", 
+   FractionBox[
+    SqrtBox["2"], "3"], ",", 
+   FractionBox["1", "6"]}], "}"}]], "Output",
+ CellLabel->"Out[23]=",ExpressionUUID->"bc4c8979-2883-4a78-91e4-06e587aa4479"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Edges", "Subsection",ExpressionUUID->"cd410895-af38-4579-ac57-6de8ce816570"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EuclideanDistance", "@@@", 
+   RowBox[{"Subsets", "[", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"Length", "[", "v", "]"}], "]"}], ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], "//", "Union"}]], "Input",
+ CellLabel->
+  "In[216]:=",ExpressionUUID->"4254cdc4-2fa7-4ea1-b587-d937e6fa697d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7"}], 
+  "}"}]], "Output",
+ CellLabel->
+  "Out[216]=",ExpressionUUID->"5dd02499-ab82-4f80-af29-6ecd1f2fd104"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"e", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"Subsets", "[", 
+      RowBox[{
+       RowBox[{"Range", "[", 
+        RowBox[{"Length", "[", "v", "]"}], "]"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"EuclideanDistance", "@@", 
+        RowBox[{"v", "[", 
+         RowBox[{"[", "#", "]"}], "]"}]}], "\[Equal]", 
+       SqrtBox["2"]}], "&"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[211]:=",ExpressionUUID->"202dd008-de36-4677-88d9-af248f50c861"],
+
+Cell[BoxData["24"], "Output",
+ CellLabel->
+  "Out[211]=",ExpressionUUID->"79642dee-2844-427a-9310-2c1b5c1792ed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"e", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"Subsets", "[", 
+      RowBox[{
+       RowBox[{"Range", "[", 
+        RowBox[{"Length", "[", "v", "]"}], "]"}], ",", 
+       RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"N", "[", 
+        RowBox[{
+         RowBox[{"EuclideanDistance", "@@", 
+          RowBox[{"v", "[", 
+           RowBox[{"[", "#", "]"}], "]"}]}], ",", "20"}], "]"}], "\[Equal]", 
+       SqrtBox["2"]}], "&"}]}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[5]:=",ExpressionUUID->"394b5db3-9792-400c-84f4-080f1f7f8673"],
+
+Cell[BoxData["24"], "Output",
+ CellLabel->"Out[5]=",ExpressionUUID->"3ff5fe28-36cd-4997-9365-569d724ecfa7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["e"], "Input",
+ CellLabel->
+  "In[218]:=",ExpressionUUID->"9a1063c3-c569-4319-b977-fb22f94ac3d7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "8"}], "}"}]}], "}"}]], "Output",
+ CellLabel->
+  "Out[218]=",ExpressionUUID->"06faf41e-e910-4298-a3d7-93fd20da337e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Faces", "Subsection",ExpressionUUID->"0d727467-72e8-4fe3-9f3c-a34eec78274f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"faces", "=", 
+  RowBox[{"Sort", "[", 
+   RowBox[{
+    RowBox[{"FindCycle", "[", 
+     RowBox[{
+      RowBox[{"Graph", "[", 
+       RowBox[{
+        RowBox[{"Range", "[", "8", "]"}], ",", 
+        RowBox[{"UndirectedEdge", "@@@", "e"}]}], "]"}], ",", 
+      RowBox[{"{", "3", "}"}], ",", "All"}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "All", ",", "1"}], "]"}], "]"}], "]"}]}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"c1d7cb96-8c22-4025-951d-681ccd75445b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "4", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "3", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6", ",", "5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "6", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "4", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "5", ",", "8"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "8", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "7", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "8", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "8", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "6", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "8", ",", "7"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "7", ",", "8"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[6]=",ExpressionUUID->"16c74abd-39af-42d5-831f-3691cdae1f92"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "%", "]"}]], "Input",
+ CellLabel->
+  "In[309]:=",ExpressionUUID->"56508def-1382-4184-8eb2-6253982ca444"],
+
+Cell[BoxData["32"], "Output",
+ CellLabel->
+  "Out[309]=",ExpressionUUID->"b53b25d8-eb6d-46eb-8376-f97e3b6d19e0"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cells", "Subsection",ExpressionUUID->"1973abe1-88ba-425d-808a-ad8da09d8ee3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"Subsets", "[", 
+     RowBox[{"faces", ",", 
+      RowBox[{"{", "4", "}"}]}], "]"}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Tally", "[", 
+        RowBox[{"Flatten", "[", "#", "]"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}], "===", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "3", ",", "3", ",", "3"}], "}"}]}], "&"}]}], "]"}], "/.", 
+  RowBox[{"Thread", "[", 
+   RowBox[{"faces", "\[Rule]", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "faces", "]"}], "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[15]:=",ExpressionUUID->"c6637e90-e046-45b2-ae06-500123d59469"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3", ",", "4", ",", "15"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6", ",", "7", ",", "13"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4", ",", "5", ",", "21"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "7", ",", "9", ",", "23"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "10", ",", "11", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "11", ",", "12", ",", "26"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "8", ",", "10", ",", "19"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "9", ",", "12", ",", "29"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"13", ",", "14", ",", "18", ",", "24"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"14", ",", "15", ",", "17", ",", "22"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"16", ",", "17", ",", "20", ",", "27"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"18", ",", "19", ",", "20", ",", "30"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"21", ",", "22", ",", "25", ",", "28"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"23", ",", "24", ",", "25", ",", "31"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"26", ",", "27", ",", "28", ",", "32"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"29", ",", "30", ",", "31", ",", "32"}], "}"}]}], "}"}]], "Output",\
+
+ CellLabel->"Out[15]=",ExpressionUUID->"eab4e490-eccc-4435-b69d-f343c6d17acc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "%", "]"}]], "Input",
+ CellLabel->"In[14]:=",ExpressionUUID->"04dfcead-1803-464a-b3fc-a431ff79ebfe"],
+
+Cell[BoxData["16"], "Output",
+ CellLabel->"Out[14]=",ExpressionUUID->"40f6de6d-6faa-4cf2-827c-03b781dec686"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Distances", "Subsection",ExpressionUUID->"eb4f7f9f-0f07-4563-b81e-8a18e93eaf3c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Union", "[", 
+   RowBox[{"N", "[", 
+    RowBox[{"Norm", "/@", 
+     RowBox[{"(", 
+      RowBox[{"Subtract", "@@@", 
+       RowBox[{"Subsets", "[", 
+        RowBox[{"Cell16", ",", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], ")"}]}], "]"}], "]"}], "//", 
+  "Length"}]], "Input",ExpressionUUID->"43d8abd9-1a68-4af4-b666-ca5db5b6f694"],
+
+Cell[BoxData["2"], "Output",ExpressionUUID->"2ac1baf8-d6c5-40d3-926a-e423764932bb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graph", "Subsection",ExpressionUUID->"1fa58d9d-88e3-489b-8860-c8b794a4a102"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RecognizeGraph", "[", 
+  RowBox[{"Graph", "[", 
+   RowBox[{"UndirectedEdge", "@@@", "e"}], "]"}], "]"}]], "Input",
+ CellLabel->
+  "In[214]:=",ExpressionUUID->"ad7e7f9c-39f6-492c-a2dd-f29a6383f9ad"],
+
+Cell[BoxData["\<\"SixteenCellGraph\"\>"], "Output",
+ CellLabel->
+  "Out[214]=",ExpressionUUID->"646730a4-9b04-4cd6-a2bb-817d4c2f998a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NetCount", "Subsection",ExpressionUUID->"9435ea0d-72b5-4853-9fff-50c724b20f73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["2", "5"], 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["2", "7"], 
+     SuperscriptBox["3", "3"]}], "+", "1", "+", 
+    SuperscriptBox["3", "2"]}], ")"}]}]], "Input",ExpressionUUID->"513d3756-\
+6612-4e16-84db-0026372d2ccd"],
+
+Cell[BoxData["110912"], "Output",ExpressionUUID->"7e1d86f4-cdef-4ce8-a2f5-950cde8efefe"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graphics", "Section",ExpressionUUID->"00f023d8-4dac-4b99-8abc-0bcf74d56cb4"],
+
+Cell["Projection and animation from Russell Towle", "Text",ExpressionUUID->"1f91ca2b-2680-41fc-9094-7465fbf7afaa"],
+
+Cell[CellGroupData[{
+
+Cell["Figure", "Subsection",ExpressionUUID->"67a060da-e8a4-442d-99c0-7f0eddc11882"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"line", "[", "l_List", "]"}], ":=", 
+  RowBox[{"Line", "[", 
+   RowBox[{"Join", "[", 
+    RowBox[{"l", ",", 
+     RowBox[{"{", 
+      RowBox[{"l", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "}"}]}], "]"}], "]"}]}]], "Input",Expre\
+ssionUUID->"1e7dac73-d4a0-40c7-97f7-75042bc305b2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Graphics", "[", 
+    RowBox[{"line", "[", 
+     RowBox[{"Orthoplex", "[", "2", "]"}], "]"}], "]"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "Automatic"}]}], "]"}]], "Input",Expressi\
+onUUID->"784649e0-1e95-4089-88e0-0c6a984b9dc5"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.5 0.47619 0.5 0.47619 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.5 Mabswid
+[ ] 0 setdash
+.02381 .5 m
+.5 .02381 L
+.97619 .5 L
+.5 .97619 L
+.02381 .5 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{200, 200},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJydmotrzWEcxs/aBTMzzDCzHczMzMzMzMyudr/f7zs7W7KlhW2SJEmSJEmS
+JEmSJEmS/AP7r2bzLKHPfnmstnP6PM+57Jz3932/l7ctujB9bja6MDMVDTfM
+RS9Nz0zNh+svzi2j2JhQKLS48hsOrdxfWr67+mdxaflnWQi4mfp5E7viX1r9
+CU1KmvxLWnlK2UPRnzfxvz/ql2X10RPwxLHAIrJHQIoHNi77OEjrgI3JPgbS
+BmCjso+CtBHYiOwjIG0CNiz7MEibgQ3JPgTSFmCDsg+CtA3YgOwDIG0H1i97
+P0g7gPXJ3gfSLmC9sveCtBtYj+w9IO0B1i17N0hZwLpk7wJpL7BO2TtB2g+s
+Q/YOkA4Aa5e9HaSDwNpkbwPpELBW2VtBOgysRfYWkI4Aa5a9GaSjwJpkbwLp
+GLBG2RtBOg6sQfYGkE4Aq5e9HqSTwOpkrwPpFLCzsp8F6TSwWtlrQToDrEb2
+GpAqgVXLXr2m9Cerkr1qzfdJr4gvTJ9WhewVINFXp38fPwVaR+Wyl4NEi1rf
+BX4ldIWVyV4GEl3uWhi4Pij2lMpeChIFQq1SXKwUlUtkLwGJtghdMnjl0H5V
+LHsxSLR56vrFy5h28iLZi0CKAFMwwZgSBVYoeyFIlDwpsmGAOwesQPYCkM4D
+U5jFaDsDLF/2fJAuAFPMx9A/CyxP9jyQLgLTBoT70GVgubLngjQPTLshbopX
+gOXIngPSVWDamnGHvgYsW/ZskK4DU56A6cINYPtk3wfSTWBKWjB3uQUsLHsY
+pNvAsmTPAukOsEzZM0G6C0zpHGZ194BlyJ4B0n1gyi0xxXwALF32dJAeAlOi
+i/nuI2A7Zd8J0mNgyrox+X4CLE32NJCeAlMJgJXAM2CpsqeC9ByY6hEsS14A
+2yr7VpBeAlNxhDXSK2ApsqeA9BqYKjUs2N4AS5Y9GaS3wFQ2YvX4DliS7Ekg
+vQemGhZL2Q/AEmVPBOkjMBXUWFd/ArZe9vUgfQam6h6L/C/AEmRPAOkrMLUa
+sOPwDVic7HEgfQcW+1/Pbr5385MxP3fzWzXXjLkizfVuXk3mtWpGAjPOmFHM
+jJFmBDbju7l7mHuTufOZ+6q5a5s5gZlxmPmMmS2ZuVgWSAGZnplHmlmqmQOb
+GbaZv5vVgVl7mJWNWTeZVZlZ85kVpVmvmtWwWWublbzZJzC7EGaPw+ygmP0Z
+s/tj9pbMzpXZFzO7bmZPz+wYmv1Is9tp9lIrQQro1FaBFNAHNrvMZg/b7JCb
+/Xezu2/ODszJhDn3MKcq5szGnAiZ8yZzmmXOysxJnDnnM6eI5ozSnICa81Vz
+emvOhs3JsznXNqfm5kzenPib5wnM0wrmWYgISAEnLSZACjjH8Q8nQwLOlQSc
+Rgk6xBKK+QH7ddI9\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 199.}, {199., 0.}} -> \
+{-1.05001, -1.05001, 0.0105529, \
+0.0105529}},ExpressionUUID->"56cafe3c-0363-4f95-8ee6-6ef0ef6026df"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"\[SkeletonIndicator]", "Graphics", "\[SkeletonIndicator]"}],
+  False,
+  Editable->False]], "Output",ExpressionUUID->"23874067-eb76-4f9a-8695-\
+47fe142f32f5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["First@Union[Map[N[mag[#]]&,v334]](*circumradius*)", "Input",ExpressionUUID->"637ec9fc-facd-4514-a903-f0e383bcec8d"],
+
+Cell[BoxData["1.`"], "Output",ExpressionUUID->"39900ce1-b08d-4777-9419-9963fecd77c8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+d=Union[ Map[N[mag[First@v334-#]]&, Rest@v334],
+SameTest->(Chop[#1-#2]==0&)];
+c=Table[
+a=Drop[v334,i-1];
+{First@a,#}& /@ Select[Rest@a, N[mag[First@a-#]]<N[d[[2]]]&],
+{i,Length[v334]}];
+v=Map[#[[ spc[[1]] ]]&, v334];
+g=Map[#[[ spc[[1]] ]]&, Flatten[c,1], {-2} ];
+Show[Graphics3D[{Line /@ Union[g],PointSize[.02],Point/@v} ],
+Boxed->False,
+ViewPoint->{0,0,2}];\
+\>", "Input",ExpressionUUID->"eb012296-a23b-4b82-add8-1241cd06c432"],
+
+Cell[CellGroupData[{
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0 1 0 1 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .5 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.5 .5 m
+.85714 .5 L
+s
+.5 .5 m
+.5 .85714 L
+s
+.5 .5 m
+.5 .5 L
+s
+.5 .14286 m
+.5 .5 L
+s
+.14286 .5 m
+.5 .5 L
+s
+.02 w
+.5 .5 Mdot
+.5 .85714 Mdot
+.85714 .5 Mdot
+.5 .5 Mdot
+.5 .14286 Mdot
+.14286 .5 Mdot
+.5 Mabswid
+.85714 .5 m
+.5 .85714 L
+s
+.85714 .5 m
+.5 .5 L
+s
+.85714 .5 m
+.5 .5 L
+s
+.5 .85714 m
+.5 .5 L
+s
+.5 .85714 m
+.5 .5 L
+s
+.5 .5 m
+.5 .5 L
+s
+.5 .14286 m
+.85714 .5 L
+s
+.5 .14286 m
+.5 .5 L
+s
+.5 .14286 m
+.5 .5 L
+s
+.14286 .5 m
+.5 .85714 L
+s
+.14286 .5 m
+.5 .5 L
+s
+.14286 .5 m
+.5 .5 L
+s
+.14286 .5 m
+.5 .14286 L
+s
+.02 w
+.5 .5 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{201, 201},
+ ImageMargins->{{40, 0}, {0, 0}},
+ ImageRegion->{{-0.140969, 1.12775}, {-0.142222, 
+  1.13778}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJytmudSFFEQhRuXVTHnrLvmnHNcTGDCLGZhC6mCH5YW8nY+AU+17swZLZSv
+tMVDFczUd7g7e3Zn7u3u20Pt6YnxT+3pybF2c3Cq/WVicuxrc+DzVBfVeiJi
+pvhtRnHe6Z5Wf2Y63Z+ukD60i0OtGDwuMFoc6gX4OG8wUh56C9L58dM9X1Ae
+a7Oxrh/xoTzUfxlRjeoOmDtsVOJ7kOgqxPQm4x1IdEVietfxFqTeJJODeANS
+PcnkIF6DtDDJ5CBegbQoyeQgXoK0OMnkIIZB6ksyOYgXIC1JMjmI5yAtTTI5
+iGcgLUsyOYinIC1PMjmIJyCtSDI5iMcgrUwyOYhHIK1KMjmIhyCtTjI5iCGQ
+1iSZHMQDkNYmmRzEfZDWJZkcxD2Q1ieZHMRdkDYkmRzEHZA2JpkcxCBIm5JM
+DmIApM1JJgdxG6QtSSYHcQukrUkmB3ETpG1JJgdxA6TtSSYHcR2kHUkmB9EP
+UiPJ5CBaIDWTTA7iGkg7k0wO4ipIu5JMDuIKSLuTTA7iMkh7kkwO4hJIe5NM
+DuIiSPuSTA7iAkj7k0wO4jxIB5JMDuIcSAeTTA7iLEiHkkwO4gxIh5NMDuI0
+SEeSTA7iFEhHk0wO4iRIx5JMDuIESMeTTA5QopclJgf4BskcMb0sfkz0EROT
+A/yy6IsmJgd4y9DtRkwO8Malm56YHODjQ48eMTnAh5gmAGJygFMJTUPE5AAn
+NJoMickBTqs0JROTA5zcaWEgJge4xNDyREwOcKGjRZKYHOByS0s1MTnARb+V
+ZHKAoQeFLcTkAAMgCp6IyQGGYRTCEZMDDAYpkCQmBxiSUjhLTA4wMKagmpgc
+YHhOoT0xOcAkgRIMYnKAqQqlOcTkABMmSraIyQGmbZTyEZMDTB4p8SQmB5jC
+UvpLTA4wkaYknJgcYDpPpQBicoBFBSpIEJMDLG1QWYSYHGCBhYozxOQAyzxU
+IiImB1hsokIVMTnAkheVy4jJARbeqGhHTA5UxyxrzGXFrvbzrGS6gOqlZVl5
+GM76Zv3Tt9/B30alrm/wafi0Dd+54c4z3P+Gp9AwFxhmJMO8aJidDWuEYaUy
+rJeGVdsQOxgiGEMcZYjmDDGlIbI1xNcNkPqTrIrymyC1kqzKNQwZjyHvMmR/
+hhzUkAkb8nFDVcBQmzBUSAx1GkO1yFCzMlTODPU7QxXRUMs0VFQNdV1DddlQ
+4zZU2g31fsOug2Hvw7ADY9gHMuxGGfbEDDtzhv3BFkgUMBCrdikp9GgkWbVX
+atixNewbG3avDXvohp18Qz+BoavB0Fth6PAw9JkYul0MPTeGzh9D/5GhC8rQ
+i2XoCDP0pRm64ww9eoZOQUO/oqFr0tC7aeggNfSxGrppDT29hs7iefY0j1Tu
+Zg+LPzZPlwP/s2V7Th/4P3eSR893P/0z4Q==\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{-28.3125, 225.625}, \
+{228.562, -27.6875}} -> {0.11149, -0.113592, 0.00393802, \
+0.00393802}},ExpressionUUID->"0bba60e0-9629-4b9b-962c-8a0a257bb2c7"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36451 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.64786 .50324 m
+.5 .36451 L
+s
+.59146 .2852 m
+.5 .36451 L
+s
+.5 .46808 m
+.5 .36451 L
+s
+.5 .38962 m
+.5 .36451 L
+s
+.41613 .55681 m
+.5 .36451 L
+s
+.34456 .34662 m
+.5 .36451 L
+s
+.02 w
+.5 .38962 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .38962 L
+s
+.59146 .2852 m
+.5 .38962 L
+s
+.5 .50109 m
+.5 .38962 L
+s
+.41613 .55681 m
+.5 .38962 L
+s
+.34456 .34662 m
+.5 .38962 L
+s
+.02 w
+.41613 .55681 Mdot
+.5 Mabswid
+.64786 .50324 m
+.41613 .55681 L
+s
+.5 .50109 m
+.41613 .55681 L
+s
+.5 .46808 m
+.41613 .55681 L
+s
+.41613 .55681 m
+.34456 .34662 L
+s
+.02 w
+.64786 .50324 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .50109 L
+s
+.64786 .50324 m
+.5 .46808 L
+s
+.59146 .2852 m
+.64786 .50324 L
+s
+.02 w
+.34456 .34662 Mdot
+.5 Mabswid
+.59146 .2852 m
+.34456 .34662 L
+s
+.5 .50109 m
+.34456 .34662 L
+s
+.5 .46808 m
+.34456 .34662 L
+s
+.02 w
+.59146 .2852 Mdot
+.5 Mabswid
+.59146 .2852 m
+.5 .50109 L
+s
+.59146 .2852 m
+.5 .46808 L
+s
+.02 w
+.5 .46808 Mdot
+.5 Mabswid
+.5 .46808 m
+.5 .50109 L
+s
+.02 w
+.5 .50109 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{211.812, 199.812},
+ ImageMargins->{{47, 0}, {0, 0}},
+ ImageRegion->{{-0.913576, 1.94905}, {-0.75769, 2.11962}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJy1nG1vXcURxy/3xo5zfe04ccDBjvG1iWOSYB5CeGghPBOCeJBAIARVQQnQ
+QiugSqOqQqJSK7UveMELSovEC0B8GT4AH+jiM3s8c733N3vm2AGJ3OM9e/7z
+n9nd2dnZPeflqzc+/ODjqzc+eu/q8PnrV//y4Ufv/XV4+dPrO0W9Wzqdzs87
+//807FTXo53L+p+fRzv/7dz81X9+rH4OVUK3U8EP1c9MVXA+FXxf/fSrgnNO
+wXfVz6AqOLvvgm+VR6c3SkXJFDNjgv6vlaZyDl/prSPV1ZExBb7UWwMpkEuV
+kan/hRYc5crd6qIrBT29V/1VS/uPAhzT6onueG0pPQQotTr/UpQTGY364a6C
+F1D+oShLUjC1B2WXBinT80E/U9DlJtCuNhVD/U2hVgtQPYWaBqi6/1xXqGEI
+6rAP9YlC3VmAOhSB+pNCbWp1Mq1Za8YH+4OC3eVBUCt2dVBkdxNK55rCnm8N
+2/dh31HYezyI/cC+Vf1Ii9zfBnasrGq8Wai3lW6+obwfDAqwnjDwYV9V2Efa
+wGa8CwJeVgG/VT409Kb07pwP9oKCXQowU9iM7TzUO5NuPqcCngwKmFbeR33Y
+pxT2mTawGe+CgEsq4HLACPsQ8BsV8MIBBByDepvp5oMq4EW1KHmwvKwB9n6F
+fSXA0RNw3BewrQJeDQrIXWmDgLMq4PVWAiam5kWoejrdm1MZJ/TqzaC03IV3
+dlFYlLg4CZ7mVdTbrURNKFaQJh67rzONPPp7qE49jRS7NSJqSkW9W125E52j
+zm1QNc346YmF6s41qERzdD5lVUosNQiQ+PeDVgImlAjJeD8oY3Z/Mk5Ud353
+MBm3Q9WNdM8aPFsaWPgr/fy1IIN8FRBkMKvS5FFBlmXGFXiQuqGj+bIv18Zw
+prkMo54ObqnyeHUlJqHoxlG6IFx8lURaWRgpIMdV/bu1jOZXCuUcLqeg6nq6
+RxOPxcwDZbCkrNbJdNYKe6HmbgohkWONIlerSuNkddVXusiAVxoFGjSdUby7
+oBZaVwsdVUJkknk2yWo7LhTDLqpxttQ4MgkNPP89XzDOHVB/6BOaytSqB5TN
+xrIGOq4DPHs8zwnUEGs+CQoGchI1ypKS2FZzEImSOVoymWYm4hWk5jllQjO3
+Y45hOxKHGeWUmkP6Sb9Mgs2xDvWTiTCYIXjxMHeoQU4rFwqcFm4el5kC1FBN
+47o5WlGW2G20Y3ekAHWnslvTq+QInFC5AJOJTaMdo0MK8kb1BCERfo9ceme3
+IbtNdE63o0PzHuVSNtVES2yiX4UdeXxid5eyWyywC6wSCZy6XM2ZQvMoZ/Hg
+PZ3hHINNFe6VxskZkLjqk6a53gIXyYyJTXPl0oDucLaQylxBuIgK86ccEYm/
+t/q3py7addazBdNu+dRoBRKlZpmJnlKjaZUiD3fExmlSEswCasnGzFVXJL40
+B5yF+qd8GpRyonj9YvWvG4nRnEc2oqasyZ08ALkHlBy5V0qO3QRyC0Fy0s/m
+aDCPnJ7petw4OfK1lo82SgMtixKh/rWSiNBKmYhQg2xDmays83FS9XF/ayvM
+y18E7C27G8rynMNo1+s07LuFybmLAxHgbsfMeO04q8/SXcKryVEawF8vNPdY
+ES9+i56gXBl1QWqTZZ8wxakknsZ/stdEeDOjBk3e8DC5YtWBNroKfCkwI740
+4SS+PDOQb4w6bhqetQorbVSwsLsFcfKbNMps+ixYnOhShENRCi3Von6zr+SI
+erdWKutnpMftvh40wZMewwPo4STpSnEzdZ5aC8phuVqI9daC3KksDw29ucQ/
+5RBWgiZlii7p2ag6bggZGCs0jRfUoVmK1CF/FqVk2VF6giZnUiIZHhOSUSWo
+XlSJ1MXK84F/6CKsCtnZJiVSgMYy2ZSWT7YypTmE5s0CdXJcZBGaQ6Idg1a9
+loYnJWj9XitBqeSoEhR7UEvQPOwqMel9oxot+RrRqBeNxnJMzY1BevjTdyFO
+EaktVaDeRpahlRs1ip+o2J+/pg5C2cxaxbUDqBidGkhFwiNXZ+tJeoIUu81X
+jNqTYF33FPDrhBc1CuFRorKgIpVZXz+IYtSxqMXoWSqjOLdWjEJHUozGSTST
+5p/VaG47Myg9QewLilEZKUY2jCpGz1Lb0WwQje1v9VWkprZ0AW98TZbRyIoq
+Rh2f5K75ipESVEY29FdjzSoSTcKjPCY9S06woCL5n2i+n8qoa0dVlDnVPalM
+01ZBMZo7kmKFM9cBZSg6oWejKS5SK0V82DauWlIUHfRRJaJpLwr8CkrQRlF0
+7iJ1KHwndcRNu06J4vGCEpSBslQ4UScVo9QpF0DP+slL7DqkBIc4HT5aHDmv
+Xf1Fy8ko/0WfP0X3pd36qApUtqIoNAT8HDwSpwVvZKasXFU0MCf7kruxILyg
+BI1ZUmK6Fk0+1t1XCChDLbIWVJpyswW1KI8SneItzRE9U0CEKcqKKpZ2pXBk
+u9spTntFFzGkFhlsQ41DI4iSNQVlzhaIR97GGOmIiytPvSU6bxZUOVcDjdNw
+hosl6NpyJ8HRwKXmTt42z2l749zPCEzoTey3VG8aB8T5mM/5fMF0dDh1NPn6
+6MjpUZROJnPQ3nET43JgccQbV7Q3S5Rom72mRI6eNBWGEsb3vaaijVf/QGFL
+NoUzVy4h2VlyN9WIxoJPI3nYcupeetjAG+D3QRm1OUUyNTFy81sF+7jrOJck
+vR9JKBSpNJKc8Afu2f85GJRyyMg9p0AheIHQmYLVqC/ZazFjrJKJO7svfTIa
+NWcqw4G2yZZyX4Hqm+tg13ahwI1ascDtNHNzE1dj3CDiEZx7C+yoSduzc7NP
+7oEYe19FXJo5Zzf6q1nRLvAGs4qv3Z1hYu/nnSuY0H9Jow1Zaojozrg7Rdoh
+/RYnUgrc15k7Db9oVEv17H0L6W/uzE0DtmZP0/aQ2S9wcTTzuqJknZaloTvX
+xHJvSHhczVA6eLqhTNaYCa0+CkwclBgZcf5ya4VhyL41GYpy8sysmsVDZlrn
+1UYnVY1sDvT35JHYKpOInrV3ovj7lGe+Sq0I+5vVBYp7IdzzqehbJvhdVH75
+6qEC908E4FEkp4dQ9EiaS0vb6/nyWM/z6Y009mpCHGxme0yFituxwEko9X1R
+y6wxOVKb5Z9QabY/lEVK0zYsC0fX9qpIQi3seUaFCuysDbADCRAwifUuqwD7
+dFBBQJ7KLWqwqj1DXhlPnaeOh2DKyWApcusrbxlA29rhBg0CaBiTAFs6yGvD
+p/YBS6HEnNpWPkcyPwZLa6Y8BePBDpStfZjEXuY43E4AxWt02HFUjz7rOfmr
+Lb5I92swNqSmFVb6/pQ+MTM2uGgNl2clOh0ODqnMzLeoV/0GUW6obFvwVxRs
+0wfLp4JOhwNDKjMT1d9CugCVbGuSIOyM09PK9h4fLB/sFdvoeYVLyvZCgwD3
+AIOlEM35P5zAHoDqdOA1egjkERXwaIMAd9vXTu0+pKo/EQGLfHim+uuCcnw2
+wV6ESuXjDHYs3V4Iu7JfMDdpJqq/5MP2i7C2yWMBZPraDX6Myrp0dK/YwuU3
+fNiZIqwdvrdXV9+OgJHNaEm5rrDvJNiHoNJ0EdaW+Guq8LUIWHTpaKuxPzbA
+Ihjvey4r6J8T6MMAYF2ktCm0pGp/2gDV+Pk++zTCDR/KOoXzgsMxJfT3VEJf
+QesCofo6JecsU/L5GIpEo0mbcQdoXwX5ZyqRNppVHyZy/p1uSc+1t/rlqS/y
+W1299WW6JQNc8ptfjRVInPLfaIHBf+0UCG0JCv43prTw+CYVtP7oZ+eWXwD4
+E0tB\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{-193.5, 411.812}, \
+{350.188, -223.688}} -> {0.327081, -0.263446, 0.00158413, \
+0.00158413}},ExpressionUUID->"cb7325d5-3338-4f04-8ca1-c4ff14a0b48c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"gr", "=", 
+   RowBox[{"FromEdges", "[", 
+    RowBox[{
+     RowBox[{"Orthoplex", "[", "4", "]"}], ",", "c"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ShowGraph", "[", "gr", "]"}]}], "Input",ExpressionUUID->"9491509b-\
+8908-4c0d-8de4-386c205c4b64"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: 1 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+0.0454545 0.909091 0.0454545 0.909091 [
+[ 0 0 0 0 ]
+[ 1 1 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 1 L
+0 1 L
+closepath
+clip
+newpath
+0 g
+.025 w
+.82141 .82141 Mdot
+.5 .95455 Mdot
+.17859 .82141 Mdot
+.04545 .5 Mdot
+.17859 .17859 Mdot
+.5 .04545 Mdot
+.82141 .17859 Mdot
+.95455 .5 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.82141 .82141 m
+.5 .95455 L
+s
+.82141 .82141 m
+.17859 .82141 L
+s
+.82141 .82141 m
+.04545 .5 L
+s
+.82141 .82141 m
+.5 .04545 L
+s
+.82141 .82141 m
+.82141 .17859 L
+s
+.82141 .82141 m
+.95455 .5 L
+s
+.5 .95455 m
+.82141 .82141 L
+s
+.5 .95455 m
+.17859 .82141 L
+s
+.5 .95455 m
+.04545 .5 L
+s
+.5 .95455 m
+.17859 .17859 L
+s
+.5 .95455 m
+.82141 .17859 L
+s
+.5 .95455 m
+.95455 .5 L
+s
+.17859 .82141 m
+.82141 .82141 L
+s
+.17859 .82141 m
+.5 .95455 L
+s
+.17859 .82141 m
+.04545 .5 L
+s
+.17859 .82141 m
+.17859 .17859 L
+s
+.17859 .82141 m
+.5 .04545 L
+s
+.17859 .82141 m
+.95455 .5 L
+s
+.04545 .5 m
+.82141 .82141 L
+s
+.04545 .5 m
+.5 .95455 L
+s
+.04545 .5 m
+.17859 .82141 L
+s
+.04545 .5 m
+.17859 .17859 L
+s
+.04545 .5 m
+.5 .04545 L
+s
+.04545 .5 m
+.82141 .17859 L
+s
+.17859 .17859 m
+.5 .95455 L
+s
+.17859 .17859 m
+.17859 .82141 L
+s
+.17859 .17859 m
+.04545 .5 L
+s
+.17859 .17859 m
+.5 .04545 L
+s
+.17859 .17859 m
+.82141 .17859 L
+s
+.17859 .17859 m
+.95455 .5 L
+s
+.5 .04545 m
+.82141 .82141 L
+s
+.5 .04545 m
+.17859 .82141 L
+s
+.5 .04545 m
+.04545 .5 L
+s
+.5 .04545 m
+.17859 .17859 L
+s
+.5 .04545 m
+.82141 .17859 L
+s
+.5 .04545 m
+.95455 .5 L
+s
+.82141 .17859 m
+.82141 .82141 L
+s
+.82141 .17859 m
+.5 .95455 L
+s
+.82141 .17859 m
+.04545 .5 L
+s
+.82141 .17859 m
+.17859 .17859 L
+s
+.82141 .17859 m
+.5 .04545 L
+s
+.82141 .17859 m
+.95455 .5 L
+s
+.95455 .5 m
+.82141 .82141 L
+s
+.95455 .5 m
+.5 .95455 L
+s
+.95455 .5 m
+.17859 .82141 L
+s
+.95455 .5 m
+.17859 .17859 L
+s
+.95455 .5 m
+.5 .04545 L
+s
+.95455 .5 m
+.82141 .17859 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{200, 200},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+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
+L6uPxOokA+a/BnLmzZGd3z05eOK/iU9vUQ==\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 199.}, {199., 0.}} -> \
+{-0.0500054, -0.0500054, 0.00552769, \
+0.00552769}},ExpressionUUID->"e2c241c6-4559-4747-9353-e354f6e492ee"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"\[SkeletonIndicator]", "Graphics", "\[SkeletonIndicator]"}],
+  False,
+  Editable->False]], "Output",ExpressionUUID->"ade20355-2f06-4215-9512-\
+d4ab81e70d7b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"v", ",", "e"}], "}"}], "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"V", "[", "gr", "]"}], ",", 
+    RowBox[{"M", "[", "gr", "]"}]}], "}"}]}]], "Input",ExpressionUUID->\
+"3fb170d1-6db3-440f-bc10-cb0ebf591574"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"8", ",", "24"}], "}"}]], "Output",ExpressionUUID->"eb0ff17d-71f4-4497-8b89-9b6edb0c8410"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deg", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", 
+   RowBox[{"KSubsets", "[", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"v", "-", "1"}], "]"}], ",", "deg"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Binomial", "[", 
+      RowBox[{
+       RowBox[{"v", "-", "1"}], ",", "deg"}], "]"}], ",", 
+     RowBox[{"Length", "[", "k", "]"}]}], "}"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Position", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"IsomorphicQ", "[", 
+       RowBox[{
+        RowBox[{"CirculantGraph", "[", 
+         RowBox[{"v", ",", "#"}], "]"}], ",", "gr"}], "]"}], "&"}], "/@", 
+     "k"}], ",", "True"}], "]"}], "//", "Flatten"}]}], "Input",ExpressionUUID->\
+"cc7226ff-259b-46a0-9952-779418a509fc"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"21", ",", "21"}], "}"}]], "Print",ExpressionUUID->"40d9b2fa-e11c-4b18-aac5-e0a40e7b5028"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",ExpressionUUID->"b5c919b1-1d83-41a6-a70d-145072f5c528"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deg", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"k", "=", 
+   RowBox[{"KSubsets", "[", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"v", "-", "1"}], "]"}], ",", "deg"}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Binomial", "[", 
+      RowBox[{
+       RowBox[{"v", "-", "1"}], ",", "deg"}], "]"}], ",", 
+     RowBox[{"Length", "[", "k", "]"}]}], "}"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Position", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"IsomorphicQ", "[", 
+       RowBox[{
+        RowBox[{"CirculantGraph", "[", 
+         RowBox[{"v", ",", "#"}], "]"}], ",", "gr"}], "]"}], "&"}], "/@", 
+     "k"}], ",", "True"}], "]"}], "//", "Flatten"}]}], "Input",ExpressionUUID->\
+"ad06bf15-6cc2-4b8b-b672-cdd802a00d77"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"35", ",", "35"}], "}"}]], "Print",ExpressionUUID->"ecd9e9ce-70b4-44c1-91d0-28d5ffa2a8d4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "3", ",", "8", ",", "13", ",", "19", ",", "24", ",", "31", ",", 
+   "35"}], "}"}]], "Output",ExpressionUUID->"45de5af4-4ce6-4e7a-9669-\
+6cbd2d7f79c0"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Animation", "Subsection",ExpressionUUID->"6041690d-042f-4cce-ba02-0398bacabd78"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "Animation", " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"r", "=", " ", 
+     RowBox[{
+      RowBox[{"which", " ", "3"}], "-", 
+      RowBox[{"space", ":", 
+       RowBox[{"1", 
+        RowBox[{"(", 
+         RowBox[{"w", "=", "0"}], ")"}]}]}]}]}], ",", 
+    RowBox[{"2", 
+     RowBox[{"(", 
+      RowBox[{"z", "=", "0"}], ")"}]}], ",", 
+    RowBox[{"3", 
+     RowBox[{"(", 
+      RowBox[{"y", "=", "0"}], ")"}]}], ",", 
+    RowBox[{"4", 
+     RowBox[{"(", 
+      RowBox[{"x", "=", "0"}], ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"t", "=", " ", "PlotRange"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"PolytopeMovie", "[", 
+    RowBox[{"vertices_List", ",", 
+     RowBox[{"ang_List", ":", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "Pi", ",", 
+        RowBox[{"Pi", "/", "30"}]}], "}"}]}], ",", 
+     RowBox[{"r_", ":", "1"}], ",", 
+     RowBox[{"t_", ":", "2"}], ",", "opts___"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v", ",", "d", ",", "c", ",", "a", ",", "v1", ",", "g"}], "}"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"v", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"rota4", "[", 
+             RowBox[{"#1", ",", "i", ",", "i"}], "]"}], "&"}], ")"}], "/@", 
+          "vertices"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"d", "=", 
+         RowBox[{"Union", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"N", "[", 
+               RowBox[{"mag", "[", 
+                RowBox[{
+                 RowBox[{"v", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "-", "#1"}], "]"}], "]"}], 
+              "&"}], ")"}], "/@", 
+            RowBox[{"Rest", "[", "v", "]"}]}], ",", 
+           RowBox[{"SameTest", "\[Rule]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Chop", "[", 
+                RowBox[{"#1", "-", "#2"}], "]"}], "\[Equal]", "0"}], "&"}], 
+             ")"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"c", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"a", "=", 
+             RowBox[{"Drop", "[", 
+              RowBox[{"v", ",", 
+               RowBox[{"i", "-", "1"}]}], "]"}]}], ";", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"First", "[", "a", "]"}], ",", "#1"}], "}"}], "&"}], 
+              ")"}], "/@", 
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"Rest", "[", "a", "]"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Chop", "[", 
+                  RowBox[{
+                   RowBox[{"N", "[", 
+                    RowBox[{"mag", "[", 
+                    RowBox[{
+                    RowBox[{"First", "[", "a", "]"}], "-", "#1"}], "]"}], 
+                    "]"}], "-", 
+                   RowBox[{"d", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "\[Equal]", 
+                 "0"}], "&"}]}], "]"}]}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", 
+             RowBox[{"Length", "[", "v", "]"}]}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"v1", "=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"#1", "[", 
+             RowBox[{"[", 
+              RowBox[{"spc", "[", 
+               RowBox[{"[", "r", "]"}], "]"}], "]"}], "]"}], "&"}], ")"}], "/@",
+           "v"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"g", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"#1", "[", 
+             RowBox[{"[", 
+              RowBox[{"spc", "[", 
+               RowBox[{"[", "r", "]"}], "]"}], "]"}], "]"}], "&"}], ",", 
+           RowBox[{"Flatten", "[", 
+            RowBox[{"c", ",", "1"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"-", "2"}], "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"Graphics3D", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Line", "/@", 
+              RowBox[{"Union", "[", "g", "]"}]}], ",", 
+             RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+             RowBox[{"Point", "/@", "v1"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "t"}], ",", "t"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "t"}], ",", "t"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "t"}], ",", "t"}], "}"}]}], "}"}]}], ",", 
+          "opts"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"ang", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"ang", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "-", 
+          RowBox[{"ang", "[", 
+           RowBox[{"[", "3", "]"}], "]"}]}], ",", 
+         RowBox[{"ang", "[", 
+          RowBox[{"[", "3", "]"}], "]"}]}], "}"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellLabel->"In[1]:=",ExpressionUUID->"278e876d-a30a-40e6-8a42-68487c341cd9"],
+
+Cell[BoxData[
+ RowBox[{"movie", "=", 
+  RowBox[{"PolytopeMovie", "[", 
+   RowBox[{"vi334", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "Pi", ",", 
+      RowBox[{"Pi", "/", "15"}]}], "}"}], ",", "1", ",", "2"}], 
+   "]"}]}]], "Input",ExpressionUUID->"0d6013b8-ecf5-4479-8f78-68413313de4f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WriteLiveAnimationForm", "[", 
+  RowBox[{"\"\<crosspol.m\>\"", ",", "movie"}], "]"}]], "Input",ExpressionUUID\
+->"aa8b8988-5bd2-4c32-8d10-97effd43afe7"],
+
+Cell[CellGroupData[{
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35574 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.5 .35574 m
+.675 .42689 L
+s
+.5 .35574 m
+.5 .57596 L
+s
+.5 .35574 m
+.5 .42689 L
+s
+.5 .26212 m
+.5 .35574 L
+s
+.325 .42689 m
+.5 .35574 L
+s
+.02 w
+.5 .57596 Mdot
+.5 Mabswid
+.675 .42689 m
+.5 .57596 L
+s
+.5 .57596 m
+.5 .51384 L
+s
+.5 .57596 m
+.5 .42689 L
+s
+.325 .42689 m
+.5 .57596 L
+s
+.02 w
+.5 .42689 Mdot
+.675 .42689 Mdot
+.5 .42689 Mdot
+.325 .42689 Mdot
+.5 Mabswid
+.675 .42689 m
+.5 .51384 L
+s
+.675 .42689 m
+.5 .42689 L
+s
+.5 .51384 m
+.5 .42689 L
+s
+.5 .26212 m
+.675 .42689 L
+s
+.5 .26212 m
+.5 .42689 L
+s
+.325 .42689 m
+.5 .51384 L
+s
+.325 .42689 m
+.5 .42689 L
+s
+.325 .42689 m
+.5 .26212 L
+s
+.02 w
+.5 .26212 Mdot
+.5 Mabswid
+.5 .26212 m
+.5 .51384 L
+s
+.02 w
+.5 .51384 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtS20AMNY6TEG4tbSmXtqm/hQwJhHu4UyCYFAgPTDuUf+w7P5R6JUVr
+u2c9Tofp8AAzsIuOdLRXSevN6LF/fR893vWisPUQ/ezf9X6FzR8Psag05nne
+U/z7O/RMfxB35c/TIP6JwdfmvzV90/hm+fssuDVNYAS3DsENNSUjGbDE8/wE
+fk1NoLjo+Bkz8993xrgppyyGzCVg1mOwByDkBcmumOIKQMgjkkVMEQEoKCi7
+ZIpLAJULyrpM0QVQpaDsgikuAFQtKDtninMAjReUnTHFGYBqLhkdOzH8BpQm
+gGwSyE6Y4rSg+hSQHTPFSUH1aSA7YorjguozQHbIFEcF1d8A2QFTUEPrOwuU
+3gLZPhvuA2hWyd4BdI8N91yGgcuww4Yd18xqruHvsuGua5loqIH2StpD895h
+sh0ATashunfkgERob7aZdhtAk2qILlJVnVr3QrYF1CdUCR31mrpCp3iDaTcB
+NK6G6OxO5TpdZ9qN3MmhrZhRpyhktJl2HUAVpUXnzB5ftN5rTNsGkN3hDwB9
+r7QopK4y7RqA7HmcB+icOkX5osW0qzK+TMol3UVgtqAuUR5rMmkLQGTzGQBL
+6g/l5xVmbGaGKaViHVh80RHy+gzBIVXDNFRjhKoZqqzBSsum2TKC5YSgYgRf
+TS/QXiWh1FBCXydVV1k9PVE/4S67CzI9tFyfXNOTDUXnhNSXALCYHjA+Iu3M
+4OSHzBaA2XyalHrJK5cJpR8BxVxaD99fFG2sx/yLhg6vRBsUG+1o88MCumgS
+G1H8tpklP4ihpMGzh9mmrLQon9iQa2OopC6UB21ERIHfJg0UEYW2k1aiHqrI
+LIqituRqVFZU0w6cM0BOpXY4yB2PM2s7U5fUMocAshUrOoV+mpZ6OdWc3QD8
+4nHsmzCiEpPcUizMqU1ReUuGgcuj1MWn6ekFrvWTStz5CnAuPNfuo71AiEye
+Ls/w+ukCaMQ32DO8BCOdGVLKeYWO9JwmB/IO/8fn++jfCW4yjhJt6msFGRf+
+nvHXJ5AX8WHmtXlRjTf2B6ZnBJs=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"b2430fb9-383b-41cb-8b68-19d3bd348959"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35609 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.51925 .26307 m
+.5 .35609 L
+s
+.5 .35609 m
+.67314 .44316 L
+s
+.5 .35609 m
+.5 .43515 L
+s
+.5 .35609 m
+.5 .41879 L
+s
+.5 .35609 m
+.48257 .57518 L
+s
+.32504 .41044 m
+.5 .35609 L
+s
+.02 w
+.48257 .57518 Mdot
+.5 Mabswid
+.67314 .44316 m
+.48257 .57518 L
+s
+.5 .43515 m
+.48257 .57518 L
+s
+.48257 .57518 m
+.5 .51331 L
+s
+.48257 .57518 m
+.5 .41879 L
+s
+.32504 .41044 m
+.48257 .57518 L
+s
+.02 w
+.5 .41879 Mdot
+.5 Mabswid
+.67314 .44316 m
+.5 .41879 L
+s
+.51925 .26307 m
+.5 .41879 L
+s
+.5 .51331 m
+.5 .41879 L
+s
+.32504 .41044 m
+.5 .41879 L
+s
+.02 w
+.67314 .44316 Mdot
+.5 Mabswid
+.67314 .44316 m
+.5 .51331 L
+s
+.51925 .26307 m
+.67314 .44316 L
+s
+.5 .43515 m
+.67314 .44316 L
+s
+.02 w
+.32504 .41044 Mdot
+.5 Mabswid
+.32504 .41044 m
+.51925 .26307 L
+s
+.32504 .41044 m
+.5 .51331 L
+s
+.32504 .41044 m
+.5 .43515 L
+s
+.02 w
+.5 .43515 Mdot
+.5 Mabswid
+.51925 .26307 m
+.5 .43515 L
+s
+.5 .43515 m
+.5 .51331 L
+s
+.02 w
+.51925 .26307 Mdot
+.5 Mabswid
+.51925 .26307 m
+.5 .51331 L
+s
+.02 w
+.5 .51331 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSFDEQHXZmd5Y7C3IpLZVvAWVBQbnfb8uCgmBpIf/oOz+Ek3RzejKc
+oE8WD1C1m2yfPmeSTKfTYalzc372vXNz0e1Mt687P88vur+m535cF6a0J0mS
+2+Lzezpx/buiq1+3d8VfAT43/625ck3NLf+pGC5dkzlDN2L45htvuRNLUuJf
++CYF6n6V9b/igTX0Cvd7IdecyI8vVClgV9BjIZ4RKAUxJeiREE8JlIGYEfRQ
+iCdwymMSFduBEDsEajwqti/EYwLlIDYJuifEQzj1/Yv7AYGM2EvQXSHuE6g/
+fHYF3RHiXozoTf0E3RbiDtSH4D5A3LfEfZtARhwk6KYQtwg0DOIQQTeEuIEB
+jsJ9mLivi/s6gVru22+9EYKuCXEtRqw7U4ugq0Jcjc2s+RfiMmZmC5GhV9re
+SWTkK+LwmUAD0MnRS8PnVRjLIvaJQH2QsF4dYuzdyZCSRTgZcTAcWS0WNzKQ
+5COBbEoj6PVCjEXvkoh9IFAdEmPo2ZZjO2dRxBYIlEJiIpxwdP/K/JI2nExi
+yvWyMD5Y0pFZJbOQkCgq+3jCK+iNwrUR15txTe6QNyC+ALFOiAsl4jheT4bl
+iB4I84/MQP1yRMxEqMdOpraQ3/smK0NQycPx1WBrQZkdlnOiMUcgC74cAWmb
+phnGVeXwVtk2GfA9owXlGkZttgaeplLzdIQPbePuezJclsrqF5938puFvBUX
+kxiDj68x15sVItt4lo7GQXzreo0SkW1/Ky5sx77GmlTypo58keiwELaE8hK9
+yrvSYF2KKdbCxDQFG4tUFWNZ1yoaO2BtpWz1NIOwU4CVQn1YqTFIsJVQ2eWY
+rGW0LJywLYKm8BUi0YRTExJDsLFxqxg7bS332zYYDMV8T89LdtKz1GyZ2E4v
+ln9VllUeVvSloUT0PNDaYINApezxYIPaKWaP1AJqk0gNYNEtjti5qRKsePPu
+DRC9hNaUrEj0g6/HnlMuRtkS1sOZaZm9S9yluH5wz2JLrSqsdLZ3xAoAvU2w
+Yt2CzYLySNzZpcD2OAssJR4SyOpEk9Ab4BFxt7fMDnwlstuRZXfLunJT1FsY
+P6xYqlPaCX1Kwo9buc3qHdogScrJ/b1ZrqDecFkiZI8ZTjHWKzE8iX8sPDdP
+qkl6/gBCYNWt\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"6dd359e5-8a0c-4390-bbb3-eb4d3fa635c8"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35715 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.53826 .26591 m
+.5 .35715 L
+s
+.5 .35715 m
+.66941 .45909 L
+s
+.5 .35715 m
+.5 .4435 L
+s
+.5 .35715 m
+.5 .41095 L
+s
+.5 .35715 m
+.46531 .57285 L
+s
+.32703 .394 m
+.5 .35715 L
+s
+.02 w
+.46531 .57285 Mdot
+.5 Mabswid
+.66941 .45909 m
+.46531 .57285 L
+s
+.5 .4435 m
+.46531 .57285 L
+s
+.46531 .57285 m
+.5 .51174 L
+s
+.46531 .57285 m
+.5 .41095 L
+s
+.32703 .394 m
+.46531 .57285 L
+s
+.02 w
+.5 .41095 Mdot
+.5 Mabswid
+.66941 .45909 m
+.5 .41095 L
+s
+.53826 .26591 m
+.5 .41095 L
+s
+.5 .51174 m
+.5 .41095 L
+s
+.32703 .394 m
+.5 .41095 L
+s
+.02 w
+.66941 .45909 Mdot
+.5 Mabswid
+.66941 .45909 m
+.5 .51174 L
+s
+.53826 .26591 m
+.66941 .45909 L
+s
+.5 .4435 m
+.66941 .45909 L
+s
+.02 w
+.32703 .394 Mdot
+.5 Mabswid
+.32703 .394 m
+.53826 .26591 L
+s
+.32703 .394 m
+.5 .51174 L
+s
+.32703 .394 m
+.5 .4435 L
+s
+.02 w
+.5 .4435 Mdot
+.5 Mabswid
+.53826 .26591 m
+.5 .4435 L
+s
+.5 .4435 m
+.5 .51174 L
+s
+.02 w
+.53826 .26591 Mdot
+.5 Mabswid
+.53826 .26591 m
+.5 .51174 L
+s
+.02 w
+.5 .51174 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNlSGzEQXNhdG2MDDqQqqRxV/EsINwTCfccQCpyEowj/mHd+yLE0Q8+u
+3LLJS4oHXGVrV+rpGWkOSV5p3V+eX7Xu22et6bm71u1l++z39OzNXbcrHUqS
+5KH7/TOduOdO91F/HjrdT3fwpfnfza1rhp0XvknHjWsy13EiHdeuyQsdvyCS
+ZB3pSh6/SvIDkNTAKcCuOZaXtm/Sx259c79Zsa+g/gKMeVlLwHIo8HOAqnjK
+CPxA4N/JUMX9pgMET8FeAzwn8H2Bt8jQSDBvXdMKge7J+AmU1v9Z9giyYzB4
+hMB3BX5IhhpcaY1Ad2R8H0onuOwokd2W8V3INgloeID0DhkKeVyUFlazDN4S
+xBasmCQg/9YgA5sivQHp17E5jMWlv5KhKTD2ZuM4wW8IZq1syIi5pAwXlckX
+MuTheZDaiQ/7/mQr0O0NzMrJ2TsN5u51wSxBrA5rxHl5GFm2woxvTZCLZKgK
+IyfMyGpIXQoiNnnVMA+OHBb386EVUOZN8UsyC1AKY9/2IbXKyaJtVdAzrqm6
+kQ/uKSWerhJploPK+AmMH2FmsC1YHLAcXCnwNBG8jKcGHmbPcmGGbIkep+vL
+Zw3WMEXMTLYsywVP9e5tKVQ2oDJY6wwx4C1mpXpJ8HNcR44pvIIfWCqwPWMx
+ztwpbq+ppT5PQAOYUKBrQWTmydBwbLELdbfC9Lp2GPMfg362Q6v+hZh+i6oM
+jmCRYevNYoQdWWTKtAgxeB0zN1UsDTzEEoIdYubimjMIjoMs0ML6GjDJUpq5
+TzUvkSHmHG+DD91JWFNRO4N419VcjjEXjiHlI0AVOZKVK3AwRcllLUqDc6hh
+PD0F2Xc04KfQlUmiB5PP0rP6RJV1plLbJlSyQjMTVxSUaBZ27+El5WHnB1bB
+osnkGSuFJViLSdO6IoTdn3fujcWrRss6oWXnWcuKXme+gQ6rF4tx+lGAMmac
+e5vCslgw6obCzoThZUA/jLmJAcsJ3a03Yswy7Tyctn8NLhQV4PX4s0lIrVQE
+xlkusFjpw2gF3jxgtzhbcD0Mb8VmyoyyrdoWQ+8G24RnNLbynttqgl6Q2DXF
+SrdtYSa49xRBCxt2OVGKXTJkKcWKt62k3rb3CKh//TcF+o/APgHlfSlMgf79
+cEBAWV8KU3D6FIqgdrDSqzzs2mwRZOlxLvAjAg/tRc3xghfSdawWBikfOL89
+GBxE6U95OdF5FmwoPl9J65ff015HOlrQcyMdz+JPsJfmOTbJ0F/XxBmG\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"937a9da6-a301-44c2-a9d6-973feb36a56b"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35892 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.55678 .27059 m
+.5 .35892 L
+s
+.5 .35892 m
+.6639 .47452 L
+s
+.5 .35892 m
+.5 .45184 L
+s
+.5 .35892 m
+.5 .40343 L
+s
+.5 .35892 m
+.44838 .56899 L
+s
+.33095 .37776 m
+.5 .35892 L
+s
+.02 w
+.44838 .56899 Mdot
+.5 Mabswid
+.6639 .47452 m
+.44838 .56899 L
+s
+.5 .45184 m
+.44838 .56899 L
+s
+.44838 .56899 m
+.5 .50914 L
+s
+.44838 .56899 m
+.5 .40343 L
+s
+.33095 .37776 m
+.44838 .56899 L
+s
+.02 w
+.5 .40343 Mdot
+.5 Mabswid
+.6639 .47452 m
+.5 .40343 L
+s
+.55678 .27059 m
+.5 .40343 L
+s
+.5 .50914 m
+.5 .40343 L
+s
+.33095 .37776 m
+.5 .40343 L
+s
+.02 w
+.6639 .47452 Mdot
+.5 Mabswid
+.6639 .47452 m
+.5 .50914 L
+s
+.55678 .27059 m
+.6639 .47452 L
+s
+.5 .45184 m
+.6639 .47452 L
+s
+.02 w
+.33095 .37776 Mdot
+.5 Mabswid
+.33095 .37776 m
+.55678 .27059 L
+s
+.33095 .37776 m
+.5 .50914 L
+s
+.33095 .37776 m
+.5 .45184 L
+s
+.02 w
+.5 .45184 Mdot
+.5 Mabswid
+.55678 .27059 m
+.5 .45184 L
+s
+.5 .45184 m
+.5 .50914 L
+s
+.02 w
+.55678 .27059 Mdot
+.5 Mabswid
+.55678 .27059 m
+.5 .50914 L
+s
+.02 w
+.5 .50914 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWMlSGzEQHbzNeCEsKZLKISn+JYlZwr6YNUW5XFQggRCWf8ydHyKWWn6t
+kZ9mzCkcoMpo3Hr9utXdasmz3n+4OL/uP1wO+otLd/0/F5eD+8Xuzd1QVJ1K
+kuRx+Pm7mJjnp+Gj+/f4NPwbTr4O/2l4MEPFJONUBPdmqBnBiQhuzdDwBDdQ
+qZinqqd8jakqnuTRPNnBkfzCfD1Pl1RHUPvtSOCXADVgswD+A/AM8CqBHwr8
+HPAm4LU4fAB4ywpqALm6rhPdA5nvQ7eDQDcIvCfwM8CnA1BiI1CsfYrVvLGC
+es7REUtGCPZl8hjm52LmC7QPoT1PQFXEO5jYE+0etN8GznsLSColLHtgWSAg
+VqCMbFcAOyB7V+ZSO86ylWfxanmskDqEZUfmN8Dy3jxZVakFluQCorW8O2kx
+UViG5tu2zK2CaMY8NbGLqiTKFa1KSvYFZBU8ZaBlXoS5TEaOBLgtAXw2Q53o
+pCgWrynxnTNL6Dc9ekv1EVQSDR9tVQtYNAqBkxnyFWFmlc2isSGArh1q4Sq1
+QafIK+29CZGZbyxRzuQSCWyuOlqwq02c2dWjhtXTOreG+cQ/xixBRuLN7LIu
+z7a982C5wIMalmB7XYMkrwEI28trvo1wX4zLNGRzWDHre0zmTK3ETGnNeCdP
+ytKcT3cTyi1C/U3wq7HFBDK9VLRd9CL2I42XLTx9nlvsAqFJFANZUVjy/TOF
+KjtxxQHnDvEjuAs1JrOuNtnaWf07P9YmhGcwoF6W7DxkQi8/0WvQStwbBtcK
+FGd5nTKH9NrIVskK1Lm2HnNNa7cWOOS3oBkSP1Z3y3FrrJrC6pesjPek2UKj
+LFDSht0RUO6I1kdQFTYo84h6eEiDIBk1KneilpvU2gpMhgGQrIw63KSl2417
+o+UnxTl2GrMUWHfTfP8MbgPJ6FxwV5+8VdZs9XjQjs7uEilSbwPhkrs9oZVK
+uRV7w2mZr904d5vxRC+wn8xoQ/tVJDuEsqNEWYxoNH4wY7OEcFoJ+VVtAVH0
+AO6jy3JR2C12mVuYhQXtFe5qsheLai1vvg0K3SWbJRTB0euNWuqWsgWZ+wmw
+TyijRf40vj2waTuYdb/AeoQ5eFFgV67ttfc8RU23e2VwQBTDMxXeq9OW4jhO
+oS9D2BnTwqx7PXNIQHpTix5s1oszoTgiIK0n5oWWSn8SCuaFnogDoTgmIL3F
+B01EV3gu4hNn0tOGgUBX/boo1NVXRhb8U8Cnznsf7GVbN9aVh7e3st+ewO6O
+W09grd+J4Ds47kXwIt4qvg4veEim/gE1NPim\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"eaa5a3fe-3be0-4b1a-8d8d-188fbc6e4acb"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36137 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.57459 .27705 m
+.5 .36137 L
+s
+.5 .36137 m
+.65668 .48928 L
+s
+.5 .36137 m
+.5 .46007 L
+s
+.5 .36137 m
+.5 .3963 L
+s
+.5 .36137 m
+.43193 .56363 L
+s
+.33681 .3619 m
+.5 .36137 L
+s
+.02 w
+.43193 .56363 Mdot
+.5 Mabswid
+.65668 .48928 m
+.43193 .56363 L
+s
+.5 .46007 m
+.43193 .56363 L
+s
+.43193 .56363 m
+.5 .50557 L
+s
+.43193 .56363 m
+.5 .3963 L
+s
+.33681 .3619 m
+.43193 .56363 L
+s
+.02 w
+.5 .3963 Mdot
+.5 Mabswid
+.65668 .48928 m
+.5 .3963 L
+s
+.57459 .27705 m
+.5 .3963 L
+s
+.5 .50557 m
+.5 .3963 L
+s
+.33681 .3619 m
+.5 .3963 L
+s
+.02 w
+.65668 .48928 Mdot
+.5 Mabswid
+.65668 .48928 m
+.5 .50557 L
+s
+.57459 .27705 m
+.65668 .48928 L
+s
+.5 .46007 m
+.65668 .48928 L
+s
+.02 w
+.33681 .3619 Mdot
+.5 Mabswid
+.33681 .3619 m
+.57459 .27705 L
+s
+.33681 .3619 m
+.5 .50557 L
+s
+.33681 .3619 m
+.5 .46007 L
+s
+.02 w
+.5 .46007 Mdot
+.5 Mabswid
+.57459 .27705 m
+.5 .46007 L
+s
+.5 .46007 m
+.5 .50557 L
+s
+.02 w
+.57459 .27705 Mdot
+.5 Mabswid
+.57459 .27705 m
+.5 .50557 L
+s
+.02 w
+.5 .50557 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWG1PWjEUvl4ucFERidmWbdnCp/2TCTqZKIq6mBg0JBgzp465n7jv/iFG
+T8tpb3lO7yX7MD9ogi2np0+f89LTlu5wMh59H06ur4at9sPwbnx99bO1/eNh
+JiqtRFH0NPv8aUWqP511zb+n6exvNvjS/N/mt2piFZMzLXhUTaIEp4Jgopqy
+M+VeNSUlKJGAulM9xrNuWanMS2r9uXZ0or/csGaVe1hzzOM1kYL6dqzVR6y0
+JlGI5dmXPLsOrCSwBMw+0hoXPLtBgrI7m1HKMsA5AzSBknUsnn3Gs7e85bPW
+z3oVgNLXWgNGeUWCxEdB7kOsDF6f8d6QoJLBc5jFnA0YqMdAb4F5c+/GDJUC
+qEOt1mWo94WgajLULkN9AErIV4S4CgYONOK2asjrH5lAAlzn5FQA7bNqPtm4
+Jb6pMe+VAECqRt4xsRDUOoDqOZb5O5I9TUF4LamgqhNYqg2G7P5JeIvFtpxg
+czYA0L5eo0ONGJSUV6ozmp8PXFW8EuVXn5xVnak2uxLOXLQC8mfA1h1q8vYJ
+BaSMKnS2fFJvE6z21V0NbSXMgKBSFEqTPo3l1golRNOzERd55Eqz4K64YH7t
+QHlBNLVfXQolZowmdWUuNkI+xIJbrYKXXeiQREXK0PgChtCRYjNtLUCIpOiE
+Qwz2ZAYIAgUKnVlOXQGbACGjM8aQ21uGnHOM4tTErOYz7cVtSULICygNkgA1
+dK5E+MqFZIiCDqxJtIKMA8GbLtReZ7yS9WKBiAXYoeuLc6te2O/4aBFoiDdZ
+RFIXCVO+8knaBbSHJW9BdilPRjsNuTXADmUwQdhHBDyV1Te/wJg/MbqGxn5B
+Gr7vuTSgm5E3dz3oIyTbkcmhmmg9U2JvISIbQQ8imSHSk4iIlyQiQkVjy/jP
+y6qA2Wg1fXUMFMhV1W0wpwJh6cir1dmNCffQiUmVxXm3Lmxyk2UHkkXO6xjb
+Zm9oqcSk869rNNkUa60JxSEADdmLUoGekTXVbcugflrboOEtTe/Aqupta/U+
+ALWXaa92xJyYjcIQ6D47D4G9xNe43tj0iR3bj8Aa1SzNRYsTkNE29QisVwRe
+3PVk1SaDmQf8MVB3Dgv0PsEXeYIYyKD2mMx9NNBE8xPXAEBZh3v8xMJMovMc
+RFTdUAaT6EKrnUje1vTKLj1GtiiXOSh+KYgyNWJUiEPWRRWePdbiU+iOTILf
+yJq27lDvVmtS7PwnkPncOyqUAxN/zi8t+MYmPGrBs/jZ9qV5/k208hc+8g+s
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"8d4e9d0d-9748-40ae-a3bb-5ae2e7736ad4"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36451 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.59146 .2852 m
+.5 .36451 L
+s
+.5 .36451 m
+.64786 .50324 L
+s
+.5 .36451 m
+.5 .46808 L
+s
+.5 .36451 m
+.5 .38962 L
+s
+.5 .36451 m
+.41613 .55681 L
+s
+.34456 .34662 m
+.5 .36451 L
+s
+.02 w
+.5 .38962 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .38962 L
+s
+.59146 .2852 m
+.5 .38962 L
+s
+.5 .50109 m
+.5 .38962 L
+s
+.41613 .55681 m
+.5 .38962 L
+s
+.34456 .34662 m
+.5 .38962 L
+s
+.02 w
+.41613 .55681 Mdot
+.5 Mabswid
+.64786 .50324 m
+.41613 .55681 L
+s
+.5 .46808 m
+.41613 .55681 L
+s
+.41613 .55681 m
+.5 .50109 L
+s
+.34456 .34662 m
+.41613 .55681 L
+s
+.02 w
+.64786 .50324 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .50109 L
+s
+.59146 .2852 m
+.64786 .50324 L
+s
+.5 .46808 m
+.64786 .50324 L
+s
+.02 w
+.34456 .34662 Mdot
+.5 Mabswid
+.34456 .34662 m
+.59146 .2852 L
+s
+.34456 .34662 m
+.5 .50109 L
+s
+.34456 .34662 m
+.5 .46808 L
+s
+.02 w
+.59146 .2852 Mdot
+.5 Mabswid
+.59146 .2852 m
+.5 .50109 L
+s
+.59146 .2852 m
+.5 .46808 L
+s
+.02 w
+.5 .46808 Mdot
+.5 Mabswid
+.5 .46808 m
+.5 .50109 L
+s
+.02 w
+.5 .50109 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWFtPU0EQPpxrKfQiGkyMiU38L2ArrYDQBx40tVHBeCHYmIg/0Hf+UD17
+OTN7pjN79rxhQhO6h9nZ75udncvZThery4/fFqur5WJ0eLO4vrxa/hwd/Lgp
+RclWFEV35d/fUaSe1+Wj/bpbl59y8mG4T8MfNcTqhM6N4FYNqRKcGcEvNXQc
+wQ1oJFqgH9dmLnKQvoNergU51aueLe4X0N/mcWP9nIBY/Xdq5j/B2l0tyGpr
+7egD+AAAffCI2V+lHcUNNrwDiEfEfovCreVkJ0b/AvCeePC0VamMMgeUpzxK
+wqzlZBbvFPCeefC0VZmMMgOU56Ae6h4O9tjAHgKYc3bm5MuvFyJBfRMVRiET
+Haih8IMysiDYgZrZbw3baXCLnjGR4upgIusc7wXy4il7eMegRFIpBYM6wIyI
+XDTjbJeZfePwkbpRLcths7pC5FLEpSFEEzIlFZcCSLvwRFyRAd9OE19QQemC
+awt4IpR5OGVWo/RtdRc2iEdFoo0pCRFU7DrazEy+bmnEQH3nWNUKbiUgcLFe
+Iw5Jv6rcZ8ia11gdxpaEiWf3Q+DEgCXH7GE7asnWJ/pQUgkl7RtKY8BwTWUz
+Uo8ZPavh5ndDwA3bsWeEwX6cesC/WWAWk8bj2f1U5G+Ou6LJlkSqD1y2eQzK
+Aw3CmiJ2CxIX3DsGZ9yRbBzXScWaHlCuedMFZa52WltnbWzFlhevBbdQenTf
+RkvweJCzimveDUXMVydCnSr2V4+p26KpGwXBnLe/+PsDlvOLKdG2P4baVj+0
+lNhr5WJCbapyTB7DOB9j1GWWSTjpLm9CS9/sMCjr2gWyOTHphdDqcjllLTkO
+sMRtH7IXxJcsrgFy9dtjkc7WBEM26MpL+zpEM9GbNPCS12KyE9q4oLPwLCeS
+vxMINF0y9siOg8HQ5f7rCOm/Wm0Is1x1DSLlyi1DaZQql/a8vOa2Yn89YOLd
+uQsV7jHQ0WhnUB1EJ3kIO7CQ/lZDyPqwOSygZP+TEBr6omVHPfcYOLAt2iR6
+y4DmIqj9aIG+UOuL5jgEiotO7dOXSvRKhsiaITbTXBuXMeEbO2xnDB59b+AD
+dB+8UIBs3AAqdHgukPcAfi6DYoaKLwR4p7kwOOeiB+vGVZEX1yP0vYsipO7G
+hQHvsUt3ec55Qw34K4a26bOZmhPLoRRhvf0qa+KBas1rR1NH8MqxTGv8FgRz
+2OitEdyL35wfhv9miLb+AQ88twQ=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"679bd417-3fe5-4de0-a915-8580c1c4629f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36831 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.6072 .29492 m
+.5 .36831 L
+s
+.5 .36831 m
+.63754 .51626 L
+s
+.5 .36831 m
+.5 .47576 L
+s
+.5 .36831 m
+.5 .38344 L
+s
+.5 .36831 m
+.40114 .54859 L
+s
+.35414 .3321 m
+.5 .36831 L
+s
+.02 w
+.5 .38344 Mdot
+.5 Mabswid
+.63754 .51626 m
+.5 .38344 L
+s
+.6072 .29492 m
+.5 .38344 L
+s
+.5 .49577 m
+.5 .38344 L
+s
+.40114 .54859 m
+.5 .38344 L
+s
+.35414 .3321 m
+.5 .38344 L
+s
+.02 w
+.40114 .54859 Mdot
+.5 Mabswid
+.63754 .51626 m
+.40114 .54859 L
+s
+.5 .47576 m
+.40114 .54859 L
+s
+.40114 .54859 m
+.5 .49577 L
+s
+.35414 .3321 m
+.40114 .54859 L
+s
+.02 w
+.63754 .51626 Mdot
+.5 Mabswid
+.63754 .51626 m
+.5 .49577 L
+s
+.6072 .29492 m
+.63754 .51626 L
+s
+.5 .47576 m
+.63754 .51626 L
+s
+.02 w
+.35414 .3321 Mdot
+.5 Mabswid
+.35414 .3321 m
+.6072 .29492 L
+s
+.35414 .3321 m
+.5 .49577 L
+s
+.35414 .3321 m
+.5 .47576 L
+s
+.02 w
+.6072 .29492 Mdot
+.5 Mabswid
+.6072 .29492 m
+.5 .49577 L
+s
+.6072 .29492 m
+.5 .47576 L
+s
+.02 w
+.5 .47576 Mdot
+.5 Mabswid
+.5 .47576 m
+.5 .49577 L
+s
+.02 w
+.5 .49577 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWEtPGzEQXvaZBAL0woUecupPaUuTQKGVeqiEFCGkIPUloJeq7d/rnT+U
+xvZkxjv57PX2RCVWAnvt8XzzHm/mi/vl9efF/c3VYvLqdvFteXN1N3n59Xa9
+VOxkWfaw/vszycx8tZ7Sv4fV+llvPg2Pd/hthtz468It/DRDZRbO3cJ3MzTW
+o8XKLTn/5h7RFyaqmaEiJ/5LM9RmZU8oS5/SE2bBbJ8xcW63CktJpzbkH5n3
+kZkVTA4Pmrczd/A94xwzuZUpq3xyxiOtT9q8LYMJI5e8W4SRX7O5XwC9hEXZ
+wWLI2KWZVYA8IsUJH8xZnudAHnEuAiBm07YFxB86KsxQAz4RXadE4AkVDbqc
+Y8c7RAQNH0JCtADbWzmflggrOaJjQAPA7RRrRo89NmSsgmcVoyqVB+loWq3N
+wV2eWVcMgN8EZRhGmdmhQSm0GZ3NRCMbeqN05kAFFbP7wHgCMOoHoHPIABy2
+5Va7PQF07Geb+C3ZHOIizHaeyPbATGoOULXbE0DXA7Y8ClFJ1zFgNQ+j6ETl
+ANouCQVjSBHd/xe0rXSW7FA5IZDBOEwHbzC4RABqZyKBsvhBGPw0HVySHoGL
+nZVdIpoj8AEGl6BBjazi3cN+aEOMhhIG4ZbqOBm8p71HWAgVw7AWtaE39Ah/
+FsZ3yT7Q+HoMS9E2lHQS5HqS4yzRDiu/PSTUewlDVFwi4KjiBa8HCFlicK8f
+siZ3NmSd4w1UbhdIgQjqmA+ibHZrWyGJSJF9UOMmWd6GLOAlN752I6Oj/oou
+PhHwYEHPSb1AWiBbIL11e00WJ6f3iPv1CIMeCTANCyC3I1TxrFBFYplHodGF
+3FHm6KlCtR7VCYI8B1vS09DlogkVU1QKu1ASbKPuqciZyCcRZCkPuqn7/UK+
+ZnAV7A8ZvBxY+eU2a2fOPDjpqW1eAKZScIPfuzXrVIiPt6paF0aCC6TnqauX
+fWvaRta3BqKfhcVIuQDQIxeAph1NuqSThNMwqlxA1EzR2c/7sVl608Es4GRh
+PzGz2mP1LqIlblwZ/YzTtAWf+vxiDWbLQkfM7YPPQ6dzRp9qlvIyTIlazS4f
+vPYO1hyzduuTZ9wKhJpdu/OI7PkfHkML/cstPIrfH5+G/3TIdv4CN6d6Mw==
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"65e155c8-dc20-4538-9761-b3fbf3990f92"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .37275 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.62162 .30608 m
+.5 .37275 L
+s
+.5 .37275 m
+.62584 .52823 L
+s
+.5 .37275 m
+.5 .48301 L
+s
+.5 .37275 m
+.5 .3778 L
+s
+.5 .37275 m
+.3871 .53904 L
+s
+.36545 .31852 m
+.5 .37275 L
+s
+.02 w
+.5 .3778 Mdot
+.5 Mabswid
+.62584 .52823 m
+.5 .3778 L
+s
+.62162 .30608 m
+.5 .3778 L
+s
+.5 .48972 m
+.5 .3778 L
+s
+.3871 .53904 m
+.5 .3778 L
+s
+.36545 .31852 m
+.5 .3778 L
+s
+.02 w
+.3871 .53904 Mdot
+.5 Mabswid
+.62584 .52823 m
+.3871 .53904 L
+s
+.5 .48301 m
+.3871 .53904 L
+s
+.3871 .53904 m
+.5 .48972 L
+s
+.36545 .31852 m
+.3871 .53904 L
+s
+.02 w
+.62584 .52823 Mdot
+.5 Mabswid
+.62584 .52823 m
+.5 .48972 L
+s
+.62162 .30608 m
+.62584 .52823 L
+s
+.5 .48301 m
+.62584 .52823 L
+s
+.02 w
+.36545 .31852 Mdot
+.5 Mabswid
+.36545 .31852 m
+.62162 .30608 L
+s
+.36545 .31852 m
+.5 .48972 L
+s
+.36545 .31852 m
+.5 .48301 L
+s
+.02 w
+.62162 .30608 Mdot
+.5 Mabswid
+.62162 .30608 m
+.5 .48972 L
+s
+.62162 .30608 m
+.5 .48301 L
+s
+.02 w
+.5 .48301 Mdot
+.5 Mabswid
+.5 .48301 m
+.5 .48972 L
+s
+.02 w
+.5 .48972 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWMtOHDEQHOa1OxNYghRFeUjRSggh5UOSQ/YBn7BCkeAQJSLkkBv5utz5
+oWXcNmWPKXvGgUMSsRK4aberunu628MuN1fnn79sri7ONvOPl5tv5xdn3+cf
+vl52qmIny7Kb7uf3PFPythPNr5tt9+k2n5Z/Zfmlllw9vbVWXKulVIqVVvxQ
+y76jWODIrpLeKqnFKQPzCacOYZ77XGJUK8V7JRUwykTcaiuYL/pIYnMMXTlw
+0NsqAGEdrGSzhJ2x7aHc260A9A5AtexVPVPqEzepAfkGUg3wwotG/bXUR5fc
+xSlQXkKaEhQ/9/eQubuNEoT0APANgRp0fNibKaj2IDEqvxgGqJhnNqoWUT17
+JCrbPVW/MTTa1gxUWHkYVRol81DSN0Uivd06jYD5M0N0s4cTMHOBLUMRTNII
+mLnAFiEC1j+GYBWKIAdYhWrKUWHjwZi3ujRt65s1CM+6JkLJwm1A4JSt+eSh
+GZMYKnNzAoLcC9oltxlnLTRE6fjPhx5rKqZjIyNC3hL/2XRiOjYwE2Nn3tqJ
+NTbmPNT2EWbmKAuIBS4+SBU8J7uLMClrbOdNgEy5HNccZ1mHQivxTBlsMeA8
+g92DP2welNjVKbu7T7L9R2cJdEgi0S5zGAkaUQVMx6pqyIex9WBvbfZYWSdF
+mO1dEG831hKMno3ZCL0dO7bKdT4jr3w5LrFEIvr6wIlsktu+NJ4yeIV4lHf1
+Frwz2HX2J7yBNz02MFnPGcqTkebihkTKGpLVToQgWOnB6cs6J5FAImhCKWJd
+EiFg/siDnaGagx0fgWVeTJAYr6flX96mr3sYVQWqGQhYMbDxEaGKX7YvlFTZ
+ZPEOXoXhmTcCL6rXgC/Mjtetich2lMwRgvfiakFPOaV9kEfwrneicLEcSvmS
+oVXS0vE6MAkksQe4WUrn2LqfczF6BaiVYyRkP32ya634K757elr+iyXbuQWk
+mb/f\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"4e564e53-8102-4ea5-a087-90bc3c92e3ba"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .37275 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.63455 .31852 m
+.5 .37275 L
+s
+.6129 .53904 m
+.5 .37275 L
+s
+.5 .48301 m
+.5 .37275 L
+s
+.5 .3778 m
+.5 .37275 L
+s
+.37838 .30608 m
+.5 .37275 L
+s
+.37416 .52823 m
+.5 .37275 L
+s
+.02 w
+.5 .3778 Mdot
+.5 Mabswid
+.63455 .31852 m
+.5 .3778 L
+s
+.5 .3778 m
+.6129 .53904 L
+s
+.5 .3778 m
+.5 .48972 L
+s
+.5 .3778 m
+.37416 .52823 L
+s
+.37838 .30608 m
+.5 .3778 L
+s
+.02 w
+.6129 .53904 Mdot
+.5 Mabswid
+.63455 .31852 m
+.6129 .53904 L
+s
+.6129 .53904 m
+.5 .48301 L
+s
+.6129 .53904 m
+.37416 .52823 L
+s
+.5 .48972 m
+.6129 .53904 L
+s
+.02 w
+.37416 .52823 Mdot
+.5 Mabswid
+.5 .48972 m
+.37416 .52823 L
+s
+.37838 .30608 m
+.37416 .52823 L
+s
+.37416 .52823 m
+.5 .48301 L
+s
+.02 w
+.63455 .31852 Mdot
+.5 Mabswid
+.63455 .31852 m
+.5 .48972 L
+s
+.63455 .31852 m
+.5 .48301 L
+s
+.37838 .30608 m
+.63455 .31852 L
+s
+.02 w
+.37838 .30608 Mdot
+.5 Mabswid
+.37838 .30608 m
+.5 .48972 L
+s
+.37838 .30608 m
+.5 .48301 L
+s
+.02 w
+.5 .48301 Mdot
+.5 Mabswid
+.5 .48972 m
+.5 .48301 L
+s
+.02 w
+.5 .48972 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWM1uFDEMTudnO/tXWoSQoBKsKBKHvgccYBd4hFWF1B4QqOyFG/By3PtC
+wzgzYyfpF09m1QOgVurG63G+z7FjJ7Pr7e7y0+ft7upiu3pzvf16eXXxbfX6
+y3Wjyg+MMTfN/++VIbluxO7jpm7+mof3w78ybGjIKHu/WsWahoIUPx3FCSl2
+4RST162qTf+cvpzWvWRN3rUG71mRWUVuJ3V/5ow+j0j11jF3jEw/0UKckzQZ
+MC/Y/BVJee1BuG6ZwnWG5JLtzlgqAIeHUnoovUnJ5M9YKjFrAtohu3PKaBPF
+3oP0Y47yMGH4xyRZD4USzYgkoP0WIbCqhyzNFP/X4+ArBl2y//PEtSsrCVNP
+36ZMNWWqRaKbClWpUsn+zZh0mejwSFIbtimpjph0Mg4WmS/Y72OGPRwHi8zn
+PmyCI/sQ5DGCkSuogM4mueR4JxAotT2NQWTSGt1GtuRnaOYQkSTRaROFi+8f
+CbNxHMi87D5Rz5AiEe9QExiizKRVo+6ByVH8Rq5XApWzhAoaNbFoJafToyam
+hyL6FEF1zBvwSHo2KlgJhkioVBQC6WSonnCMm28P7pwlvDzxtMB4PRCs21WG
+Iie3GdS7FI4FT9TzvDeBbHUUfHR03lX4ggrXfQhCsA9VNGJokUKFXEJVpdBH
+z4JIB0OUSIfaiuIGOvMqXqfWUuVkGblyVH6S9+AU7NXIT5RBhVdu0eHdrN22
+kSMQJWqIBW2Nkg+86Im+icOi+rYbPnrDRWFWCKJbuooRoJUqBKiiZhwY47+y
+SrAS4qCQosO4YlIpd7m3o7wMkvrvjLV7zsjdsYjtYxR6D155hbWPHpGUx442
+FHjF+z4XVvuUkfV+HMHrRqt4zlCpt6YO1Bab/VnhJUPk2PGP7WhvAXNSvOAZ
+IYEJzOWl+sQPabAzPzhO2XA84TmSkPYCZ77TMHMUP3hWB/NX/NZ0P/wXgzn4
+A6edpvg=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"999b574f-bca8-4074-baea-db8035405a72"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36831 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.64586 .3321 m
+.5 .36831 L
+s
+.59886 .54859 m
+.5 .36831 L
+s
+.5 .47576 m
+.5 .36831 L
+s
+.5 .38344 m
+.5 .36831 L
+s
+.3928 .29492 m
+.5 .36831 L
+s
+.36246 .51626 m
+.5 .36831 L
+s
+.02 w
+.5 .38344 Mdot
+.5 Mabswid
+.64586 .3321 m
+.5 .38344 L
+s
+.5 .38344 m
+.59886 .54859 L
+s
+.5 .38344 m
+.5 .49577 L
+s
+.5 .38344 m
+.36246 .51626 L
+s
+.3928 .29492 m
+.5 .38344 L
+s
+.02 w
+.59886 .54859 Mdot
+.5 Mabswid
+.64586 .3321 m
+.59886 .54859 L
+s
+.59886 .54859 m
+.5 .47576 L
+s
+.59886 .54859 m
+.36246 .51626 L
+s
+.5 .49577 m
+.59886 .54859 L
+s
+.02 w
+.36246 .51626 Mdot
+.5 Mabswid
+.5 .49577 m
+.36246 .51626 L
+s
+.3928 .29492 m
+.36246 .51626 L
+s
+.36246 .51626 m
+.5 .47576 L
+s
+.02 w
+.64586 .3321 Mdot
+.5 Mabswid
+.64586 .3321 m
+.5 .49577 L
+s
+.64586 .3321 m
+.5 .47576 L
+s
+.3928 .29492 m
+.64586 .3321 L
+s
+.02 w
+.3928 .29492 Mdot
+.5 Mabswid
+.3928 .29492 m
+.5 .49577 L
+s
+.3928 .29492 m
+.5 .47576 L
+s
+.02 w
+.5 .47576 Mdot
+.5 Mabswid
+.5 .49577 m
+.5 .47576 L
+s
+.02 w
+.5 .49577 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztmEtvEzEQx93ss0lKAYkiARLhwkcBtSVteRyQOKCoAqWHAirhBIiPx71f
+aIkfmXHGf9ubnIrUSK13vfb85uHxeHc6W8w/Xc4WF+ezycur2bf5xfn3yYuv
+V8uuYkcpdb38+ztR+rpbXrp/193yt3x429zc5rVuBjpef2zHmW5q3fHL66hM
+RIvOdtn4mr4fnphCDNJNrf83+vaL7X5DwAFdjYk59wapYiXFyOXh90jmzKN7
+w/UdI0z/ASE++HMqfw6hCpr2mFDv/GmlnGZoJV09o2nCZ0cphcM+VuS5vjLY
+w4wIo0AFHGiUajMiiqSIJ+RFEWYzI2Eci62FA51nDshjBR5wHBdeRoW7+ffJ
+jXbsSiabWa3hVuY65hlgVsRs6ErEekwhC6kNcC5aAIdxDWritsKEIDAlacJx
+2AUaFNtqIIXpu4bIpn8IeOVmPPY0Vn6NN+7JO8rwhAhLDlYnbzR3wCSZShlu
+S3Yap5nA3hVcJ3obyUK5NseoN2PskvbIf+Zuvz/IpeApeIRWVCUku9aLTECV
+WmaoIzJPribO4WB5jDFahiODHhNabhWcvHgjG2I+StscX9XSuNU1yi4vWwO6
+jF+GvkfWi9pTCrWE8U1/+qsMXXgcVZsuXYlGW1CLWG5wubcuwIeZBPIkiYRu
+jmkgV5+vgdyKMxqklzlSg6tacCwJB2/oD853WR2T2hRoRgw/jeOHhEfnMQTg
+0xCyHsUigefNXC7AGB55acCbfm8yF0FUtJBpuE+t6lpvcvqYYSm59wZ5CtB3
+J3Ekn6RGQnwvo3PIaRKJlgRKJhRtM07ujRkyH53RWQmWVrK0RzLlyGi/q2Pp
+wjsL8lIChSwwIlrgWbS5o9p8Gueh4Ji9w9uIopVbHDj7U5HLWqKaRCqFvUqp
+RIYFPJxozBgSA3kABRyd99aQ+FxaUHbWsRXKOy9i2LOyKzUBg19czFx+Ey7p
+KawCMSsd7Zgmeu+g7scro6FkTGcfLAQezbwV7OknD2k43jUizkuINTo+JbF9
+CwDCB74pCfCI/bW+ZPvy7PcJ9Z4kPnDWiXinyshbe/GRZOwjrbrO/8iF1fhM
+IvhNMjH8koabJWUWulNmoZux7rDf5tRPEug6fpOSbsqN+L552/ynjdr5B37O
+pAk=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"77ae9312-1a4b-4405-8942-5b861f708870"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36451 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.65544 .34662 m
+.5 .36451 L
+s
+.58387 .55681 m
+.5 .36451 L
+s
+.5 .46808 m
+.5 .36451 L
+s
+.5 .38962 m
+.5 .36451 L
+s
+.40854 .2852 m
+.5 .36451 L
+s
+.35214 .50324 m
+.5 .36451 L
+s
+.02 w
+.5 .38962 Mdot
+.5 Mabswid
+.65544 .34662 m
+.5 .38962 L
+s
+.5 .38962 m
+.58387 .55681 L
+s
+.5 .38962 m
+.5 .50109 L
+s
+.5 .38962 m
+.35214 .50324 L
+s
+.40854 .2852 m
+.5 .38962 L
+s
+.02 w
+.58387 .55681 Mdot
+.5 Mabswid
+.65544 .34662 m
+.58387 .55681 L
+s
+.58387 .55681 m
+.5 .46808 L
+s
+.58387 .55681 m
+.35214 .50324 L
+s
+.5 .50109 m
+.58387 .55681 L
+s
+.02 w
+.35214 .50324 Mdot
+.5 Mabswid
+.5 .50109 m
+.35214 .50324 L
+s
+.40854 .2852 m
+.35214 .50324 L
+s
+.35214 .50324 m
+.5 .46808 L
+s
+.02 w
+.65544 .34662 Mdot
+.5 Mabswid
+.65544 .34662 m
+.5 .50109 L
+s
+.65544 .34662 m
+.5 .46808 L
+s
+.40854 .2852 m
+.65544 .34662 L
+s
+.02 w
+.40854 .2852 Mdot
+.5 Mabswid
+.40854 .2852 m
+.5 .50109 L
+s
+.40854 .2852 m
+.5 .46808 L
+s
+.02 w
+.5 .46808 Mdot
+.5 Mabswid
+.5 .50109 m
+.5 .46808 L
+s
+.02 w
+.5 .50109 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWG1v0zAQ9pqkTdttZeNlEhJSJf4LGx17hYG0D5NKBWwgYCoV4uUH8n1/
+KCS2c3auzzmuxIchbdJq52I/99ydz774YLq4fPd5uriaTce78+n15dXs2/jZ
+13kpStaUUjfl/5+xqvpF2bU/N0X5V768a25Tc1Y1nSpCv43gVdWkleCXJ8gr
+wXc+RSWFESnddGjq3JuquvWAwq6Fut+l8V/88Yk/RiFFOU386E/MaaI32G/X
+ad57rNBYUSlM+dwRzX1rJC/h3KbBDGObMC5aMBCJWvyAUM5lFO0wlXImCRj6
+kPBet+Bp9cbGrIFs0dVjgjo1olMAlRJUEoB6QlCHMlQWBTWuOjooezFQaRTU
+rhGdAKheFNRO1dmMhsoCUBtVp09uSKiXekaL8CzhUjCuQ7C6pxPNJaFzHcvT
+gOacGZZyw7JmwvaaDBia9eAxeNUHJmbQ7PJnQFoGYAjSvCdrHpCJXejS2qqU
+LGX6ULK26YPBTH0ZsXIrZJNkLID/gAHaiAqbQ1vgnbACn5t3R+DVOrFHAXKH
+0jbWxhdDjDbm0ZpzFjAKrYGAmg0yCufjcqzcDOQGhDJpUR9aN4iBcQ3eovhO
+4+k/FPWDSoBvg/6AYUB/vpp+no70FNI/WFH/vqzfmNJDUARpqIjFhjs6UBaj
+eAT48MwuCrFQSsO08F64LAs47EAk2FrvuD0x7FvxEIxg+UJm6U49BIbIJhFk
+UXwRPj8KW8iiJQKPs1gOlMTIu2iFBcgZDkvxzrFYPBhaCgOJmGFk+UURi60n
+3OaKnDRcjQsqrWifFDPU1ZAGgI8z5UI8C1SDKFu0CjtpBxAv8KHDT4rqyX4x
+7ItkmnEYwXEgBNLggD6U0/ckfa6QXlGLq891kdMl8vIx3QQ48rGx3zXrjLIp
+XJugqFgdk4AOPc25Irg6pK/mgHkTiW6fbEOfCw7bBQhl4jE20K53d9sxIhSH
+jI5FtF/7OlwINOx96oU3FrShWVhdkOrDZofA0M4eW1GYLz/zyfBUXjA1M3Sa
++hB9YubVYu3nHvLtiWdwpxmeR03fCksVgdpLD31BllFIWu8nAlDnxGorAMAW
+KIa6IFb8SyHqA8xcCqkZERoSCttfxJrTQnwgiD6zyU+6AMAnsiQjKBR3c7un
+rmmQd7I1KZ+Zh0XV6MsNexP2g6ZKgp/khTdGcCtude+a/6ZRa38BVblYYw==
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"d94f3d65-3071-46f6-b9f2-d8271d3cb3b4"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36137 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.66319 .3619 m
+.5 .36137 L
+s
+.56807 .56363 m
+.5 .36137 L
+s
+.5 .46007 m
+.5 .36137 L
+s
+.5 .3963 m
+.5 .36137 L
+s
+.42541 .27705 m
+.5 .36137 L
+s
+.34332 .48928 m
+.5 .36137 L
+s
+.02 w
+.56807 .56363 Mdot
+.5 Mabswid
+.66319 .3619 m
+.56807 .56363 L
+s
+.56807 .56363 m
+.5 .46007 L
+s
+.56807 .56363 m
+.34332 .48928 L
+s
+.5 .50557 m
+.56807 .56363 L
+s
+.5 .3963 m
+.56807 .56363 L
+s
+.02 w
+.5 .3963 Mdot
+.5 Mabswid
+.66319 .3619 m
+.5 .3963 L
+s
+.5 .3963 m
+.5 .50557 L
+s
+.5 .3963 m
+.34332 .48928 L
+s
+.42541 .27705 m
+.5 .3963 L
+s
+.02 w
+.34332 .48928 Mdot
+.5 Mabswid
+.5 .50557 m
+.34332 .48928 L
+s
+.42541 .27705 m
+.34332 .48928 L
+s
+.34332 .48928 m
+.5 .46007 L
+s
+.02 w
+.66319 .3619 Mdot
+.5 Mabswid
+.66319 .3619 m
+.5 .50557 L
+s
+.66319 .3619 m
+.5 .46007 L
+s
+.42541 .27705 m
+.66319 .3619 L
+s
+.02 w
+.5 .46007 Mdot
+.5 Mabswid
+.5 .50557 m
+.5 .46007 L
+s
+.42541 .27705 m
+.5 .46007 L
+s
+.02 w
+.42541 .27705 Mdot
+.5 Mabswid
+.42541 .27705 m
+.5 .50557 L
+s
+.02 w
+.5 .50557 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNlu00AUnXpsZyFpBUIRVAjliT/pEtrQlEKgqBJKq0qpKgptw/KHvPeH
+jD0zvrP4XNt9og+NlIwzvnPuucvcWaaL1fL822J1cbYY79wsfiwvzm7H299v
+8i65JoS4y79/x6J4zvJH83OX5Z/85WPzf5vPRRMVMfmjOz4VTVx0/GY67BAR
+Z7pLlN+VIyKLDklP184rofDcwQnJXbly0pUTSmmHJC8dgo4k4fdIculKxq6k
+tUUSnaLp09hz3T0HWiISCkYP6MVpw+jQj6bdIICvPICELqrKWbATLfYReoxn
+85wAjlsBJB5ASW1EKHMeJWlCeUEoR7rrA0BJCSUy3AKYTUKZtUdJwsRRhF4R
+1FR3HQGobiuo1wT1tj0Ul5IKTBm+3QAGU6gyS94UHVta6D2A6gEolKEK+GXx
+r9eA2CdLpW+zehqRffatMw2FNfwQYD/hDA+0PCMttkIhv281qep4FS9oHYXD
+4imhQlc3FXZ5nbYA6RAkUGuXjNMcK9MkjF/xzzh1Bl4NgVNj0mGfhr6jmdkw
+4RUNrGv8wqv+damCRpwRKIQ7vD7tnjR0j+cmZcRT4MeSR8LrPGB1dpFr3DZM
+ENf39T6IQd8uz6fPurGymMMJmXlxQ8qRgwyhd+BVj8BUoZa+ZhThsERlZca0
+IDLhiYRFlJyLtgZhxrvxshYhBun9WHU4VtVpHhkzmPQuW1uQEBXUZ5axaUt6
+NnphelCNbLHdaRtRxKCGMLLPlu3wrSVXXzXsYPWEMnRPy+9zZrHzKa3XjyZv
+CYd8c09uiJH1V6+FbwJ3ommGOO3znGRgsvkoRgPIV7hHGOQVVBYNgz2WAV7w
+1jkGwTkrq5mFiM6Up4O3kOXSUeHORAaFOtxgVYikyAdkm9p3paiQC0CCU6jr
+opnVyLF+bV4npcFG0llDceVGofOU42mmOCdcwXcmdmWJRfExCifAYXZSp6SX
+McWe45COA0eHJH7O3geDsjuCcMvo6FB7I3VGGEGLmD67iw5gzUlP7V/VbnyT
+xOvqQhPUBqVrcHRAMwUl6aFjrg25pKxQ67Ka1zEq2y7XGvgZgfYJNCJQvEcu
+hYMX+qymz5OSEiVtciSq1QZq7kPZxEKU0Dpg7gKOfZyG3aoeU4d3QngoC5jd
+LyrL+npBX+ZIihS8oWhGOSUUHR12FUVFRV+66FstyZnPBsCMXtJoTbOmkmCA
+SwKwp0KUg+am6IrE7WKMli4jfk1CqI6bOyx1VZk4HT+Jien4RTH6ojsexI3t
+Y/PwG7H2D6vVBrU=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"94b4d386-3eb5-464b-a1e6-a64c46f0083c"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35892 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.66905 .37776 m
+.5 .35892 L
+s
+.55162 .56899 m
+.5 .35892 L
+s
+.5 .45184 m
+.5 .35892 L
+s
+.5 .40343 m
+.5 .35892 L
+s
+.44322 .27059 m
+.5 .35892 L
+s
+.3361 .47452 m
+.5 .35892 L
+s
+.02 w
+.55162 .56899 Mdot
+.5 Mabswid
+.66905 .37776 m
+.55162 .56899 L
+s
+.55162 .56899 m
+.5 .45184 L
+s
+.55162 .56899 m
+.3361 .47452 L
+s
+.5 .50914 m
+.55162 .56899 L
+s
+.5 .40343 m
+.55162 .56899 L
+s
+.02 w
+.5 .40343 Mdot
+.5 Mabswid
+.66905 .37776 m
+.5 .40343 L
+s
+.5 .40343 m
+.5 .50914 L
+s
+.5 .40343 m
+.3361 .47452 L
+s
+.44322 .27059 m
+.5 .40343 L
+s
+.02 w
+.3361 .47452 Mdot
+.5 Mabswid
+.5 .50914 m
+.3361 .47452 L
+s
+.44322 .27059 m
+.3361 .47452 L
+s
+.3361 .47452 m
+.5 .45184 L
+s
+.02 w
+.66905 .37776 Mdot
+.5 Mabswid
+.66905 .37776 m
+.5 .50914 L
+s
+.66905 .37776 m
+.5 .45184 L
+s
+.44322 .27059 m
+.66905 .37776 L
+s
+.02 w
+.5 .45184 Mdot
+.5 Mabswid
+.5 .50914 m
+.5 .45184 L
+s
+.44322 .27059 m
+.5 .45184 L
+s
+.02 w
+.44322 .27059 Mdot
+.5 Mabswid
+.44322 .27059 m
+.5 .50914 L
+s
+.02 w
+.5 .50914 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSkzEQDv+hf0vLSR0cL3R4GAVEipxURBymwzCCiijwjt7zQrXJprtJ
++m3aO7nAGcnfze63x2wO/cHdxfnV4O7ybLC2cTP4fXF5dru2fn0zIpVzxpj7
+0f+/a8Z+D0ef/s/9cPRvNPk4/KfhxA6FTcYdEb7YobKE24DQsoQ/gUhpCQUL
+XwdTxs0NiWJMxUxXAWDAZH+5+Zo5f+ic7leLOS+J89gNVcjJVraZ+VuW2RE6
+zHxOzJ+hDWPsLrOfEfsRYJcIkOR4MpAeTJEugXSPpU+J/AlI15r0Ik+c6NIt
+jxHkczyaFVZP8TQfAUCjqX/C0kezSBdgViBI1nwATJJ8CmTowirPHc4EUEcA
+4zg8Z4Z9Ih0ClHn2RGpH1O9OEUT2D33Bivodmj4AKN0MShPbsj0FJVg3fkwr
+m7V07OcSs2wRwz5AXmB3UKJ7DNbW9L2hH3tAejHje8G+dwCom309Bdm00Opg
+8Ff2qxUA7Wrul6DGxqul4Ez3huItguolNiVoBWtatl9N3HYnl8g6je+BJqkp
+6W+yISTLvWFtQUGLr2Ff2dBVzgNa5f8mIatAPl0fk75HpVZHoUqM2JnRiBob
+4bCfxnFSFG7qCqXo28ksO7XCTkkuKgDl09nXtMzavVGKF1hzC0CVgLahWyMb
+vHhf4CDnN9ZmRlt8/Lc1W1T7lPpDVrU5nE02VhlbJL0pxEwWiNkdAF4D2lsS
+f6fZoh5WUD0pTUa2RH1txbQt3SqU3JLdpvbYiWKltG+yVioJOeTt2IK+Difa
+I20YTU67CcwEizGhUQB8koB+5US8DMOs6EV+Z/VG+4Drfo22GAot6f4Usgmc
+iOBdRNug16OuhSKI1kEfKw/XVYfdagOuyESkFbnstbqmWHPdOB1L03TIFo4y
+6A+G7tTQtTOr3nWl8sMRrqcuoNF+TaccZ/5LR8B3B7FcPe9l4OftzAuGUA7G
+iwBlN4hEEbceVD/PEjMnMoAWktfRZ9mKQ7KU4JVJUBSr6exJIZCSqnnt6Ecv
++2sBIPqbyh7LzDNicBrMnEUzoAcc0h6DTgQ3Yklw6OpBl7qCwxbcDibSgJaT
+v9IdMYrcMfL7jRc8ZkG5Z8vuhtoG3R6D5xFaJk3IlEY0B3QaZ0fp5ai9+Pvw
+gAGQFnlISSboIYAeNNSdTz28eOlzNhAdT8bFlcj6p4CLOOBIM+pK9FJjvrN0
+iTVnZH+yrFyUUIfyLx6/7OB2H/+G4l7I6oBwY4cqINyyhq9EeBCvgI/DAx7M
+3D/sQdPL\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"86780cef-be45-44fd-8c72-b637914c9f4f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35715 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.67297 .394 m
+.5 .35715 L
+s
+.53469 .57285 m
+.5 .35715 L
+s
+.5 .4435 m
+.5 .35715 L
+s
+.5 .41095 m
+.5 .35715 L
+s
+.46174 .26591 m
+.5 .35715 L
+s
+.33059 .45909 m
+.5 .35715 L
+s
+.02 w
+.53469 .57285 Mdot
+.5 Mabswid
+.67297 .394 m
+.53469 .57285 L
+s
+.53469 .57285 m
+.5 .4435 L
+s
+.53469 .57285 m
+.33059 .45909 L
+s
+.5 .51174 m
+.53469 .57285 L
+s
+.5 .41095 m
+.53469 .57285 L
+s
+.02 w
+.5 .41095 Mdot
+.5 Mabswid
+.67297 .394 m
+.5 .41095 L
+s
+.5 .41095 m
+.5 .51174 L
+s
+.5 .41095 m
+.33059 .45909 L
+s
+.46174 .26591 m
+.5 .41095 L
+s
+.02 w
+.33059 .45909 Mdot
+.5 Mabswid
+.5 .51174 m
+.33059 .45909 L
+s
+.46174 .26591 m
+.33059 .45909 L
+s
+.33059 .45909 m
+.5 .4435 L
+s
+.02 w
+.67297 .394 Mdot
+.5 Mabswid
+.67297 .394 m
+.5 .51174 L
+s
+.67297 .394 m
+.5 .4435 L
+s
+.46174 .26591 m
+.67297 .394 L
+s
+.02 w
+.5 .4435 Mdot
+.5 Mabswid
+.5 .51174 m
+.5 .4435 L
+s
+.46174 .26591 m
+.5 .4435 L
+s
+.02 w
+.46174 .26591 Mdot
+.5 Mabswid
+.46174 .26591 m
+.5 .51174 L
+s
+.02 w
+.5 .51174 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSE0EQXbKbDRsTAoKWlqWVfwEB5SKC8YpCRJAUhaGQf/SdH4qZ6dnT
+m8mZZeXB4oFUJTPpy5menu6ey1b/6vT4vH81OOp31y77F6eDo9/d1eHlmBTP
+RFF0Pf7+6UamPxp33c/1aPwZM++b/90cmqZmVuFCCAemSQxhWCDUDeFXgRAb
+Qs0SbHfkPtGZCH2zTQKWW+oYwwXknGwdcgOhfCVyuUhKzDgRtX3CqkGxgd5N
+4pY0C/EfIv6FiMcQbxJuXxQ/E1YCdMHImVEGxm20H4BxIORPRDuF0XOEK16J
+PhKWetAbtg3GbbQ7YMhcow9EW5eDxWGH0AQlek9YGTzgmbKAUSppM1MUoicQ
+PSKk68QgFgltV8DeEVZLZ5NgNu67hIGqAcRFgMgqPgLEjvD2CISNgLYhPSTc
+LVHcJay5SWdqitcRoJZWAqHRJ5UE83d9mZ+tJi2IbgjzbQjPq2aj6dA1/zqw
+NCNA6+ExNAC0hHjYS7A6hbBD3AkhBsuTh/0EdmuNXhWBNwSnObk0NR5rz83/
+humthKE0j2c9rlg5/nkBnGWhb4dwbqAB0YbwfAFxi2hrffJdKbPNGRn8wHIu
+x1gJD8R2MBuYKdIgw2gJFml633QrtknwdEu1ITpreguwWbms/LwU2I0QLEuX
+YPXoYBINovuPw2uwakrXnE+L2Vroa23TnTUh0M6Xr0NGamDEWH8vRNje1oBG
+MD892pqov6rorQYc4VegkEkxNLQasnVdLzMkX09Lb1ceOQ+ICmHlhpeGHxkT
+RLWtFvOYDgs1mYdzLz+qxsBrAq9C7krMSMaz0phbastTiwUgCpXud6y+uT1r
+GTP2Ei5TqxsTE/RaWXgWSB5tszCgLSHPiOFspdlpmM1oc8p1pIRUHVS3Fja8
+O0D44Qywp+YfK2PMbrbbyy4l0aC11co81vlN7Zq6o7IKIVuo+Mk7LiyWgLKE
+KoHfBpRFSpCnZacqLYt+/pt/7qy4AyHdMbXsqIfYhcJDlGMUPQEqdjaJnSCp
++HF6D+J6qE8nIYJFy0H0IN6EuPViGhpbzs9yw9CFZwnN3CAHeLnYeVvhdByw
+NXfXEnad1XOeTr0EYn9yBoELO0tGuVbJe0BQSNeF3+z0NYOlaJAhd9PoO7T9
+yoeSwIq9XKjdmwC5lTMrSnCOYUXdc2FJJrtr8k/o2pE18jxxWWl5W6GHPgQe
+fwo4g6IXniU656ZJSGbLE5C8Lln+YYAwxKjuIeROvKDdN3exiWb+AnOjNGs=
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"1c8f80f7-9feb-4a33-b110-62764a7a11bf"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35609 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.67496 .41044 m
+.5 .35609 L
+s
+.51743 .57518 m
+.5 .35609 L
+s
+.5 .43515 m
+.5 .35609 L
+s
+.5 .41879 m
+.5 .35609 L
+s
+.48075 .26307 m
+.5 .35609 L
+s
+.32686 .44316 m
+.5 .35609 L
+s
+.02 w
+.51743 .57518 Mdot
+.5 Mabswid
+.67496 .41044 m
+.51743 .57518 L
+s
+.51743 .57518 m
+.5 .43515 L
+s
+.51743 .57518 m
+.32686 .44316 L
+s
+.5 .51331 m
+.51743 .57518 L
+s
+.5 .41879 m
+.51743 .57518 L
+s
+.02 w
+.5 .41879 Mdot
+.5 Mabswid
+.67496 .41044 m
+.5 .41879 L
+s
+.5 .41879 m
+.5 .51331 L
+s
+.5 .41879 m
+.32686 .44316 L
+s
+.48075 .26307 m
+.5 .41879 L
+s
+.02 w
+.32686 .44316 Mdot
+.5 Mabswid
+.5 .51331 m
+.32686 .44316 L
+s
+.48075 .26307 m
+.32686 .44316 L
+s
+.32686 .44316 m
+.5 .43515 L
+s
+.02 w
+.67496 .41044 Mdot
+.5 Mabswid
+.67496 .41044 m
+.5 .51331 L
+s
+.67496 .41044 m
+.5 .43515 L
+s
+.48075 .26307 m
+.67496 .41044 L
+s
+.02 w
+.5 .43515 Mdot
+.5 Mabswid
+.5 .51331 m
+.5 .43515 L
+s
+.48075 .26307 m
+.5 .43515 L
+s
+.02 w
+.48075 .26307 Mdot
+.5 Mabswid
+.48075 .26307 m
+.5 .51331 L
+s
+.02 w
+.5 .51331 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWGtPU0EQXXpvX5SHtSlEQ5TfokjRgqCA4hNrSygRo0H+o9/5Q3jvzHCm
+Xc6inwwfuAnsZmfO2dnHPLZbg/Px0ffB+clwsNo7G/wcnwx/ra7/OCuGspkQ
+wkXx93s1lP3Lomv/Li6LrxDeNf+tGZVNpdz+Ux0Ylk1eDnxLDAgkizWEoyID
+Iru0L4xV6as0OUR26BVgTW9AKESeE8GRYr5E3PYJrEpgI4Ud0qmugDX0TP0z
+UWdG1cjY4C8UMk+DSHVp4RMRVQFsomfqH1NmiVKLSHWC8IGI6gDOEalOFd4T
+UQPAefRM/R1Rl1XI0AKRKiIcENEsgItEqojwlohaAN6Dgf+kfp9I9xX4hojm
+AOwQ6Z4C94nI960QqJqGSmbArirsEZFsaA2WC6Op7xJ12cZmOdQm0h0Fvk7N
+w+x1D06e07bqv7pxGzJQNNBz6Q0ULShVAfTzZBd7U8l2iGgWZHVQLKA3SxB9
+JdsmInded4D29DJFahQvCYUryZJy3LQMNkaIDSXbIiJ393mQLYGMhdOekm0S
+kQedRZA9AFkGqVH0CYWHuTYoVkChGedaWnmq/ReEz+NtB3yPy1697D1JAz01
+dAEUk7oTwOeRPfY5bBlHIvOpOVdmQ9Xs36BmXMWrOvYwxw43/MSnjSj6z7Tt
+8S1rgdLjaRNj7mQsx68pzzqANQD90KKQUJ0ORxmhNYPXQMsoZLFLZW8ZZCwt
+rytSdrYzbdkyUWf29CYoJJo+AkUXczMP2ZhYSDI8roCsAz1WS+gVu3bTjOsh
+WNpgYRFAbzi96Bn2xO9VskCxsNSHkju1uwlL6Mwoi7ksLMm18+QrtHOYqkkQ
+yqIB00/G3SfHXa+gF1FosKU5wMPIAsiiOHxDgvPD9fyTDNbMMkvCLHt7zHVH
+9qWzVKcJk1YOnuBiy3CLPVdEWK0QtLCpTG927CRKlrgpVqmwksyTZ2anErkD
+qzSs4DoA1kMfm94KO1bhyoKqqfVrKag1ta+/mjoFXR8t9eVi5amLZSUre1zE
+HhsSF92q60OYyoDMyXRX6KuNnTGLIPrm0Adi9PJi3mAviBERZdMU/IlzBCUv
+Jlm+0O0Mx9LwhM5yxKHCxkSUTJ/2ajspmzhVlo2+nfW5LcjRxIAAhomBU9hq
+kFvxo8Ndc6uaMPMHHYjPsw==\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"667bbf9f-f291-40db-aacf-7fddf3b48a14"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35574 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.675 .42689 m
+.5 .35574 L
+s
+.5 .57596 m
+.5 .35574 L
+s
+.5 .42689 m
+.5 .35574 L
+s
+.5 .26212 m
+.5 .35574 L
+s
+.325 .42689 m
+.5 .35574 L
+s
+.02 w
+.5 .57596 Mdot
+.5 Mabswid
+.675 .42689 m
+.5 .57596 L
+s
+.5 .57596 m
+.5 .42689 L
+s
+.5 .57596 m
+.325 .42689 L
+s
+.5 .51384 m
+.5 .57596 L
+s
+.02 w
+.5 .42689 Mdot
+.325 .42689 Mdot
+.5 .42689 Mdot
+.675 .42689 Mdot
+.5 Mabswid
+.675 .42689 m
+.5 .51384 L
+s
+.675 .42689 m
+.5 .42689 L
+s
+.5 .51384 m
+.5 .42689 L
+s
+.5 .51384 m
+.325 .42689 L
+s
+.5 .42689 m
+.325 .42689 L
+s
+.5 .26212 m
+.675 .42689 L
+s
+.5 .26212 m
+.5 .42689 L
+s
+.5 .26212 m
+.325 .42689 L
+s
+.02 w
+.5 .26212 Mdot
+.5 Mabswid
+.5 .26212 m
+.5 .51384 L
+s
+.02 w
+.5 .51384 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtS20AMNY6TEG4tbSmXtqm/hQwJhHu4UyCYFAgPTDuUf+w7P5R6JUVr
+u2c9Tofp8AAzsIuOdLRXSevN6LF/fR893vWisPUQ/ezf9X6FzR8Psag05nne
+U/z7O/RMfxB35c/TIP6JwdfmvzV90/hm+fssuDVNYAS3DsENNSUjGbDE8/wE
+fk1NoLjo+Bkz8993xrgppyyGzCVg1mOwByDkBcmumOIKQMgjkkVMEQEoKCi7
+ZIpLAJULyrpM0QVQpaDsgikuAFQtKDtninMAjReUnTHFGYBqLhkdOzH8BpQm
+gGwSyE6Y4rSg+hSQHTPFSUH1aSA7YorjguozQHbIFEcF1d8A2QFTUEPrOwuU
+3gLZPhvuA2hWyd4BdI8N91yGgcuww4Yd18xqruHvsuGua5loqIH2StpD895h
+sh0ATashunfkgERob7aZdhtAk2qILlJVnVr3QrYF1CdUCR31mrpCp3iDaTcB
+NK6G6OxO5TpdZ9qN3MmhrZhRpyhktJl2HUAVpUXnzB5ftN5rTNsGkN3hDwB9
+r7QopK4y7RqA7HmcB+icOkX5osW0qzK+TMol3UVgtqAuUR5rMmkLQGTzGQBL
+6g/l5xVmbGaGKaViHVh80RHy+gzBIVXDNFRjhKoZqqzBSsum2TKC5YSgYgRf
+TS/QXiWh1FBCXydVV1k9PVE/4S67CzI9tFyfXNOTDUXnhNSXALCYHjA+Iu3M
+4OSHzBaA2XyalHrJK5cJpR8BxVxaD99fFG2sx/yLhg6vRBsUG+1o88MCumgS
+G1H8tpklP4ihpMGzh9mmrLQon9iQa2OopC6UB21ERIHfJg0UEYW2k1aiHqrI
+LIqituRqVFZU0w6cM0BOpXY4yB2PM2s7U5fUMocAshUrOoV+mpZ6OdWc3QD8
+4nHsmzCiEpPcUizMqU1ReUuGgcuj1MWn6ekFrvWTStz5CnAuPNfuo71AiEye
+Ls/w+ukCaMQ32DO8BCOdGVLKeYWO9JwmB/IO/8fn++jfCW4yjhJt6msFGRf+
+nvHXJ5AX8WHmtXlRjTf2B6ZnBJs=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"d1398c0d-1c50-4aa1-96e2-ec98c0329e9d"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35609 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.67314 .44316 m
+.5 .35609 L
+s
+.51925 .26307 m
+.5 .35609 L
+s
+.5 .43515 m
+.5 .35609 L
+s
+.5 .41879 m
+.5 .35609 L
+s
+.48257 .57518 m
+.5 .35609 L
+s
+.32504 .41044 m
+.5 .35609 L
+s
+.02 w
+.48257 .57518 Mdot
+.5 Mabswid
+.67314 .44316 m
+.48257 .57518 L
+s
+.5 .51331 m
+.48257 .57518 L
+s
+.5 .43515 m
+.48257 .57518 L
+s
+.48257 .57518 m
+.5 .41879 L
+s
+.48257 .57518 m
+.32504 .41044 L
+s
+.02 w
+.5 .41879 Mdot
+.5 Mabswid
+.67314 .44316 m
+.5 .41879 L
+s
+.51925 .26307 m
+.5 .41879 L
+s
+.5 .51331 m
+.5 .41879 L
+s
+.32504 .41044 m
+.5 .41879 L
+s
+.02 w
+.67314 .44316 Mdot
+.5 Mabswid
+.67314 .44316 m
+.5 .51331 L
+s
+.67314 .44316 m
+.5 .43515 L
+s
+.51925 .26307 m
+.67314 .44316 L
+s
+.02 w
+.32504 .41044 Mdot
+.5 Mabswid
+.51925 .26307 m
+.32504 .41044 L
+s
+.5 .51331 m
+.32504 .41044 L
+s
+.5 .43515 m
+.32504 .41044 L
+s
+.02 w
+.5 .43515 Mdot
+.5 Mabswid
+.51925 .26307 m
+.5 .43515 L
+s
+.5 .43515 m
+.5 .51331 L
+s
+.02 w
+.51925 .26307 Mdot
+.5 Mabswid
+.51925 .26307 m
+.5 .51331 L
+s
+.02 w
+.5 .51331 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSFDEQHXZmd5Y7C3IpLZVvAWVBQbnfb8uCgmBpIf/oOz+Ek3RzejKc
+oE8WD1C1m2yfPmeSTKfTYalzc372vXNz0e1Mt687P88vur+m535cF6a0J0mS
+2+Lzezpx/buiq1+3d8VfAT43/625ck3NLf+pGC5dkzlDN2L45htvuRNLUuJf
++CYF6n6V9b/igTX0Cvd7IdecyI8vVClgV9BjIZ4RKAUxJeiREE8JlIGYEfRQ
+iCdwymMSFduBEDsEajwqti/EYwLlIDYJuifEQzj1/Yv7AYGM2EvQXSHuE6g/
+fHYF3RHiXozoTf0E3RbiDtSH4D5A3LfEfZtARhwk6KYQtwg0DOIQQTeEuIEB
+jsJ9mLivi/s6gVru22+9EYKuCXEtRqw7U4ugq0Jcjc2s+RfiMmZmC5GhV9re
+SWTkK+LwmUAD0MnRS8PnVRjLIvaJQH2QsF4dYuzdyZCSRTgZcTAcWS0WNzKQ
+5COBbEoj6PVCjEXvkoh9IFAdEmPo2ZZjO2dRxBYIlEJiIpxwdP/K/JI2nExi
+yvWyMD5Y0pFZJbOQkCgq+3jCK+iNwrUR15txTe6QNyC+ALFOiAsl4jheT4bl
+iB4I84/MQP1yRMxEqMdOpraQ3/smK0NQycPx1WBrQZkdlnOiMUcgC74cAWmb
+phnGVeXwVtk2GfA9owXlGkZttgaeplLzdIQPbePuezJclsrqF5938puFvBUX
+kxiDj68x15sVItt4lo7GQXzreo0SkW1/Ky5sx77GmlTypo58keiwELaE8hK9
+yrvSYF2KKdbCxDQFG4tUFWNZ1yoaO2BtpWz1NIOwU4CVQn1YqTFIsJVQ2eWY
+rGW0LJywLYKm8BUi0YRTExJDsLFxqxg7bS332zYYDMV8T89LdtKz1GyZ2E4v
+ln9VllUeVvSloUT0PNDaYINApezxYIPaKWaP1AJqk0gNYNEtjti5qRKsePPu
+DRC9hNaUrEj0g6/HnlMuRtkS1sOZaZm9S9yluH5wz2JLrSqsdLZ3xAoAvU2w
+Yt2CzYLySNzZpcD2OAssJR4SyOpEk9Ab4BFxt7fMDnwlstuRZXfLunJT1FsY
+P6xYqlPaCX1Kwo9buc3qHdogScrJ/b1ZrqDecFkiZI8ZTjHWKzE8iX8sPDdP
+qkl6/gBCYNWt\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"be73615d-61aa-4ea3-8445-f5bb8be23ef0"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35715 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.66941 .45909 m
+.5 .35715 L
+s
+.53826 .26591 m
+.5 .35715 L
+s
+.5 .4435 m
+.5 .35715 L
+s
+.5 .41095 m
+.5 .35715 L
+s
+.46531 .57285 m
+.5 .35715 L
+s
+.32703 .394 m
+.5 .35715 L
+s
+.02 w
+.46531 .57285 Mdot
+.5 Mabswid
+.66941 .45909 m
+.46531 .57285 L
+s
+.5 .51174 m
+.46531 .57285 L
+s
+.5 .4435 m
+.46531 .57285 L
+s
+.46531 .57285 m
+.5 .41095 L
+s
+.46531 .57285 m
+.32703 .394 L
+s
+.02 w
+.5 .41095 Mdot
+.5 Mabswid
+.66941 .45909 m
+.5 .41095 L
+s
+.53826 .26591 m
+.5 .41095 L
+s
+.5 .51174 m
+.5 .41095 L
+s
+.32703 .394 m
+.5 .41095 L
+s
+.02 w
+.66941 .45909 Mdot
+.5 Mabswid
+.66941 .45909 m
+.5 .51174 L
+s
+.66941 .45909 m
+.5 .4435 L
+s
+.53826 .26591 m
+.66941 .45909 L
+s
+.02 w
+.32703 .394 Mdot
+.5 Mabswid
+.53826 .26591 m
+.32703 .394 L
+s
+.5 .51174 m
+.32703 .394 L
+s
+.5 .4435 m
+.32703 .394 L
+s
+.02 w
+.5 .4435 Mdot
+.5 Mabswid
+.53826 .26591 m
+.5 .4435 L
+s
+.5 .4435 m
+.5 .51174 L
+s
+.02 w
+.53826 .26591 Mdot
+.5 Mabswid
+.53826 .26591 m
+.5 .51174 L
+s
+.02 w
+.5 .51174 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNlSGzEQXNhdG2MDDqQqqRxV/EsINwTCfccQCpyEowj/mHd+yLE0Q8+u
+3LLJS4oHXGVrV+rpGWkOSV5p3V+eX7Xu22et6bm71u1l++z39OzNXbcrHUqS
+5KH7/TOduOdO91F/HjrdT3fwpfnfza1rhp0XvknHjWsy13EiHdeuyQsdvyCS
+ZB3pSh6/SvIDkNTAKcCuOZaXtm/Sx259c79Zsa+g/gKMeVlLwHIo8HOAqnjK
+CPxA4N/JUMX9pgMET8FeAzwn8H2Bt8jQSDBvXdMKge7J+AmU1v9Z9giyYzB4
+hMB3BX5IhhpcaY1Ad2R8H0onuOwokd2W8V3INgloeID0DhkKeVyUFlazDN4S
+xBasmCQg/9YgA5sivQHp17E5jMWlv5KhKTD2ZuM4wW8IZq1syIi5pAwXlckX
+MuTheZDaiQ/7/mQr0O0NzMrJ2TsN5u51wSxBrA5rxHl5GFm2woxvTZCLZKgK
+IyfMyGpIXQoiNnnVMA+OHBb386EVUOZN8UsyC1AKY9/2IbXKyaJtVdAzrqm6
+kQ/uKSWerhJploPK+AmMH2FmsC1YHLAcXCnwNBG8jKcGHmbPcmGGbIkep+vL
+Zw3WMEXMTLYsywVP9e5tKVQ2oDJY6wwx4C1mpXpJ8HNcR44pvIIfWCqwPWMx
+ztwpbq+ppT5PQAOYUKBrQWTmydBwbLELdbfC9Lp2GPMfg362Q6v+hZh+i6oM
+jmCRYevNYoQdWWTKtAgxeB0zN1UsDTzEEoIdYubimjMIjoMs0ML6GjDJUpq5
+TzUvkSHmHG+DD91JWFNRO4N419VcjjEXjiHlI0AVOZKVK3AwRcllLUqDc6hh
+PD0F2Xc04KfQlUmiB5PP0rP6RJV1plLbJlSyQjMTVxSUaBZ27+El5WHnB1bB
+osnkGSuFJViLSdO6IoTdn3fujcWrRss6oWXnWcuKXme+gQ6rF4tx+lGAMmac
+e5vCslgw6obCzoThZUA/jLmJAcsJ3a03Yswy7Tyctn8NLhQV4PX4s0lIrVQE
+xlkusFjpw2gF3jxgtzhbcD0Mb8VmyoyyrdoWQ+8G24RnNLbynttqgl6Q2DXF
+SrdtYSa49xRBCxt2OVGKXTJkKcWKt62k3rb3CKh//TcF+o/APgHlfSlMgf79
+cEBAWV8KU3D6FIqgdrDSqzzs2mwRZOlxLvAjAg/tRc3xghfSdawWBikfOL89
+GBxE6U95OdF5FmwoPl9J65ff015HOlrQcyMdz+JPsJfmOTbJ0F/XxBmG\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"b65c9f75-5d31-4dc6-8ea9-6ec443e18e2f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35892 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.6639 .47452 m
+.5 .35892 L
+s
+.55678 .27059 m
+.5 .35892 L
+s
+.5 .45184 m
+.5 .35892 L
+s
+.5 .40343 m
+.5 .35892 L
+s
+.44838 .56899 m
+.5 .35892 L
+s
+.33095 .37776 m
+.5 .35892 L
+s
+.02 w
+.44838 .56899 Mdot
+.5 Mabswid
+.6639 .47452 m
+.44838 .56899 L
+s
+.5 .50914 m
+.44838 .56899 L
+s
+.5 .45184 m
+.44838 .56899 L
+s
+.44838 .56899 m
+.5 .40343 L
+s
+.44838 .56899 m
+.33095 .37776 L
+s
+.02 w
+.5 .40343 Mdot
+.5 Mabswid
+.6639 .47452 m
+.5 .40343 L
+s
+.55678 .27059 m
+.5 .40343 L
+s
+.5 .50914 m
+.5 .40343 L
+s
+.33095 .37776 m
+.5 .40343 L
+s
+.02 w
+.6639 .47452 Mdot
+.5 Mabswid
+.6639 .47452 m
+.5 .50914 L
+s
+.6639 .47452 m
+.5 .45184 L
+s
+.55678 .27059 m
+.6639 .47452 L
+s
+.02 w
+.33095 .37776 Mdot
+.5 Mabswid
+.55678 .27059 m
+.33095 .37776 L
+s
+.5 .50914 m
+.33095 .37776 L
+s
+.5 .45184 m
+.33095 .37776 L
+s
+.02 w
+.5 .45184 Mdot
+.5 Mabswid
+.55678 .27059 m
+.5 .45184 L
+s
+.5 .45184 m
+.5 .50914 L
+s
+.02 w
+.55678 .27059 Mdot
+.5 Mabswid
+.55678 .27059 m
+.5 .50914 L
+s
+.02 w
+.5 .50914 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWMlSGzEQHbzNeCEsKZLKISn+JYlZwr6YNUW5XFQggRCWf8ydHyKWWn6t
+kZ9mzCkcoMpo3Hr9utXdasmz3n+4OL/uP1wO+otLd/0/F5eD+8Xuzd1QVJ1K
+kuRx+Pm7mJjnp+Gj+/f4NPwbTr4O/2l4MEPFJONUBPdmqBnBiQhuzdDwBDdQ
+qZinqqd8jakqnuTRPNnBkfzCfD1Pl1RHUPvtSOCXADVgswD+A/AM8CqBHwr8
+HPAm4LU4fAB4ywpqALm6rhPdA5nvQ7eDQDcIvCfwM8CnA1BiI1CsfYrVvLGC
+es7REUtGCPZl8hjm52LmC7QPoT1PQFXEO5jYE+0etN8GznsLSColLHtgWSAg
+VqCMbFcAOyB7V+ZSO86ylWfxanmskDqEZUfmN8Dy3jxZVakFluQCorW8O2kx
+UViG5tu2zK2CaMY8NbGLqiTKFa1KSvYFZBU8ZaBlXoS5TEaOBLgtAXw2Q53o
+pCgWrynxnTNL6Dc9ekv1EVQSDR9tVQtYNAqBkxnyFWFmlc2isSGArh1q4Sq1
+QafIK+29CZGZbyxRzuQSCWyuOlqwq02c2dWjhtXTOreG+cQ/xixBRuLN7LIu
+z7a982C5wIMalmB7XYMkrwEI28trvo1wX4zLNGRzWDHre0zmTK3ETGnNeCdP
+ytKcT3cTyi1C/U3wq7HFBDK9VLRd9CL2I42XLTx9nlvsAqFJFANZUVjy/TOF
+KjtxxQHnDvEjuAs1JrOuNtnaWf07P9YmhGcwoF6W7DxkQi8/0WvQStwbBtcK
+FGd5nTKH9NrIVskK1Lm2HnNNa7cWOOS3oBkSP1Z3y3FrrJrC6pesjPek2UKj
+LFDSht0RUO6I1kdQFTYo84h6eEiDIBk1KneilpvU2gpMhgGQrIw63KSl2417
+o+UnxTl2GrMUWHfTfP8MbgPJ6FxwV5+8VdZs9XjQjs7uEilSbwPhkrs9oZVK
+uRV7w2mZr904d5vxRC+wn8xoQ/tVJDuEsqNEWYxoNH4wY7OEcFoJ+VVtAVH0
+AO6jy3JR2C12mVuYhQXtFe5qsheLai1vvg0K3SWbJRTB0euNWuqWsgWZ+wmw
+TyijRf40vj2waTuYdb/AeoQ5eFFgV67ttfc8RU23e2VwQBTDMxXeq9OW4jhO
+oS9D2BnTwqx7PXNIQHpTix5s1oszoTgiIK0n5oWWSn8SCuaFnogDoTgmIL3F
+B01EV3gu4hNn0tOGgUBX/boo1NVXRhb8U8Cnznsf7GVbN9aVh7e3st+ewO6O
+W09grd+J4Ds47kXwIt4qvg4veEim/gE1NPim\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"d6545675-30cc-4a58-bced-56880ffcdd86"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36137 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.65668 .48928 m
+.5 .36137 L
+s
+.57459 .27705 m
+.5 .36137 L
+s
+.5 .46007 m
+.5 .36137 L
+s
+.5 .3963 m
+.5 .36137 L
+s
+.43193 .56363 m
+.5 .36137 L
+s
+.33681 .3619 m
+.5 .36137 L
+s
+.02 w
+.43193 .56363 Mdot
+.5 Mabswid
+.65668 .48928 m
+.43193 .56363 L
+s
+.5 .50557 m
+.43193 .56363 L
+s
+.5 .46007 m
+.43193 .56363 L
+s
+.43193 .56363 m
+.5 .3963 L
+s
+.43193 .56363 m
+.33681 .3619 L
+s
+.02 w
+.5 .3963 Mdot
+.5 Mabswid
+.65668 .48928 m
+.5 .3963 L
+s
+.57459 .27705 m
+.5 .3963 L
+s
+.5 .50557 m
+.5 .3963 L
+s
+.33681 .3619 m
+.5 .3963 L
+s
+.02 w
+.65668 .48928 Mdot
+.5 Mabswid
+.65668 .48928 m
+.5 .50557 L
+s
+.65668 .48928 m
+.5 .46007 L
+s
+.57459 .27705 m
+.65668 .48928 L
+s
+.02 w
+.33681 .3619 Mdot
+.5 Mabswid
+.57459 .27705 m
+.33681 .3619 L
+s
+.5 .50557 m
+.33681 .3619 L
+s
+.5 .46007 m
+.33681 .3619 L
+s
+.02 w
+.5 .46007 Mdot
+.5 Mabswid
+.57459 .27705 m
+.5 .46007 L
+s
+.5 .46007 m
+.5 .50557 L
+s
+.02 w
+.57459 .27705 Mdot
+.5 Mabswid
+.57459 .27705 m
+.5 .50557 L
+s
+.02 w
+.5 .50557 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWG1PWjEUvl4ucFERidmWbdnCp/2TCTqZKIq6mBg0JBgzp465n7jv/iFG
+T8tpb3lO7yX7MD9ogi2np0+f89LTlu5wMh59H06ur4at9sPwbnx99bO1/eNh
+JiqtRFH0NPv8aUWqP511zb+n6exvNvjS/N/mt2piFZMzLXhUTaIEp4Jgopqy
+M+VeNSUlKJGAulM9xrNuWanMS2r9uXZ0or/csGaVe1hzzOM1kYL6dqzVR6y0
+JlGI5dmXPLsOrCSwBMw+0hoXPLtBgrI7m1HKMsA5AzSBknUsnn3Gs7e85bPW
+z3oVgNLXWgNGeUWCxEdB7kOsDF6f8d6QoJLBc5jFnA0YqMdAb4F5c+/GDJUC
+qEOt1mWo94WgajLULkN9AErIV4S4CgYONOK2asjrH5lAAlzn5FQA7bNqPtm4
+Jb6pMe+VAECqRt4xsRDUOoDqOZb5O5I9TUF4LamgqhNYqg2G7P5JeIvFtpxg
+czYA0L5eo0ONGJSUV6ozmp8PXFW8EuVXn5xVnak2uxLOXLQC8mfA1h1q8vYJ
+BaSMKnS2fFJvE6z21V0NbSXMgKBSFEqTPo3l1golRNOzERd55Eqz4K64YH7t
+QHlBNLVfXQolZowmdWUuNkI+xIJbrYKXXeiQREXK0PgChtCRYjNtLUCIpOiE
+Qwz2ZAYIAgUKnVlOXQGbACGjM8aQ21uGnHOM4tTErOYz7cVtSULICygNkgA1
+dK5E+MqFZIiCDqxJtIKMA8GbLtReZ7yS9WKBiAXYoeuLc6te2O/4aBFoiDdZ
+RFIXCVO+8knaBbSHJW9BdilPRjsNuTXADmUwQdhHBDyV1Te/wJg/MbqGxn5B
+Gr7vuTSgm5E3dz3oIyTbkcmhmmg9U2JvISIbQQ8imSHSk4iIlyQiQkVjy/jP
+y6qA2Wg1fXUMFMhV1W0wpwJh6cir1dmNCffQiUmVxXm3Lmxyk2UHkkXO6xjb
+Zm9oqcSk869rNNkUa60JxSEADdmLUoGekTXVbcugflrboOEtTe/Aqupta/U+
+ALWXaa92xJyYjcIQ6D47D4G9xNe43tj0iR3bj8Aa1SzNRYsTkNE29QisVwRe
+3PVk1SaDmQf8MVB3Dgv0PsEXeYIYyKD2mMx9NNBE8xPXAEBZh3v8xMJMovMc
+RFTdUAaT6EKrnUje1vTKLj1GtiiXOSh+KYgyNWJUiEPWRRWePdbiU+iOTILf
+yJq27lDvVmtS7PwnkPncOyqUAxN/zi8t+MYmPGrBs/jZ9qV5/k208hc+8g+s
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"31bf8857-dd3b-40c2-a318-a19c54b74f4b"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36451 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.64786 .50324 m
+.5 .36451 L
+s
+.59146 .2852 m
+.5 .36451 L
+s
+.5 .46808 m
+.5 .36451 L
+s
+.5 .38962 m
+.5 .36451 L
+s
+.41613 .55681 m
+.5 .36451 L
+s
+.34456 .34662 m
+.5 .36451 L
+s
+.02 w
+.5 .38962 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .38962 L
+s
+.59146 .2852 m
+.5 .38962 L
+s
+.5 .50109 m
+.5 .38962 L
+s
+.41613 .55681 m
+.5 .38962 L
+s
+.34456 .34662 m
+.5 .38962 L
+s
+.02 w
+.41613 .55681 Mdot
+.5 Mabswid
+.64786 .50324 m
+.41613 .55681 L
+s
+.5 .50109 m
+.41613 .55681 L
+s
+.5 .46808 m
+.41613 .55681 L
+s
+.41613 .55681 m
+.34456 .34662 L
+s
+.02 w
+.64786 .50324 Mdot
+.5 Mabswid
+.64786 .50324 m
+.5 .50109 L
+s
+.64786 .50324 m
+.5 .46808 L
+s
+.59146 .2852 m
+.64786 .50324 L
+s
+.02 w
+.34456 .34662 Mdot
+.5 Mabswid
+.59146 .2852 m
+.34456 .34662 L
+s
+.5 .50109 m
+.34456 .34662 L
+s
+.5 .46808 m
+.34456 .34662 L
+s
+.02 w
+.59146 .2852 Mdot
+.5 Mabswid
+.59146 .2852 m
+.5 .50109 L
+s
+.59146 .2852 m
+.5 .46808 L
+s
+.02 w
+.5 .46808 Mdot
+.5 Mabswid
+.5 .46808 m
+.5 .50109 L
+s
+.02 w
+.5 .50109 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWFtPU0EQPpxrKfQiGkyMiU38L2ArrYDQBx40tVHBeCHYmIg/0Hf+UD17
+OTN7pjN79rxhQhO6h9nZ75udncvZThery4/fFqur5WJ0eLO4vrxa/hwd/Lgp
+RclWFEV35d/fUaSe1+Wj/bpbl59y8mG4T8MfNcTqhM6N4FYNqRKcGcEvNXQc
+wQ1oJFqgH9dmLnKQvoNergU51aueLe4X0N/mcWP9nIBY/Xdq5j/B2l0tyGpr
+7egD+AAAffCI2V+lHcUNNrwDiEfEfovCreVkJ0b/AvCeePC0VamMMgeUpzxK
+wqzlZBbvFPCeefC0VZmMMgOU56Ae6h4O9tjAHgKYc3bm5MuvFyJBfRMVRiET
+Haih8IMysiDYgZrZbw3baXCLnjGR4upgIusc7wXy4il7eMegRFIpBYM6wIyI
+XDTjbJeZfePwkbpRLcths7pC5FLEpSFEEzIlFZcCSLvwRFyRAd9OE19QQemC
+awt4IpR5OGVWo/RtdRc2iEdFoo0pCRFU7DrazEy+bmnEQH3nWNUKbiUgcLFe
+Iw5Jv6rcZ8ia11gdxpaEiWf3Q+DEgCXH7GE7asnWJ/pQUgkl7RtKY8BwTWUz
+Uo8ZPavh5ndDwA3bsWeEwX6cesC/WWAWk8bj2f1U5G+Ou6LJlkSqD1y2eQzK
+Aw3CmiJ2CxIX3DsGZ9yRbBzXScWaHlCuedMFZa52WltnbWzFlhevBbdQenTf
+RkvweJCzimveDUXMVydCnSr2V4+p26KpGwXBnLe/+PsDlvOLKdG2P4baVj+0
+lNhr5WJCbapyTB7DOB9j1GWWSTjpLm9CS9/sMCjr2gWyOTHphdDqcjllLTkO
+sMRtH7IXxJcsrgFy9dtjkc7WBEM26MpL+zpEM9GbNPCS12KyE9q4oLPwLCeS
+vxMINF0y9siOg8HQ5f7rCOm/Wm0Is1x1DSLlyi1DaZQql/a8vOa2Yn89YOLd
+uQsV7jHQ0WhnUB1EJ3kIO7CQ/lZDyPqwOSygZP+TEBr6omVHPfcYOLAt2iR6
+y4DmIqj9aIG+UOuL5jgEiotO7dOXSvRKhsiaITbTXBuXMeEbO2xnDB59b+AD
+dB+8UIBs3AAqdHgukPcAfi6DYoaKLwR4p7kwOOeiB+vGVZEX1yP0vYsipO7G
+hQHvsUt3ec55Qw34K4a26bOZmhPLoRRhvf0qa+KBas1rR1NH8MqxTGv8FgRz
+2OitEdyL35wfhv9miLb+AQ88twQ=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"9f6a8567-7472-4f15-b8ad-14caa9704b1f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36831 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.63754 .51626 m
+.5 .36831 L
+s
+.6072 .29492 m
+.5 .36831 L
+s
+.5 .47576 m
+.5 .36831 L
+s
+.5 .38344 m
+.5 .36831 L
+s
+.40114 .54859 m
+.5 .36831 L
+s
+.35414 .3321 m
+.5 .36831 L
+s
+.02 w
+.5 .38344 Mdot
+.5 Mabswid
+.63754 .51626 m
+.5 .38344 L
+s
+.6072 .29492 m
+.5 .38344 L
+s
+.5 .49577 m
+.5 .38344 L
+s
+.40114 .54859 m
+.5 .38344 L
+s
+.35414 .3321 m
+.5 .38344 L
+s
+.02 w
+.40114 .54859 Mdot
+.5 Mabswid
+.63754 .51626 m
+.40114 .54859 L
+s
+.5 .49577 m
+.40114 .54859 L
+s
+.5 .47576 m
+.40114 .54859 L
+s
+.40114 .54859 m
+.35414 .3321 L
+s
+.02 w
+.63754 .51626 Mdot
+.5 Mabswid
+.63754 .51626 m
+.5 .49577 L
+s
+.63754 .51626 m
+.5 .47576 L
+s
+.6072 .29492 m
+.63754 .51626 L
+s
+.02 w
+.35414 .3321 Mdot
+.5 Mabswid
+.6072 .29492 m
+.35414 .3321 L
+s
+.5 .49577 m
+.35414 .3321 L
+s
+.5 .47576 m
+.35414 .3321 L
+s
+.02 w
+.6072 .29492 Mdot
+.5 Mabswid
+.6072 .29492 m
+.5 .49577 L
+s
+.6072 .29492 m
+.5 .47576 L
+s
+.02 w
+.5 .47576 Mdot
+.5 Mabswid
+.5 .47576 m
+.5 .49577 L
+s
+.02 w
+.5 .49577 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWEtPGzEQXvaZBAL0woUecupPaUuTQKGVeqiEFCGkIPUloJeq7d/rnT+U
+xvZkxjv57PX2RCVWAnvt8XzzHm/mi/vl9efF/c3VYvLqdvFteXN1N3n59Xa9
+VOxkWfaw/vszycx8tZ7Sv4fV+llvPg2Pd/hthtz468It/DRDZRbO3cJ3MzTW
+o8XKLTn/5h7RFyaqmaEiJ/5LM9RmZU8oS5/SE2bBbJ8xcW63CktJpzbkH5n3
+kZkVTA4Pmrczd/A94xwzuZUpq3xyxiOtT9q8LYMJI5e8W4SRX7O5XwC9hEXZ
+wWLI2KWZVYA8IsUJH8xZnudAHnEuAiBm07YFxB86KsxQAz4RXadE4AkVDbqc
+Y8c7RAQNH0JCtADbWzmflggrOaJjQAPA7RRrRo89NmSsgmcVoyqVB+loWq3N
+wV2eWVcMgN8EZRhGmdmhQSm0GZ3NRCMbeqN05kAFFbP7wHgCMOoHoHPIABy2
+5Va7PQF07Geb+C3ZHOIizHaeyPbATGoOULXbE0DXA7Y8ClFJ1zFgNQ+j6ETl
+ANouCQVjSBHd/xe0rXSW7FA5IZDBOEwHbzC4RABqZyKBsvhBGPw0HVySHoGL
+nZVdIpoj8AEGl6BBjazi3cN+aEOMhhIG4ZbqOBm8p71HWAgVw7AWtaE39Ah/
+FsZ3yT7Q+HoMS9E2lHQS5HqS4yzRDiu/PSTUewlDVFwi4KjiBa8HCFlicK8f
+siZ3NmSd4w1UbhdIgQjqmA+ibHZrWyGJSJF9UOMmWd6GLOAlN752I6Oj/oou
+PhHwYEHPSb1AWiBbIL11e00WJ6f3iPv1CIMeCTANCyC3I1TxrFBFYplHodGF
+3FHm6KlCtR7VCYI8B1vS09DlogkVU1QKu1ASbKPuqciZyCcRZCkPuqn7/UK+
+ZnAV7A8ZvBxY+eU2a2fOPDjpqW1eAKZScIPfuzXrVIiPt6paF0aCC6TnqauX
+fWvaRta3BqKfhcVIuQDQIxeAph1NuqSThNMwqlxA1EzR2c/7sVl608Es4GRh
+PzGz2mP1LqIlblwZ/YzTtAWf+vxiDWbLQkfM7YPPQ6dzRp9qlvIyTIlazS4f
+vPYO1hyzduuTZ9wKhJpdu/OI7PkfHkML/cstPIrfH5+G/3TIdv4CN6d6Mw==
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"d8c83d7b-16de-4b34-85a7-dca11716000f"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .37275 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.62584 .52823 m
+.5 .37275 L
+s
+.62162 .30608 m
+.5 .37275 L
+s
+.5 .48301 m
+.5 .37275 L
+s
+.5 .3778 m
+.5 .37275 L
+s
+.3871 .53904 m
+.5 .37275 L
+s
+.36545 .31852 m
+.5 .37275 L
+s
+.02 w
+.5 .3778 Mdot
+.5 Mabswid
+.62584 .52823 m
+.5 .3778 L
+s
+.62162 .30608 m
+.5 .3778 L
+s
+.5 .48972 m
+.5 .3778 L
+s
+.3871 .53904 m
+.5 .3778 L
+s
+.36545 .31852 m
+.5 .3778 L
+s
+.02 w
+.3871 .53904 Mdot
+.5 Mabswid
+.62584 .52823 m
+.3871 .53904 L
+s
+.5 .48972 m
+.3871 .53904 L
+s
+.5 .48301 m
+.3871 .53904 L
+s
+.3871 .53904 m
+.36545 .31852 L
+s
+.02 w
+.62584 .52823 Mdot
+.5 Mabswid
+.62584 .52823 m
+.5 .48972 L
+s
+.62584 .52823 m
+.5 .48301 L
+s
+.62162 .30608 m
+.62584 .52823 L
+s
+.02 w
+.36545 .31852 Mdot
+.5 Mabswid
+.62162 .30608 m
+.36545 .31852 L
+s
+.5 .48972 m
+.36545 .31852 L
+s
+.5 .48301 m
+.36545 .31852 L
+s
+.02 w
+.62162 .30608 Mdot
+.5 Mabswid
+.62162 .30608 m
+.5 .48972 L
+s
+.62162 .30608 m
+.5 .48301 L
+s
+.02 w
+.5 .48301 Mdot
+.5 Mabswid
+.5 .48301 m
+.5 .48972 L
+s
+.02 w
+.5 .48972 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWMtOHDEQHOa1OxNYghRFeUjRSggh5UOSQ/YBn7BCkeAQJSLkkBv5utz5
+oWXcNmWPKXvGgUMSsRK4aberunu628MuN1fnn79sri7ONvOPl5tv5xdn3+cf
+vl52qmIny7Kb7uf3PFPythPNr5tt9+k2n5Z/Zfmlllw9vbVWXKulVIqVVvxQ
+y76jWODIrpLeKqnFKQPzCacOYZ77XGJUK8V7JRUwykTcaiuYL/pIYnMMXTlw
+0NsqAGEdrGSzhJ2x7aHc260A9A5AtexVPVPqEzepAfkGUg3wwotG/bXUR5fc
+xSlQXkKaEhQ/9/eQubuNEoT0APANgRp0fNibKaj2IDEqvxgGqJhnNqoWUT17
+JCrbPVW/MTTa1gxUWHkYVRol81DSN0Uivd06jYD5M0N0s4cTMHOBLUMRTNII
+mLnAFiEC1j+GYBWKIAdYhWrKUWHjwZi3ujRt65s1CM+6JkLJwm1A4JSt+eSh
+GZMYKnNzAoLcC9oltxlnLTRE6fjPhx5rKqZjIyNC3hL/2XRiOjYwE2Nn3tqJ
+NTbmPNT2EWbmKAuIBS4+SBU8J7uLMClrbOdNgEy5HNccZ1mHQivxTBlsMeA8
+g92DP2welNjVKbu7T7L9R2cJdEgi0S5zGAkaUQVMx6pqyIex9WBvbfZYWSdF
+mO1dEG831hKMno3ZCL0dO7bKdT4jr3w5LrFEIvr6wIlsktu+NJ4yeIV4lHf1
+Frwz2HX2J7yBNz02MFnPGcqTkebihkTKGpLVToQgWOnB6cs6J5FAImhCKWJd
+EiFg/siDnaGagx0fgWVeTJAYr6flX96mr3sYVQWqGQhYMbDxEaGKX7YvlFTZ
+ZPEOXoXhmTcCL6rXgC/Mjtetich2lMwRgvfiakFPOaV9kEfwrneicLEcSvmS
+oVXS0vE6MAkksQe4WUrn2LqfczF6BaiVYyRkP32ya634K757elr+iyXbuQWk
+mb/f\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"54e0ef81-fef5-4560-b60e-ed3eb707f795"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .37275 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.63455 .31852 m
+.5 .37275 L
+s
+.6129 .53904 m
+.5 .37275 L
+s
+.5 .48301 m
+.5 .37275 L
+s
+.5 .37275 m
+.5 .3778 L
+s
+.37838 .30608 m
+.5 .37275 L
+s
+.37416 .52823 m
+.5 .37275 L
+s
+.02 w
+.5 .3778 Mdot
+.5 Mabswid
+.63455 .31852 m
+.5 .3778 L
+s
+.6129 .53904 m
+.5 .3778 L
+s
+.5 .48972 m
+.5 .3778 L
+s
+.37838 .30608 m
+.5 .3778 L
+s
+.37416 .52823 m
+.5 .3778 L
+s
+.02 w
+.6129 .53904 Mdot
+.5 Mabswid
+.63455 .31852 m
+.6129 .53904 L
+s
+.6129 .53904 m
+.5 .48972 L
+s
+.6129 .53904 m
+.5 .48301 L
+s
+.6129 .53904 m
+.37416 .52823 L
+s
+.02 w
+.37416 .52823 Mdot
+.5 Mabswid
+.5 .48972 m
+.37416 .52823 L
+s
+.5 .48301 m
+.37416 .52823 L
+s
+.37416 .52823 m
+.37838 .30608 L
+s
+.02 w
+.63455 .31852 Mdot
+.5 Mabswid
+.63455 .31852 m
+.5 .48972 L
+s
+.63455 .31852 m
+.5 .48301 L
+s
+.63455 .31852 m
+.37838 .30608 L
+s
+.02 w
+.37838 .30608 Mdot
+.5 Mabswid
+.5 .48972 m
+.37838 .30608 L
+s
+.5 .48301 m
+.37838 .30608 L
+s
+.02 w
+.5 .48301 Mdot
+.5 Mabswid
+.5 .48972 m
+.5 .48301 L
+s
+.02 w
+.5 .48972 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWM1uFDEMTudnO/tXWoSQoBKsKBKHvgccYBd4hFWF1B4QqOyFG/By3PtC
+wzgzYyfpF09m1QOgVurG63G+z7FjJ7Pr7e7y0+ft7upiu3pzvf16eXXxbfX6
+y3Wjyg+MMTfN/++VIbluxO7jpm7+mof3w78ybGjIKHu/WsWahoIUPx3FCSl2
+4RST162qTf+cvpzWvWRN3rUG71mRWUVuJ3V/5ow+j0j11jF3jEw/0UKckzQZ
+MC/Y/BVJee1BuG6ZwnWG5JLtzlgqAIeHUnoovUnJ5M9YKjFrAtohu3PKaBPF
+3oP0Y47yMGH4xyRZD4USzYgkoP0WIbCqhyzNFP/X4+ArBl2y//PEtSsrCVNP
+36ZMNWWqRaKbClWpUsn+zZh0mejwSFIbtimpjph0Mg4WmS/Y72OGPRwHi8zn
+PmyCI/sQ5DGCkSuogM4mueR4JxAotT2NQWTSGt1GtuRnaOYQkSTRaROFi+8f
+CbNxHMi87D5Rz5AiEe9QExiizKRVo+6ByVH8Rq5XApWzhAoaNbFoJafToyam
+hyL6FEF1zBvwSHo2KlgJhkioVBQC6WSonnCMm28P7pwlvDzxtMB4PRCs21WG
+Iie3GdS7FI4FT9TzvDeBbHUUfHR03lX4ggrXfQhCsA9VNGJokUKFXEJVpdBH
+z4JIB0OUSIfaiuIGOvMqXqfWUuVkGblyVH6S9+AU7NXIT5RBhVdu0eHdrN22
+kSMQJWqIBW2Nkg+86Im+icOi+rYbPnrDRWFWCKJbuooRoJUqBKiiZhwY47+y
+SrAS4qCQosO4YlIpd7m3o7wMkvrvjLV7zsjdsYjtYxR6D155hbWPHpGUx442
+FHjF+z4XVvuUkfV+HMHrRqt4zlCpt6YO1Bab/VnhJUPk2PGP7WhvAXNSvOAZ
+IYEJzOWl+sQPabAzPzhO2XA84TmSkPYCZ77TMHMUP3hWB/NX/NZ0P/wXgzn4
+A6edpvg=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"806f06ab-87a9-49ba-a4a1-3fc6e6d27752"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36831 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.64586 .3321 m
+.5 .36831 L
+s
+.59886 .54859 m
+.5 .36831 L
+s
+.5 .47576 m
+.5 .36831 L
+s
+.5 .36831 m
+.5 .38344 L
+s
+.3928 .29492 m
+.5 .36831 L
+s
+.36246 .51626 m
+.5 .36831 L
+s
+.02 w
+.5 .38344 Mdot
+.5 Mabswid
+.64586 .3321 m
+.5 .38344 L
+s
+.59886 .54859 m
+.5 .38344 L
+s
+.5 .49577 m
+.5 .38344 L
+s
+.3928 .29492 m
+.5 .38344 L
+s
+.36246 .51626 m
+.5 .38344 L
+s
+.02 w
+.59886 .54859 Mdot
+.5 Mabswid
+.64586 .3321 m
+.59886 .54859 L
+s
+.59886 .54859 m
+.5 .49577 L
+s
+.59886 .54859 m
+.5 .47576 L
+s
+.59886 .54859 m
+.36246 .51626 L
+s
+.02 w
+.36246 .51626 Mdot
+.5 Mabswid
+.5 .49577 m
+.36246 .51626 L
+s
+.5 .47576 m
+.36246 .51626 L
+s
+.36246 .51626 m
+.3928 .29492 L
+s
+.02 w
+.64586 .3321 Mdot
+.5 Mabswid
+.64586 .3321 m
+.5 .49577 L
+s
+.64586 .3321 m
+.5 .47576 L
+s
+.64586 .3321 m
+.3928 .29492 L
+s
+.02 w
+.3928 .29492 Mdot
+.5 Mabswid
+.5 .49577 m
+.3928 .29492 L
+s
+.5 .47576 m
+.3928 .29492 L
+s
+.02 w
+.5 .47576 Mdot
+.5 Mabswid
+.5 .49577 m
+.5 .47576 L
+s
+.02 w
+.5 .49577 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztmEtvEzEQx93ss0lKAYkiARLhwkcBtSVteRyQOKCoAqWHAirhBIiPx71f
+aIkfmXHGf9ubnIrUSK13vfb85uHxeHc6W8w/Xc4WF+ezycur2bf5xfn3yYuv
+V8uuYkcpdb38+ztR+rpbXrp/193yt3x429zc5rVuBjpef2zHmW5q3fHL66hM
+RIvOdtn4mr4fnphCDNJNrf83+vaL7X5DwAFdjYk59wapYiXFyOXh90jmzKN7
+w/UdI0z/ASE++HMqfw6hCpr2mFDv/GmlnGZoJV09o2nCZ0cphcM+VuS5vjLY
+w4wIo0AFHGiUajMiiqSIJ+RFEWYzI2Eci62FA51nDshjBR5wHBdeRoW7+ffJ
+jXbsSiabWa3hVuY65hlgVsRs6ErEekwhC6kNcC5aAIdxDWritsKEIDAlacJx
+2AUaFNtqIIXpu4bIpn8IeOVmPPY0Vn6NN+7JO8rwhAhLDlYnbzR3wCSZShlu
+S3Yap5nA3hVcJ3obyUK5NseoN2PskvbIf+Zuvz/IpeApeIRWVCUku9aLTECV
+WmaoIzJPribO4WB5jDFahiODHhNabhWcvHgjG2I+StscX9XSuNU1yi4vWwO6
+jF+GvkfWi9pTCrWE8U1/+qsMXXgcVZsuXYlGW1CLWG5wubcuwIeZBPIkiYRu
+jmkgV5+vgdyKMxqklzlSg6tacCwJB2/oD853WR2T2hRoRgw/jeOHhEfnMQTg
+0xCyHsUigefNXC7AGB55acCbfm8yF0FUtJBpuE+t6lpvcvqYYSm59wZ5CtB3
+J3Ekn6RGQnwvo3PIaRKJlgRKJhRtM07ujRkyH53RWQmWVrK0RzLlyGi/q2Pp
+wjsL8lIChSwwIlrgWbS5o9p8Gueh4Ji9w9uIopVbHDj7U5HLWqKaRCqFvUqp
+RIYFPJxozBgSA3kABRyd99aQ+FxaUHbWsRXKOy9i2LOyKzUBg19czFx+Ey7p
+KawCMSsd7Zgmeu+g7scro6FkTGcfLAQezbwV7OknD2k43jUizkuINTo+JbF9
+CwDCB74pCfCI/bW+ZPvy7PcJ9Z4kPnDWiXinyshbe/GRZOwjrbrO/8iF1fhM
+IvhNMjH8koabJWUWulNmoZux7rDf5tRPEug6fpOSbsqN+L552/ynjdr5B37O
+pAk=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"2e0af2f6-ef45-49eb-b75b-8ecba6ab9998"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36451 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.65544 .34662 m
+.5 .36451 L
+s
+.58387 .55681 m
+.5 .36451 L
+s
+.5 .46808 m
+.5 .36451 L
+s
+.5 .36451 m
+.5 .38962 L
+s
+.40854 .2852 m
+.5 .36451 L
+s
+.35214 .50324 m
+.5 .36451 L
+s
+.02 w
+.5 .38962 Mdot
+.5 Mabswid
+.65544 .34662 m
+.5 .38962 L
+s
+.58387 .55681 m
+.5 .38962 L
+s
+.5 .50109 m
+.5 .38962 L
+s
+.40854 .2852 m
+.5 .38962 L
+s
+.35214 .50324 m
+.5 .38962 L
+s
+.02 w
+.58387 .55681 Mdot
+.5 Mabswid
+.65544 .34662 m
+.58387 .55681 L
+s
+.58387 .55681 m
+.5 .50109 L
+s
+.58387 .55681 m
+.5 .46808 L
+s
+.58387 .55681 m
+.35214 .50324 L
+s
+.02 w
+.35214 .50324 Mdot
+.5 Mabswid
+.5 .50109 m
+.35214 .50324 L
+s
+.5 .46808 m
+.35214 .50324 L
+s
+.35214 .50324 m
+.40854 .2852 L
+s
+.02 w
+.65544 .34662 Mdot
+.5 Mabswid
+.65544 .34662 m
+.5 .50109 L
+s
+.65544 .34662 m
+.5 .46808 L
+s
+.65544 .34662 m
+.40854 .2852 L
+s
+.02 w
+.40854 .2852 Mdot
+.5 Mabswid
+.5 .50109 m
+.40854 .2852 L
+s
+.5 .46808 m
+.40854 .2852 L
+s
+.02 w
+.5 .46808 Mdot
+.5 Mabswid
+.5 .50109 m
+.5 .46808 L
+s
+.02 w
+.5 .50109 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWG1v0zAQ9pqkTdttZeNlEhJSJf4LGx17hYG0D5NKBWwgYCoV4uUH8n1/
+KCS2c3auzzmuxIchbdJq52I/99ydz774YLq4fPd5uriaTce78+n15dXs2/jZ
+13kpStaUUjfl/5+xqvpF2bU/N0X5V768a25Tc1Y1nSpCv43gVdWkleCXJ8gr
+wXc+RSWFESnddGjq3JuquvWAwq6Fut+l8V/88Yk/RiFFOU386E/MaaI32G/X
+ad57rNBYUSlM+dwRzX1rJC/h3KbBDGObMC5aMBCJWvyAUM5lFO0wlXImCRj6
+kPBet+Bp9cbGrIFs0dVjgjo1olMAlRJUEoB6QlCHMlQWBTWuOjooezFQaRTU
+rhGdAKheFNRO1dmMhsoCUBtVp09uSKiXekaL8CzhUjCuQ7C6pxPNJaFzHcvT
+gOacGZZyw7JmwvaaDBia9eAxeNUHJmbQ7PJnQFoGYAjSvCdrHpCJXejS2qqU
+LGX6ULK26YPBTH0ZsXIrZJNkLID/gAHaiAqbQ1vgnbACn5t3R+DVOrFHAXKH
+0jbWxhdDjDbm0ZpzFjAKrYGAmg0yCufjcqzcDOQGhDJpUR9aN4iBcQ3eovhO
+4+k/FPWDSoBvg/6AYUB/vpp+no70FNI/WFH/vqzfmNJDUARpqIjFhjs6UBaj
+eAT48MwuCrFQSsO08F64LAs47EAk2FrvuD0x7FvxEIxg+UJm6U49BIbIJhFk
+UXwRPj8KW8iiJQKPs1gOlMTIu2iFBcgZDkvxzrFYPBhaCgOJmGFk+UURi60n
+3OaKnDRcjQsqrWifFDPU1ZAGgI8z5UI8C1SDKFu0CjtpBxAv8KHDT4rqyX4x
+7ItkmnEYwXEgBNLggD6U0/ckfa6QXlGLq891kdMl8vIx3QQ48rGx3zXrjLIp
+XJugqFgdk4AOPc25Irg6pK/mgHkTiW6fbEOfCw7bBQhl4jE20K53d9sxIhSH
+jI5FtF/7OlwINOx96oU3FrShWVhdkOrDZofA0M4eW1GYLz/zyfBUXjA1M3Sa
++hB9YubVYu3nHvLtiWdwpxmeR03fCksVgdpLD31BllFIWu8nAlDnxGorAMAW
+KIa6IFb8SyHqA8xcCqkZERoSCttfxJrTQnwgiD6zyU+6AMAnsiQjKBR3c7un
+rmmQd7I1KZ+Zh0XV6MsNexP2g6ZKgp/khTdGcCtude+a/6ZRa38BVblYYw==
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"e93fd412-c380-4c01-a0dd-26f972b9ce3d"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .36137 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.66319 .3619 m
+.5 .36137 L
+s
+.56807 .56363 m
+.5 .36137 L
+s
+.5 .46007 m
+.5 .36137 L
+s
+.5 .36137 m
+.5 .3963 L
+s
+.42541 .27705 m
+.5 .36137 L
+s
+.34332 .48928 m
+.5 .36137 L
+s
+.02 w
+.56807 .56363 Mdot
+.5 Mabswid
+.66319 .3619 m
+.56807 .56363 L
+s
+.56807 .56363 m
+.5 .50557 L
+s
+.56807 .56363 m
+.5 .46007 L
+s
+.56807 .56363 m
+.5 .3963 L
+s
+.56807 .56363 m
+.34332 .48928 L
+s
+.02 w
+.5 .3963 Mdot
+.5 Mabswid
+.66319 .3619 m
+.5 .3963 L
+s
+.5 .50557 m
+.5 .3963 L
+s
+.42541 .27705 m
+.5 .3963 L
+s
+.34332 .48928 m
+.5 .3963 L
+s
+.02 w
+.34332 .48928 Mdot
+.5 Mabswid
+.5 .50557 m
+.34332 .48928 L
+s
+.5 .46007 m
+.34332 .48928 L
+s
+.34332 .48928 m
+.42541 .27705 L
+s
+.02 w
+.66319 .3619 Mdot
+.5 Mabswid
+.66319 .3619 m
+.5 .50557 L
+s
+.66319 .3619 m
+.5 .46007 L
+s
+.66319 .3619 m
+.42541 .27705 L
+s
+.02 w
+.5 .46007 Mdot
+.5 Mabswid
+.5 .50557 m
+.5 .46007 L
+s
+.5 .46007 m
+.42541 .27705 L
+s
+.02 w
+.42541 .27705 Mdot
+.5 Mabswid
+.5 .50557 m
+.42541 .27705 L
+s
+.02 w
+.5 .50557 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNlu00AUnXpsZyFpBUIRVAjliT/pEtrQlEKgqBJKq0qpKgptw/KHvPeH
+jD0zvrP4XNt9og+NlIwzvnPuucvcWaaL1fL822J1cbYY79wsfiwvzm7H299v
+8i65JoS4y79/x6J4zvJH83OX5Z/85WPzf5vPRRMVMfmjOz4VTVx0/GY67BAR
+Z7pLlN+VIyKLDklP184rofDcwQnJXbly0pUTSmmHJC8dgo4k4fdIculKxq6k
+tUUSnaLp09hz3T0HWiISCkYP6MVpw+jQj6bdIICvPICELqrKWbATLfYReoxn
+85wAjlsBJB5ASW1EKHMeJWlCeUEoR7rrA0BJCSUy3AKYTUKZtUdJwsRRhF4R
+1FR3HQGobiuo1wT1tj0Ul5IKTBm+3QAGU6gyS94UHVta6D2A6gEolKEK+GXx
+r9eA2CdLpW+zehqRffatMw2FNfwQYD/hDA+0PCMttkIhv281qep4FS9oHYXD
+4imhQlc3FXZ5nbYA6RAkUGuXjNMcK9MkjF/xzzh1Bl4NgVNj0mGfhr6jmdkw
+4RUNrGv8wqv+damCRpwRKIQ7vD7tnjR0j+cmZcRT4MeSR8LrPGB1dpFr3DZM
+ENf39T6IQd8uz6fPurGymMMJmXlxQ8qRgwyhd+BVj8BUoZa+ZhThsERlZca0
+IDLhiYRFlJyLtgZhxrvxshYhBun9WHU4VtVpHhkzmPQuW1uQEBXUZ5axaUt6
+NnphelCNbLHdaRtRxKCGMLLPlu3wrSVXXzXsYPWEMnRPy+9zZrHzKa3XjyZv
+CYd8c09uiJH1V6+FbwJ3ommGOO3znGRgsvkoRgPIV7hHGOQVVBYNgz2WAV7w
+1jkGwTkrq5mFiM6Up4O3kOXSUeHORAaFOtxgVYikyAdkm9p3paiQC0CCU6jr
+opnVyLF+bV4npcFG0llDceVGofOU42mmOCdcwXcmdmWJRfExCifAYXZSp6SX
+McWe45COA0eHJH7O3geDsjuCcMvo6FB7I3VGGEGLmD67iw5gzUlP7V/VbnyT
+xOvqQhPUBqVrcHRAMwUl6aFjrg25pKxQ67Ka1zEq2y7XGvgZgfYJNCJQvEcu
+hYMX+qymz5OSEiVtciSq1QZq7kPZxEKU0Dpg7gKOfZyG3aoeU4d3QngoC5jd
+LyrL+npBX+ZIihS8oWhGOSUUHR12FUVFRV+66FstyZnPBsCMXtJoTbOmkmCA
+SwKwp0KUg+am6IrE7WKMli4jfk1CqI6bOyx1VZk4HT+Jien4RTH6ojsexI3t
+Y/PwG7H2D6vVBrU=\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"9c40b894-d97e-4bc2-b4cf-65841840384c"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35892 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.66905 .37776 m
+.5 .35892 L
+s
+.55162 .56899 m
+.5 .35892 L
+s
+.5 .45184 m
+.5 .35892 L
+s
+.5 .35892 m
+.5 .40343 L
+s
+.44322 .27059 m
+.5 .35892 L
+s
+.3361 .47452 m
+.5 .35892 L
+s
+.02 w
+.55162 .56899 Mdot
+.5 Mabswid
+.66905 .37776 m
+.55162 .56899 L
+s
+.55162 .56899 m
+.5 .50914 L
+s
+.55162 .56899 m
+.5 .45184 L
+s
+.55162 .56899 m
+.5 .40343 L
+s
+.55162 .56899 m
+.3361 .47452 L
+s
+.02 w
+.5 .40343 Mdot
+.5 Mabswid
+.66905 .37776 m
+.5 .40343 L
+s
+.5 .50914 m
+.5 .40343 L
+s
+.44322 .27059 m
+.5 .40343 L
+s
+.3361 .47452 m
+.5 .40343 L
+s
+.02 w
+.3361 .47452 Mdot
+.5 Mabswid
+.5 .50914 m
+.3361 .47452 L
+s
+.5 .45184 m
+.3361 .47452 L
+s
+.3361 .47452 m
+.44322 .27059 L
+s
+.02 w
+.66905 .37776 Mdot
+.5 Mabswid
+.66905 .37776 m
+.5 .50914 L
+s
+.66905 .37776 m
+.5 .45184 L
+s
+.66905 .37776 m
+.44322 .27059 L
+s
+.02 w
+.5 .45184 Mdot
+.5 Mabswid
+.5 .50914 m
+.5 .45184 L
+s
+.5 .45184 m
+.44322 .27059 L
+s
+.02 w
+.44322 .27059 Mdot
+.5 Mabswid
+.5 .50914 m
+.44322 .27059 L
+s
+.02 w
+.5 .50914 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSkzEQDv+hf0vLSR0cL3R4GAVEipxURBymwzCCiijwjt7zQrXJprtJ
++m3aO7nAGcnfze63x2wO/cHdxfnV4O7ybLC2cTP4fXF5dru2fn0zIpVzxpj7
+0f+/a8Z+D0ef/s/9cPRvNPk4/KfhxA6FTcYdEb7YobKE24DQsoQ/gUhpCQUL
+XwdTxs0NiWJMxUxXAWDAZH+5+Zo5f+ic7leLOS+J89gNVcjJVraZ+VuW2RE6
+zHxOzJ+hDWPsLrOfEfsRYJcIkOR4MpAeTJEugXSPpU+J/AlI15r0Ik+c6NIt
+jxHkczyaFVZP8TQfAUCjqX/C0kezSBdgViBI1nwATJJ8CmTowirPHc4EUEcA
+4zg8Z4Z9Ih0ClHn2RGpH1O9OEUT2D33Bivodmj4AKN0MShPbsj0FJVg3fkwr
+m7V07OcSs2wRwz5AXmB3UKJ7DNbW9L2hH3tAejHje8G+dwCom309Bdm00Opg
+8Ff2qxUA7Wrul6DGxqul4Ez3huItguolNiVoBWtatl9N3HYnl8g6je+BJqkp
+6W+yISTLvWFtQUGLr2Ff2dBVzgNa5f8mIatAPl0fk75HpVZHoUqM2JnRiBob
+4bCfxnFSFG7qCqXo28ksO7XCTkkuKgDl09nXtMzavVGKF1hzC0CVgLahWyMb
+vHhf4CDnN9ZmRlt8/Lc1W1T7lPpDVrU5nE02VhlbJL0pxEwWiNkdAF4D2lsS
+f6fZoh5WUD0pTUa2RH1txbQt3SqU3JLdpvbYiWKltG+yVioJOeTt2IK+Difa
+I20YTU67CcwEizGhUQB8koB+5US8DMOs6EV+Z/VG+4Drfo22GAot6f4Usgmc
+iOBdRNug16OuhSKI1kEfKw/XVYfdagOuyESkFbnstbqmWHPdOB1L03TIFo4y
+6A+G7tTQtTOr3nWl8sMRrqcuoNF+TaccZ/5LR8B3B7FcPe9l4OftzAuGUA7G
+iwBlN4hEEbceVD/PEjMnMoAWktfRZ9mKQ7KU4JVJUBSr6exJIZCSqnnt6Ecv
++2sBIPqbyh7LzDNicBrMnEUzoAcc0h6DTgQ3Yklw6OpBl7qCwxbcDibSgJaT
+v9IdMYrcMfL7jRc8ZkG5Z8vuhtoG3R6D5xFaJk3IlEY0B3QaZ0fp5ai9+Pvw
+gAGQFnlISSboIYAeNNSdTz28eOlzNhAdT8bFlcj6p4CLOOBIM+pK9FJjvrN0
+iTVnZH+yrFyUUIfyLx6/7OB2H/+G4l7I6oBwY4cqINyyhq9EeBCvgI/DAx7M
+3D/sQdPL\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"e8bd98b7-6ff2-4080-94f4-d43e5503e88e"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35715 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.67297 .394 m
+.5 .35715 L
+s
+.53469 .57285 m
+.5 .35715 L
+s
+.5 .4435 m
+.5 .35715 L
+s
+.5 .35715 m
+.5 .41095 L
+s
+.46174 .26591 m
+.5 .35715 L
+s
+.33059 .45909 m
+.5 .35715 L
+s
+.02 w
+.53469 .57285 Mdot
+.5 Mabswid
+.67297 .394 m
+.53469 .57285 L
+s
+.53469 .57285 m
+.5 .51174 L
+s
+.53469 .57285 m
+.5 .4435 L
+s
+.53469 .57285 m
+.5 .41095 L
+s
+.53469 .57285 m
+.33059 .45909 L
+s
+.02 w
+.5 .41095 Mdot
+.5 Mabswid
+.67297 .394 m
+.5 .41095 L
+s
+.5 .51174 m
+.5 .41095 L
+s
+.46174 .26591 m
+.5 .41095 L
+s
+.33059 .45909 m
+.5 .41095 L
+s
+.02 w
+.33059 .45909 Mdot
+.5 Mabswid
+.5 .51174 m
+.33059 .45909 L
+s
+.5 .4435 m
+.33059 .45909 L
+s
+.33059 .45909 m
+.46174 .26591 L
+s
+.02 w
+.67297 .394 Mdot
+.5 Mabswid
+.67297 .394 m
+.5 .51174 L
+s
+.67297 .394 m
+.5 .4435 L
+s
+.67297 .394 m
+.46174 .26591 L
+s
+.02 w
+.5 .4435 Mdot
+.5 Mabswid
+.5 .51174 m
+.5 .4435 L
+s
+.5 .4435 m
+.46174 .26591 L
+s
+.02 w
+.46174 .26591 Mdot
+.5 Mabswid
+.5 .51174 m
+.46174 .26591 L
+s
+.02 w
+.5 .51174 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWNtSE0EQXbKbDRsTAoKWlqWVfwEB5SKC8YpCRJAUhaGQf/SdH4qZ6dnT
+m8mZZeXB4oFUJTPpy5menu6ey1b/6vT4vH81OOp31y77F6eDo9/d1eHlmBTP
+RFF0Pf7+6UamPxp33c/1aPwZM++b/90cmqZmVuFCCAemSQxhWCDUDeFXgRAb
+Qs0SbHfkPtGZCH2zTQKWW+oYwwXknGwdcgOhfCVyuUhKzDgRtX3CqkGxgd5N
+4pY0C/EfIv6FiMcQbxJuXxQ/E1YCdMHImVEGxm20H4BxIORPRDuF0XOEK16J
+PhKWetAbtg3GbbQ7YMhcow9EW5eDxWGH0AQlek9YGTzgmbKAUSppM1MUoicQ
+PSKk68QgFgltV8DeEVZLZ5NgNu67hIGqAcRFgMgqPgLEjvD2CISNgLYhPSTc
+LVHcJay5SWdqitcRoJZWAqHRJ5UE83d9mZ+tJi2IbgjzbQjPq2aj6dA1/zqw
+NCNA6+ExNAC0hHjYS7A6hbBD3AkhBsuTh/0EdmuNXhWBNwSnObk0NR5rz83/
+humthKE0j2c9rlg5/nkBnGWhb4dwbqAB0YbwfAFxi2hrffJdKbPNGRn8wHIu
+x1gJD8R2MBuYKdIgw2gJFml633QrtknwdEu1ITpreguwWbms/LwU2I0QLEuX
+YPXoYBINovuPw2uwakrXnE+L2Vroa23TnTUh0M6Xr0NGamDEWH8vRNje1oBG
+MD892pqov6rorQYc4VegkEkxNLQasnVdLzMkX09Lb1ceOQ+ICmHlhpeGHxkT
+RLWtFvOYDgs1mYdzLz+qxsBrAq9C7krMSMaz0phbastTiwUgCpXud6y+uT1r
+GTP2Ei5TqxsTE/RaWXgWSB5tszCgLSHPiOFspdlpmM1oc8p1pIRUHVS3Fja8
+O0D44Qywp+YfK2PMbrbbyy4l0aC11co81vlN7Zq6o7IKIVuo+Mk7LiyWgLKE
+KoHfBpRFSpCnZacqLYt+/pt/7qy4AyHdMbXsqIfYhcJDlGMUPQEqdjaJnSCp
++HF6D+J6qE8nIYJFy0H0IN6EuPViGhpbzs9yw9CFZwnN3CAHeLnYeVvhdByw
+NXfXEnad1XOeTr0EYn9yBoELO0tGuVbJe0BQSNeF3+z0NYOlaJAhd9PoO7T9
+yoeSwIq9XKjdmwC5lTMrSnCOYUXdc2FJJrtr8k/o2pE18jxxWWl5W6GHPgQe
+fwo4g6IXniU656ZJSGbLE5C8Lln+YYAwxKjuIeROvKDdN3exiWb+AnOjNGs=
+\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"dec5b915-6fed-4a5d-a352-505114e09e9d"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .94863 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics3D
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.0217492 1.0435 -0.0948635 1.0435 [
+[ 0 0 0 0 ]
+[ 1 .94863 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 0 m
+1 0 L
+1 .94863 L
+0 .94863 L
+closepath
+clip
+newpath
+0 g
+.02 w
+.5 .35609 Mdot
+.5 Mabswid
+[ ] 0 setdash
+.67496 .41044 m
+.5 .35609 L
+s
+.51743 .57518 m
+.5 .35609 L
+s
+.5 .43515 m
+.5 .35609 L
+s
+.5 .35609 m
+.5 .41879 L
+s
+.48075 .26307 m
+.5 .35609 L
+s
+.32686 .44316 m
+.5 .35609 L
+s
+.02 w
+.51743 .57518 Mdot
+.5 Mabswid
+.67496 .41044 m
+.51743 .57518 L
+s
+.51743 .57518 m
+.5 .51331 L
+s
+.51743 .57518 m
+.5 .43515 L
+s
+.51743 .57518 m
+.5 .41879 L
+s
+.51743 .57518 m
+.32686 .44316 L
+s
+.02 w
+.5 .41879 Mdot
+.5 Mabswid
+.67496 .41044 m
+.5 .41879 L
+s
+.5 .51331 m
+.5 .41879 L
+s
+.48075 .26307 m
+.5 .41879 L
+s
+.32686 .44316 m
+.5 .41879 L
+s
+.02 w
+.32686 .44316 Mdot
+.5 Mabswid
+.5 .51331 m
+.32686 .44316 L
+s
+.5 .43515 m
+.32686 .44316 L
+s
+.32686 .44316 m
+.48075 .26307 L
+s
+.02 w
+.67496 .41044 Mdot
+.5 Mabswid
+.67496 .41044 m
+.5 .51331 L
+s
+.67496 .41044 m
+.5 .43515 L
+s
+.67496 .41044 m
+.48075 .26307 L
+s
+.02 w
+.5 .43515 Mdot
+.5 Mabswid
+.5 .51331 m
+.5 .43515 L
+s
+.5 .43515 m
+.48075 .26307 L
+s
+.02 w
+.48075 .26307 Mdot
+.5 Mabswid
+.5 .51331 m
+.48075 .26307 L
+s
+.02 w
+.5 .51331 Mdot
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{210.812, 199.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ AnimationCycleOffset->1,
+ AnimationCycleRepetitions->DirectedInfinity[
+  1],ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWGtPU0EQXXpvX5SHtSlEQ5TfokjRgqCA4hNrSygRo0H+o9/5Q3jvzHCm
+Xc6inwwfuAnsZmfO2dnHPLZbg/Px0ffB+clwsNo7G/wcnwx/ra7/OCuGspkQ
+wkXx93s1lP3Lomv/Li6LrxDeNf+tGZVNpdz+Ux0Ylk1eDnxLDAgkizWEoyID
+Iru0L4xV6as0OUR26BVgTW9AKESeE8GRYr5E3PYJrEpgI4Ud0qmugDX0TP0z
+UWdG1cjY4C8UMk+DSHVp4RMRVQFsomfqH1NmiVKLSHWC8IGI6gDOEalOFd4T
+UQPAefRM/R1Rl1XI0AKRKiIcENEsgItEqojwlohaAN6Dgf+kfp9I9xX4hojm
+AOwQ6Z4C94nI960QqJqGSmbArirsEZFsaA2WC6Op7xJ12cZmOdQm0h0Fvk7N
+w+x1D06e07bqv7pxGzJQNNBz6Q0ULShVAfTzZBd7U8l2iGgWZHVQLKA3SxB9
+JdsmInded4D29DJFahQvCYUryZJy3LQMNkaIDSXbIiJ393mQLYGMhdOekm0S
+kQedRZA9AFkGqVH0CYWHuTYoVkChGedaWnmq/ReEz+NtB3yPy1697D1JAz01
+dAEUk7oTwOeRPfY5bBlHIvOpOVdmQ9Xs36BmXMWrOvYwxw43/MSnjSj6z7Tt
+8S1rgdLjaRNj7mQsx68pzzqANQD90KKQUJ0ORxmhNYPXQMsoZLFLZW8ZZCwt
+rytSdrYzbdkyUWf29CYoJJo+AkUXczMP2ZhYSDI8roCsAz1WS+gVu3bTjOsh
+WNpgYRFAbzi96Bn2xO9VskCxsNSHkju1uwlL6Mwoi7ksLMm18+QrtHOYqkkQ
+yqIB00/G3SfHXa+gF1FosKU5wMPIAsiiOHxDgvPD9fyTDNbMMkvCLHt7zHVH
+9qWzVKcJk1YOnuBiy3CLPVdEWK0QtLCpTG927CRKlrgpVqmwksyTZ2anErkD
+qzSs4DoA1kMfm94KO1bhyoKqqfVrKag1ta+/mjoFXR8t9eVi5amLZSUre1zE
+HhsSF92q60OYyoDMyXRX6KuNnTGLIPrm0Adi9PJi3mAviBERZdMU/IlzBCUv
+Jlm+0O0Mx9LwhM5yxKHCxkSUTJ/2ajspmzhVlo2+nfW5LcjRxIAAhomBU9hq
+kFvxo8Ndc6uaMPMHHYjPsw==\
+\>", "ImageResolution" -> 72.],ImageRangeCache->{{{0., 209.812}, {198.938, \
+0.}} -> {0.0206043, 0.0909044, 0.00456975, \
+0.00456975}},ExpressionUUID->"ea31231b-4c05-401d-8f6d-d1d4ac7e43a3"]
+}, Closed]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 878},
+WindowMargins->{{148, Automatic}, {16, Automatic}},
+FrontEndVersion->"13.3 for Mac OS X ARM (64-bit) (November 29, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"25f6e238-da21-4118-ad28-9c09d556466f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 79, 0, 98, "Title",ExpressionUUID->"6d4d871c-7618-4b35-a75c-94a4420e4263"],
+Cell[CellGroupData[{
+Cell[684, 26, 83, 0, 54, "Subsection",ExpressionUUID->"bed4bed0-b4c6-4352-ba74-3d0e16a96361"],
+Cell[770, 28, 110, 3, 58, "Text",ExpressionUUID->"e72394aa-647d-468f-9f82-67be3b53e5a0"],
+Cell[883, 33, 318, 7, 35, "Text",ExpressionUUID->"619c4e24-142e-443b-acbf-d2fd19e15620"],
+Cell[1204, 42, 344, 10, 35, "Text",ExpressionUUID->"fe5a1e0a-e0c9-4227-9c10-8005fc9d0155"],
+Cell[1551, 54, 154, 2, 35, "Text",ExpressionUUID->"eb0815e8-cffe-4e89-ae47-d2d371e3e558"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1742, 61, 86, 0, 67, "Section",ExpressionUUID->"c4da9250-f607-457b-bdc3-3c1cba74cac1"],
+Cell[CellGroupData[{
+Cell[1853, 65, 91, 0, 54, "Subsection",ExpressionUUID->"ae11406b-b159-44b2-ba58-28b214063062"],
+Cell[1947, 67, 528, 16, 30, "Input",ExpressionUUID->"64784961-7205-4379-b5e7-218efe13fb1a"],
+Cell[2478, 85, 808, 24, 94, "Input",ExpressionUUID->"822404de-372b-4a69-8286-e372f2453844"],
+Cell[CellGroupData[{
+Cell[3311, 113, 176, 4, 30, "Input",ExpressionUUID->"ee00949a-0680-400d-8c87-bc7704c657f2"],
+Cell[3490, 119, 1182, 41, 102, "Output",ExpressionUUID->"f2acbc3b-576c-41a6-9d72-d42242d6a1aa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4709, 165, 547, 17, 30, "Input",ExpressionUUID->"7ebd715f-42af-478f-b256-d4cd637995e9"],
+Cell[5259, 184, 1552, 52, 77, "Output",ExpressionUUID->"3dce3af8-dc37-4b2e-821c-100c8af1d065"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6860, 242, 96, 0, 54, "Subsection",ExpressionUUID->"c1645fc2-be23-4f47-8f0b-cf500c2e7fdd"],
+Cell[6959, 244, 2148, 59, 136, "Input",ExpressionUUID->"f184d747-db7b-485b-a1d6-d8f33bda85ec"],
+Cell[CellGroupData[{
+Cell[9132, 307, 183, 4, 30, "Input",ExpressionUUID->"56479e00-0fba-46c1-ad27-c5c25ff891e0"],
+Cell[9318, 313, 2328, 88, 102, "Output",ExpressionUUID->"48f0f3e5-4e89-4204-a4fe-609a43699d48"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11683, 406, 547, 17, 30, "Input",ExpressionUUID->"61c9a81b-287f-40d3-8038-97b62aa50476"],
+Cell[12233, 425, 1552, 52, 56, "Output",ExpressionUUID->"f7cef96d-d2ac-4c09-9ebb-f745693bce64"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13822, 482, 142, 3, 30, "Input",ExpressionUUID->"e05f6439-35c6-46e5-9d67-3245b8427323"],
+Cell[13967, 487, 112, 2, 34, "Output",ExpressionUUID->"2290a898-cc42-4b4e-bf13-ce8f838b59d4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14116, 494, 282, 7, 30, "Input",ExpressionUUID->"d80eeca4-859d-49a5-ac8e-e481a8df7646"],
+Cell[14401, 503, 134, 2, 34, "Output",ExpressionUUID->"455bf9c9-13af-439d-807f-422477a1135e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14572, 510, 645, 18, 30, "Input",ExpressionUUID->"2dde51c9-fec6-4fb6-b762-3d5944521450"],
+Cell[15220, 530, 14720, 250, 442, "Output",ExpressionUUID->"6be63533-795e-4bdc-8162-b52f8f364088"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29989, 786, 88, 0, 54, "Subsection",ExpressionUUID->"464839a7-30a0-4e16-ab8f-80ba15ba771c"],
+Cell[CellGroupData[{
+Cell[30102, 790, 127, 1, 30, "Input",ExpressionUUID->"d5612b7e-4827-4b7a-9dc4-574387de572b"],
+Cell[30232, 793, 105, 1, 34, "Output",ExpressionUUID->"403539fa-9df4-4874-bb51-f138913229e9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30374, 799, 142, 3, 30, "Input",ExpressionUUID->"1efe739c-6cbf-4bb5-ab5e-28a453fd9aa0"],
+Cell[30519, 804, 111, 2, 34, "Output",ExpressionUUID->"71e38629-6746-4b8f-a48b-033998a404e3"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30679, 812, 89, 0, 54, "Subsection",ExpressionUUID->"7f7f13bf-6c7c-4320-9444-e4c91e440160"],
+Cell[CellGroupData[{
+Cell[30793, 816, 206, 5, 30, "Input",ExpressionUUID->"8ada74e1-7fd7-40e7-9a95-fdf44da046ff"],
+Cell[31002, 823, 143, 4, 54, "Output",ExpressionUUID->"4044c769-6154-496a-b8df-3b7a023f7b36"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31194, 833, 84, 0, 54, "Subsection",ExpressionUUID->"014f7df0-9aa7-430d-8abf-2dbafd385ed6"],
+Cell[31281, 835, 150, 3, 30, "Input",ExpressionUUID->"f0f6310d-70d8-46a4-be4a-4bb6c3c42cc9"],
+Cell[31434, 840, 149, 3, 30, "Input",ExpressionUUID->"b397f579-9d5a-4815-8b35-23782625e401"],
+Cell[CellGroupData[{
+Cell[31608, 847, 100, 0, 45, "Subsubsection",ExpressionUUID->"a059a818-2169-4bad-b260-e1fe487a4ced"],
+Cell[31711, 849, 302, 5, 35, "Text",ExpressionUUID->"9eb80fb0-6643-4fa4-81a6-2e05ae04b992"],
+Cell[32016, 856, 441, 12, 31, "Text",ExpressionUUID->"9f07d101-fa12-4065-bc60-da74f68110a6"],
+Cell[CellGroupData[{
+Cell[32482, 872, 528, 17, 30, "Input",ExpressionUUID->"020e8bc1-579f-464b-af82-3f9ccaf4375e"],
+Cell[33013, 891, 164, 4, 34, "Output",ExpressionUUID->"4185397b-062d-442f-99e7-412cd5820942"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33214, 900, 669, 22, 61, "Input",ExpressionUUID->"a0d9d5b6-cf4e-4055-acb1-edbc76090938"],
+Cell[33886, 924, 200, 6, 58, "Output",ExpressionUUID->"64cc40f6-f6ac-4d61-9737-f670f39bacac"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34123, 935, 235, 7, 30, "Input",ExpressionUUID->"7059a645-a451-4c11-9623-dacdbcfcb9f0"],
+Cell[34361, 944, 273, 7, 34, "Output",ExpressionUUID->"58d7c3c1-2683-4495-8afe-72c0095c69ab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34671, 956, 690, 22, 61, "Input",ExpressionUUID->"14f9bdee-9e68-4942-a46e-f05dd8430462"],
+Cell[35364, 980, 187, 5, 50, "Output",ExpressionUUID->"1825d942-bd19-44a6-9113-e448297f0dfd"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35600, 991, 103, 0, 45, "Subsubsection",ExpressionUUID->"27322e40-7dba-4a13-975f-e902b93d8059"],
+Cell[CellGroupData[{
+Cell[35728, 995, 226, 5, 30, "Input",ExpressionUUID->"88a16ec9-9a08-4cd5-93d4-2c9ea6f68f68"],
+Cell[35957, 1002, 188, 5, 58, "Output",ExpressionUUID->"eb1b00d6-7776-4aab-b630-6062d5dc8a85"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36194, 1013, 97, 0, 45, "Subsubsection",ExpressionUUID->"42400008-cd5b-4f86-bacd-25df5da34b0f"],
+Cell[36294, 1015, 367, 8, 35, "Text",ExpressionUUID->"9f223231-4541-4284-88de-37a4b39d73ae"],
+Cell[36664, 1025, 314, 8, 36, "Text",ExpressionUUID->"71f6db12-c4c7-4eac-9fd6-fbbaf8b65b72"],
+Cell[CellGroupData[{
+Cell[37003, 1037, 352, 11, 52, "Input",ExpressionUUID->"a3ecbbd3-cb31-4230-b728-0f9602649611"],
+Cell[37358, 1050, 243, 7, 58, "Output",ExpressionUUID->"bc4c8979-2883-4a78-91e4-06e587aa4479"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37662, 1064, 82, 0, 54, "Subsection",ExpressionUUID->"cd410895-af38-4579-ac57-6de8ce816570"],
+Cell[CellGroupData[{
+Cell[37769, 1068, 336, 9, 30, "Input",ExpressionUUID->"4254cdc4-2fa7-4ea1-b587-d937e6fa697d"],
+Cell[38108, 1079, 209, 5, 34, "Output",ExpressionUUID->"5dd02499-ab82-4f80-af29-6ecd1f2fd104"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38354, 1089, 573, 17, 38, "Input",ExpressionUUID->"202dd008-de36-4677-88d9-af248f50c861"],
+Cell[38930, 1108, 112, 2, 34, "Output",ExpressionUUID->"79642dee-2844-427a-9310-2c1b5c1792ed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39079, 1115, 637, 18, 38, "Input",ExpressionUUID->"394b5db3-9792-400c-84f4-080f1f7f8673"],
+Cell[39719, 1135, 107, 1, 34, "Output",ExpressionUUID->"3ff5fe28-36cd-4997-9365-569d724ecfa7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39863, 1141, 110, 2, 30, "Input",ExpressionUUID->"9a1063c3-c569-4319-b977-fb22f94ac3d7"],
+Cell[39976, 1145, 1552, 52, 56, "Output",ExpressionUUID->"06faf41e-e910-4298-a3d7-93fd20da337e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41577, 1203, 82, 0, 54, "Subsection",ExpressionUUID->"0d727467-72e8-4fe3-9f3c-a34eec78274f"],
+Cell[CellGroupData[{
+Cell[41684, 1207, 505, 13, 30, "Input",ExpressionUUID->"c1d7cb96-8c22-4025-951d-681ccd75445b"],
+Cell[42192, 1222, 2339, 67, 98, "Output",ExpressionUUID->"16c74abd-39af-42d5-831f-3691cdae1f92"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44568, 1294, 142, 3, 30, "Input",ExpressionUUID->"56508def-1382-4184-8eb2-6253982ca444"],
+Cell[44713, 1299, 112, 2, 34, "Output",ExpressionUUID->"b53b25d8-eb6d-46eb-8376-f97e3b6d19e0"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44874, 1307, 82, 0, 54, "Subsection",ExpressionUUID->"1973abe1-88ba-425d-808a-ad8da09d8ee3"],
+Cell[CellGroupData[{
+Cell[44981, 1311, 711, 20, 52, "Input",ExpressionUUID->"c6637e90-e046-45b2-ae06-500123d59469"],
+Cell[45695, 1333, 1444, 36, 98, "Output",ExpressionUUID->"eab4e490-eccc-4435-b69d-f343c6d17acc"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47176, 1374, 138, 2, 30, "Input",ExpressionUUID->"04dfcead-1803-464a-b3fc-a431ff79ebfe"],
+Cell[47317, 1378, 108, 1, 34, "Output",ExpressionUUID->"40f6de6d-6faa-4cf2-827c-03b781dec686"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47474, 1385, 86, 0, 54, "Subsection",ExpressionUUID->"eb4f7f9f-0f07-4563-b81e-8a18e93eaf3c"],
+Cell[CellGroupData[{
+Cell[47585, 1389, 368, 10, 30, "Input",ExpressionUUID->"43d8abd9-1a68-4af4-b666-ca5db5b6f694"],
+Cell[47956, 1401, 83, 0, 34, "Output",ExpressionUUID->"2ac1baf8-d6c5-40d3-926a-e423764932bb"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48088, 1407, 82, 0, 54, "Subsection",ExpressionUUID->"1fa58d9d-88e3-489b-8860-c8b794a4a102"],
+Cell[CellGroupData[{
+Cell[48195, 1411, 221, 5, 30, "Input",ExpressionUUID->"ad7e7f9c-39f6-492c-a2dd-f29a6383f9ad"],
+Cell[48419, 1418, 134, 2, 34, "Output",ExpressionUUID->"646730a4-9b04-4cd6-a2bb-817d4c2f998a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48602, 1426, 85, 0, 54, "Subsection",ExpressionUUID->"9435ea0d-72b5-4853-9fff-50c724b20f73"],
+Cell[CellGroupData[{
+Cell[48712, 1430, 282, 9, 33, "Input",ExpressionUUID->"513d3756-6612-4e16-84db-0026372d2ccd"],
+Cell[48997, 1441, 88, 0, 34, "Output",ExpressionUUID->"7e1d86f4-cdef-4ce8-a2f5-950cde8efefe"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49146, 1448, 82, 0, 67, "Section",ExpressionUUID->"00f023d8-4dac-4b99-8abc-0bcf74d56cb4"],
+Cell[49231, 1450, 114, 0, 35, "Text",ExpressionUUID->"1f91ca2b-2680-41fc-9094-7465fbf7afaa"],
+Cell[CellGroupData[{
+Cell[49370, 1454, 83, 0, 54, "Subsection",ExpressionUUID->"67a060da-e8a4-442d-99c0-7f0eddc11882"],
+Cell[49456, 1456, 317, 9, 30, "Input",ExpressionUUID->"1e7dac73-d4a0-40c7-97f7-75042bc305b2"],
+Cell[CellGroupData[{
+Cell[49798, 1469, 293, 7, 30, "Input",ExpressionUUID->"784649e0-1e95-4089-88e0-0c6a984b9dc5"],
+Cell[50094, 1478, 2399, 76, 208, 655, 45, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"56cafe3c-0363-4f95-8ee6-6ef0ef6026df"],
+Cell[52496, 1556, 191, 5, 34, "Output",ExpressionUUID->"23874067-eb76-4f9a-8695-47fe142f32f5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52724, 1566, 121, 0, 30, "Input",ExpressionUUID->"637ec9fc-facd-4514-a903-f0e383bcec8d"],
+Cell[52848, 1568, 85, 0, 34, "Output",ExpressionUUID->"39900ce1-b08d-4777-9419-9963fecd77c8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52970, 1573, 439, 12, 210, "Input",ExpressionUUID->"eb012296-a23b-4b82-add8-1241cd06c432"],
+Cell[CellGroupData[{
+Cell[53434, 1589, 2928, 136, 209, 1116, 105, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"0bba60e0-9629-4b9b-962c-8a0a257bb2c7"],
+Cell[56365, 1727, 5891, 206, 208, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"cb7325d5-3338-4f04-8ca1-c4ff14a0b48c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62305, 1939, 295, 8, 52, "Input",ExpressionUUID->"9491509b-8908-4c0d-8de4-386c205c4b64"],
+Cell[62603, 1949, 7010, 273, 208, 2190, 192, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"e2c241c6-4559-4747-9353-e354f6e492ee"],
+Cell[69616, 2224, 191, 5, 34, "Output",ExpressionUUID->"ade20355-2f06-4215-9512-d4ab81e70d7b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69844, 2234, 262, 8, 30, "Input",ExpressionUUID->"3fb170d1-6db3-440f-bc10-cb0ebf591574"],
+Cell[70109, 2244, 129, 2, 34, "Output",ExpressionUUID->"eb0ff17d-71f4-4497-8b89-9b6edb0c8410"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70275, 2251, 884, 28, 94, "Input",ExpressionUUID->"cc7226ff-259b-46a0-9952-779418a509fc"],
+Cell[71162, 2281, 129, 2, 24, "Print",ExpressionUUID->"40d9b2fa-e11c-4b18-aac5-e0a40e7b5028"],
+Cell[71294, 2285, 100, 1, 34, "Output",ExpressionUUID->"b5c919b1-1d83-41a6-a70d-145072f5c528"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71431, 2291, 884, 28, 94, "Input",ExpressionUUID->"ad06bf15-6cc2-4b8b-b672-cdd802a00d77"],
+Cell[72318, 2321, 129, 2, 24, "Print",ExpressionUUID->"ecd9e9ce-70b4-44c1-91d0-28d5ffa2a8d4"],
+Cell[72450, 2325, 202, 5, 34, "Output",ExpressionUUID->"45de5af4-4ce6-4e7a-9669-6cbd2d7f79c0"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72701, 2336, 86, 0, 54, "Subsection",ExpressionUUID->"6041690d-042f-4cce-ba02-0398bacabd78"],
+Cell[72790, 2338, 5735, 160, 383, "Input",ExpressionUUID->"278e876d-a30a-40e6-8a42-68487c341cd9",
+ InitializationCell->True],
+Cell[78528, 2500, 291, 7, 30, "Input",ExpressionUUID->"0d6013b8-ecf5-4479-8f78-68413313de4f"],
+Cell[CellGroupData[{
+Cell[78844, 2511, 176, 3, 30, "Input",ExpressionUUID->"aa8b8988-5bd2-4c32-8d10-97effd43afe7"],
+Cell[CellGroupData[{
+Cell[79045, 2518, 2835, 138, 208, 1302, 109, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"b2430fb9-383b-41cb-8b68-19d3bd348959"],
+Cell[81883, 2658, 3186, 162, 70, 1597, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"6dd359e5-8a0c-4390-bbb3-eb4d3fa635c8"],
+Cell[85072, 2822, 3270, 163, 70, 1576, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"937a9da6-a301-44c2-a9d6-973feb36a56b"],
+Cell[88345, 2987, 3325, 164, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"eaa5a3fe-3be0-4b1a-8d8d-188fbc6e4acb"],
+Cell[91673, 3153, 3282, 164, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"8d4e9d0d-9748-40ae-a3bb-5ae2e7736ad4"],
+Cell[94958, 3319, 3256, 163, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"679bd417-3fe5-4de0-a915-8580c1c4629f"],
+Cell[98217, 3484, 3160, 162, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"65e155c8-dc20-4538-9761-b3fbf3990f92"],
+Cell[101380, 3648, 2981, 159, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"4e564e53-8102-4ea5-a087-90bc3c92e3ba"],
+Cell[104364, 3809, 2985, 159, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"999b574f-bca8-4074-baea-db8035405a72"],
+Cell[107352, 3970, 3164, 162, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"77ae9312-1a4b-4405-8942-5b861f708870"],
+Cell[110519, 4134, 3228, 163, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"d94f3d65-3071-46f6-b9f2-d8271d3cb3b4"],
+Cell[113750, 4299, 3298, 164, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"94b4d386-3eb5-464b-a1e6-a64c46f0083c"],
+Cell[117051, 4465, 3297, 164, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"86780cef-be45-44fd-8c72-b637914c9f4f"],
+Cell[120351, 4631, 3275, 164, 70, 1576, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"1c8f80f7-9feb-4a33-b110-62764a7a11bf"],
+Cell[123629, 4797, 3198, 162, 70, 1597, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"667bbf9f-f291-40db-aacf-7fddf3b48a14"],
+Cell[126830, 4961, 2785, 136, 70, 1302, 109, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"d1398c0d-1c50-4aa1-96e2-ec98c0329e9d"],
+Cell[129618, 5099, 3186, 162, 70, 1597, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"be73615d-61aa-4ea3-8445-f5bb8be23ef0"],
+Cell[132807, 5263, 3270, 163, 70, 1576, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"b65c9f75-5d31-4dc6-8ea9-6ec443e18e2f"],
+Cell[136080, 5428, 3325, 164, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"d6545675-30cc-4a58-bced-56880ffcdd86"],
+Cell[139408, 5594, 3282, 164, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"31bf8857-dd3b-40c2-a318-a19c54b74f4b"],
+Cell[142693, 5760, 3256, 163, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"9f6a8567-7472-4f15-b8ad-14caa9704b1f"],
+Cell[145952, 5925, 3160, 162, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"d8c83d7b-16de-4b34-85a7-dca11716000f"],
+Cell[149115, 6089, 2981, 159, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"54e0ef81-fef5-4560-b60e-ed3eb707f795"],
+Cell[152099, 6250, 2985, 159, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"806f06ab-87a9-49ba-a4a1-3fc6e6d27752"],
+Cell[155087, 6411, 3164, 162, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"2e0af2f6-ef45-49eb-b75b-8ecba6ab9998"],
+Cell[158254, 6575, 3228, 163, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"e93fd412-c380-4c01-a0dd-26f972b9ce3d"],
+Cell[161485, 6740, 3298, 164, 70, 1583, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"9c40b894-d97e-4bc2-b4cf-65841840384c"],
+Cell[164786, 6906, 3297, 164, 70, 1590, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"e8bd98b7-6ff2-4080-94f4-d43e5503e88e"],
+Cell[168086, 7072, 3275, 164, 70, 1576, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"dec5b915-6fed-4a5d-a352-505114e09e9d"],
+Cell[171364, 7238, 3198, 162, 70, 1597, 133, "GraphicsData", "PostScript", "Graphics",ExpressionUUID->"ea31231b-4c05-401d-8f6d-d1d4ac7e43a3"]
+}, Closed]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
